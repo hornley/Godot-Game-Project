@@ -1,0 +1,194 @@
+[gd_scene load_steps=19 format=4 uid="uid://i0eohlisooo7"]
+
+[ext_resource type="Texture2D" uid="uid://ctu5rh4bhn6cc" path="res://assets/Wooden_House_Walls_Tilset.png" id="1_i2juf"]
+[ext_resource type="Script" path="res://scripts/house.gd" id="1_luqsr"]
+[ext_resource type="Texture2D" uid="uid://dko68kk50nakh" path="res://assets/Doors.png" id="2_3nrfv"]
+[ext_resource type="Texture2D" uid="uid://cm8iw8nhacrm" path="res://assets/Chest.png" id="3_qjrg3"]
+[ext_resource type="Texture2D" uid="uid://c72dy8jmunt2c" path="res://assets/Wooden_House_Roof_Tilset.png" id="4_551bf"]
+[ext_resource type="PackedScene" uid="uid://8b1oiirh33h4" path="res://scenes/door.tscn" id="5_rmrs1"]
+[ext_resource type="PackedScene" uid="uid://q13lkcj87vko" path="res://scenes/chest.tscn" id="6_a2nss"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv73m"]
+size = Vector2(82, 66)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8qwq"]
+texture = ExtResource("1_i2juf")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hyv1l"]
+load_path = "res://.godot/imported/farmland.png-3e67d36182a4489e553e775b627abedf.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ccmd6"]
+texture = SubResource("CompressedTexture2D_hyv1l")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yb4if"]
+sources/0 = SubResource("TileSetAtlasSource_w8qwq")
+sources/1 = SubResource("TileSetAtlasSource_ccmd6")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gsd5b"]
+texture = ExtResource("1_i2juf")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(3, -8, 8, -8, 8, 8, 3.125, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.875, -8, -8, -8, -8, 8, -3, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(3, -8, 8, -8, 8, 8, 3.125, 8)
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.875, -8, -8, -8, -8, 8, -3, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(3, -8, 8, -8, 8, 8, 3.125, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.875, -8, -8, -8, -8, 8, -3, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mj2j"]
+texture = ExtResource("2_3nrfv")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_teijf"]
+texture = ExtResource("3_qjrg3")
+10:0/0 = 0
+13:0/0 = 0
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:1/0 = 0
+13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+4:3/0 = 0
+7:3/0 = 0
+10:3/0 = 0
+13:3/0 = 0
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:4/0 = 0
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:4/0 = 0
+10:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:4/0 = 0
+13:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_uh17n"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_gsd5b")
+sources/1 = SubResource("TileSetAtlasSource_4mj2j")
+sources/2 = SubResource("TileSetAtlasSource_teijf")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ybhsp"]
+texture = ExtResource("4_551bf")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_aqvps"]
+sources/0 = SubResource("TileSetAtlasSource_ybhsp")
+
+[node name="House" type="Node2D"]
+script = ExtResource("1_luqsr")
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+position = Vector2(-5, 0)
+collision_mask = 2
+
+[node name="PlayerDetectShape" type="CollisionShape2D" parent="PlayerDetect"]
+position = Vector2(45, 48)
+shape = SubResource("RectangleShape2D_xv73m")
+
+[node name="Floor" type="TileMapLayer" parent="."]
+position = Vector2(0, 96)
+tile_map_data = PackedByteArray("AAACAPv/AAABAAEAAAACAPz/AAABAAEAAAACAP3/AAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAADAPv/AAABAAEAAAADAPz/AAABAAEAAAADAP3/AAABAAEAAAADAP7/AAABAAEAAAADAP//AAABAAEAAAAEAPv/AAABAAEAAAAEAPz/AAABAAEAAAAEAP3/AAABAAEAAAAEAP7/AAABAAEAAAAEAP//AAABAAEAAAAAAPv/AAABAAEAAAAAAPz/AAABAAEAAAAAAP3/AAABAAEAAAAAAP7/AAABAAEAAAAAAP//AAABAAEAAAABAPv/AAABAAEAAAABAPz/AAABAAEAAAABAP3/AAABAAEAAAABAP7/AAABAAEAAAABAP//AAABAAEAAAA=")
+tile_set = SubResource("TileSet_yb4if")
+
+[node name="Wall" type="TileMapLayer" parent="Floor"]
+tile_map_data = PackedByteArray("AAABAPr/AAABAAAAAAABAP//AAABAAIAAAACAPr/AAABAAAAAAADAPr/AAABAAAAAAADAP//AAABAAIAAAAEAPr/AAABAAAAAAAEAP//AAABAAIAAAAFAPr/AAACAAAAAAAFAP//AAACAAIAAAD///r/AAAAAAAAAAD///v/AAAAAAEAAAD///z/AAAAAAEAAAD///3/AAAAAAEAAAD///7/AAAAAAEAAAD/////AAAAAAIAAAAAAPr/AAABAAAAAAAAAP//AAABAAIAAAAFAPv/AAACAAEAAAAFAPz/AAACAAEAAAAFAP3/AAACAAEAAAAFAP7/AAACAAEAAAA=")
+tile_set = SubResource("TileSet_uh17n")
+
+[node name="Door" parent="Floor/Wall" instance=ExtResource("5_rmrs1")]
+position = Vector2(40, -8)
+
+[node name="Chest" parent="Floor/Wall" instance=ExtResource("6_a2nss")]
+position = Vector2(8, -74)
+
+[node name="Roof" type="TileMapLayer" parent="Floor/Wall"]
+visible = false
+tile_map_data = PackedByteArray("AAD///3/AAAAAAMAAAD///7/AAAAAAMAAAD/////AAAAAAQAAAD///n/AAAAAAAAAAD///r/AAAAAAEAAAD///z/AAAAAAIAAAD///v/AAAAAAEAAAAAAPz/AAABAAIAAAABAPz/AAABAAIAAAACAPz/AAABAAIAAAADAPz/AAABAAIAAAAEAPz/AAABAAIAAAAFAPn/AAACAAAAAAAFAPr/AAACAAEAAAAFAPv/AAACAAEAAAAFAPz/AAACAAIAAAAFAP3/AAACAAMAAAAFAP7/AAACAAMAAAAFAP//AAACAAQAAAAAAP//AAABAAQAAAABAP//AAABAAQAAAACAP//AAABAAQAAAADAP//AAABAAQAAAAEAP//AAABAAQAAAAAAPn/AAABAAAAAAABAPn/AAABAAAAAAACAPn/AAABAAAAAAADAPn/AAABAAAAAAAEAPn/AAABAAAAAAAAAPv/AAABAAEAAAABAPv/AAABAAEAAAACAPv/AAABAAEAAAADAPv/AAABAAEAAAAEAPv/AAABAAEAAAAEAPr/AAABAAEAAAADAPr/AAABAAEAAAACAPr/AAABAAEAAAABAPr/AAABAAEAAAAAAPr/AAABAAEAAAAAAP3/AAABAAMAAAABAP3/AAABAAMAAAACAP3/AAABAAMAAAADAP3/AAABAAMAAAAEAP3/AAABAAMAAAAEAP7/AAABAAMAAAADAP7/AAABAAMAAAACAP7/AAABAAMAAAABAP7/AAABAAMAAAAAAP7/AAABAAMAAAA=")
+tile_set = SubResource("TileSet_aqvps")
+
+[connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]
+[connection signal="body_exited" from="PlayerDetect" to="." method="_on_player_detect_body_exited"]
