@@ -7,7 +7,7 @@
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5s8t"]
-size = Vector2(18, 18)
+size = Vector2(18, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gagl4"]
 atlas = ExtResource("1_ldeki")

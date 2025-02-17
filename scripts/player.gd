@@ -45,4 +45,4 @@ func _physics_process(delta: float) -> void:
 
 func hoe_animation():
 	tool_animation = true
-	animated_sprite.play("hoe_" + last_direction)
+	animated_sprite.play("tilling_" + last_direction)

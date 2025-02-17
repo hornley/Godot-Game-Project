@@ -3,10 +3,10 @@ extends Node2D
 @export var size: Vector2
 
 @onready var house: Node2D = $"."
-@onready var door: StaticBody2D = $Floor/Wall/Door
-@onready var roof: TileMapLayer = $Floor/Wall/Roof
 @onready var player_detect: Area2D = $PlayerDetect
 @onready var floor: TileMapLayer = $Floor
+@onready var door: StaticBody2D = $Door
+@onready var roof: TileMapLayer = $Roof
 
 var is_player_inside: bool
 

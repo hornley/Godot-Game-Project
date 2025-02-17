@@ -1,0 +1,31 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bjwfeio612v48"]
+
+[ext_resource type="Texture2D" uid="uid://ctu5rh4bhn6cc" path="res://assets/Wooden_House_Walls_Tilset.png" id="1_i5cnr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8qwq"]
+texture = ExtResource("1_i5cnr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hyv1l"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ccmd6"]
+texture = SubResource("CompressedTexture2D_hyv1l")
+0:0/0 = 0
+1:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_w8qwq")
+sources/1 = SubResource("TileSetAtlasSource_ccmd6")
