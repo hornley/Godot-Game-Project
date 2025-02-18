@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de2etx5gvl1nf"
-path="res://.godot/imported/axe.png-0d47f5efd026c482b007e6314ed53dec.ctex"
+uid="uid://c8gog12wct4k1"
+path="res://.godot/imported/Path_Tile.png-083354039097ceafca8690694db9f8e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tools/axe.png"
-dest_files=["res://.godot/imported/axe.png-0d47f5efd026c482b007e6314ed53dec.ctex"]
+source_file="res://assets/Tilesets/Path_Tile.png"
+dest_files=["res://.godot/imported/Path_Tile.png-083354039097ceafca8690694db9f8e9.ctex"]
 
 [params]
 

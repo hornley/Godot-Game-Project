@@ -16,23 +16,23 @@ collision_mask = 2
 position = Vector2(88.125, 48.0625)
 shape = SubResource("RectangleShape2D_xv73m")
 
-[node name="Objects" type="Node2D" parent="."]
+[node name="TileMap" type="Node2D" parent="."]
 
-[node name="Floor" type="TileMapLayer" parent="Objects"]
+[node name="Floor" type="TileMapLayer" parent="TileMap"]
 tile_set = ExtResource("2_ne2ub")
 
-[node name="Wall" type="TileMapLayer" parent="Objects"]
+[node name="Wall" type="TileMapLayer" parent="TileMap"]
 tile_set = ExtResource("2_ne2ub")
 
-[node name="BottomFurniture" type="TileMapLayer" parent="Objects"]
+[node name="BottomFurniture" type="TileMapLayer" parent="TileMap"]
 tile_set = ExtResource("2_ne2ub")
 
-[node name="InteractableObjects" type="Node2D" parent="Objects"]
+[node name="InteractableObjects" type="Node2D" parent="TileMap"]
 
-[node name="TopFurniture" type="TileMapLayer" parent="Objects"]
+[node name="TopFurniture" type="TileMapLayer" parent="TileMap"]
 tile_set = ExtResource("2_ne2ub")
 
-[node name="Roof" type="TileMapLayer" parent="Objects"]
+[node name="Roof" type="TileMapLayer" parent="TileMap"]
 tile_set = ExtResource("2_ne2ub")
 
 [connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]

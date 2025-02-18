@@ -18,13 +18,15 @@ config/icon="res://icon.svg"
 [autoload]
 
 Cursors="*res://Cursors.gd"
+ToolManager="*res://scripts/globals/tool_manager.gd"
+InventoryManager="*res://scripts/globals/inventory_manager.gd"
+DayAndNightCycleManager="*res://scripts/globals/day_and_night_cycle_manager.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=800
-window/size/window_width_override=1280
-window/size/window_height_override=800
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
 [file_customization]
@@ -35,6 +37,10 @@ folder_colors={
 "res://scripts/": "blue",
 "res://tilesets/": "orange"
 }
+
+[global_group]
+
+navigation_polygon_source_geometry_group=""
 
 [input]
 
@@ -87,11 +93,18 @@ use_item={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(172, 3),"global_position":Vector2(181, 49),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+release_tool={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(267, 16),"global_position":Vector2(276, 62),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
 
 [layer_names]
 
 2d_physics/layer_1="Ground"
+2d_navigation/layer_1="Chicken Navigation"
 2d_physics/layer_2="Player"
+2d_navigation/layer_2="Cow"
 2d_physics/layer_3="Interactable"
 2d_physics/layer_4="Tool"
 2d_physics/layer_5="Object"
@@ -100,3 +113,4 @@ use_item={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true

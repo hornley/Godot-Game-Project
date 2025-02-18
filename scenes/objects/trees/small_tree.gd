@@ -3,7 +3,7 @@ extends Sprite2D
 @onready var hurt_component: HurtComponent = $HurtComponent
 @onready var damage_component: DamageComponent = $DamageComponent
 
-var log_scene = preload("res://scenes/objects/trees/log.tscn")
+var log_scene = preload("res://scenes/objects/collectibles/log.tscn")
 
 func _ready() -> void:
 	hurt_component.hurt.connect(on_hurt)

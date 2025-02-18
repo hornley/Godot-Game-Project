@@ -4,6 +4,7 @@ enum Tools {
 	None,
 	Axe,
 	Hoe,
+	Pickaxe,
 	WateringCan,
 	PlantCorn,
 	PlantTomato

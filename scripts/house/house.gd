@@ -1,17 +1,11 @@
 extends Node2D
 
-@export var size: Vector2
-
 @onready var house: Node2D = $"."
-@onready var player_detect: Area2D = $PlayerDetect
-@onready var door: StaticBody2D = $Objects/InteractableObjects/Door
-@onready var floor: TileMapLayer = $Objects/Floor
-@onready var roof: TileMapLayer = $Objects/Roof
+@export var player_detect: Area2D
+@export var door: StaticBody2D
+@export var roof: TileMapLayer
 
 var is_player_inside: bool
-
-func _ready() -> void:
-	size = floor.get_used_rect().size
 
 func fade_out(duration):
 	var tween = create_tween()

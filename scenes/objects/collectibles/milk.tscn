@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://csfle628v3pb8"]
+
+[ext_resource type="Texture2D" uid="uid://b2at3awk04l0b" path="res://assets/Sprites/Simple_Milk_and_grass_item.png" id="1_5jmcm"]
+[ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_d8c00"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e10m"]
+atlas = ExtResource("1_5jmcm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_miayb"]
+radius = 7.07107
+
+[node name="Milk" type="Sprite2D"]
+texture = SubResource("AtlasTexture_8e10m")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_d8c00")]
+collectible_name = "Milk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+shape = SubResource("CircleShape2D_miayb")
