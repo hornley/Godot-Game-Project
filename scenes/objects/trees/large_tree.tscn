@@ -15,7 +15,7 @@ shader_parameter/shake_speed = 20.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7ium"]
 radius = 4.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o53y3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kqt4r"]
 resource_local_to_scene = true
 shader = ExtResource("4_lhmgi")
 shader_parameter/shake_intensity = 0.0
@@ -39,7 +39,7 @@ position = Vector2(0, 11)
 shape = SubResource("CircleShape2D_h7ium")
 
 [node name="HurtComponent" parent="." instance=ExtResource("2_e2icj")]
-material = SubResource("ShaderMaterial_o53y3")
+material = SubResource("ShaderMaterial_kqt4r")
 tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
