@@ -15,7 +15,7 @@ shader_parameter/shake_speed = 20.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7ium"]
 radius = 4.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cyyob"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a0swq"]
 resource_local_to_scene = true
 shader = ExtResource("4_lhmgi")
 shader_parameter/shake_intensity = 0.0
@@ -33,13 +33,15 @@ region_rect = Rect2(16, 0, 32, 32)
 script = ExtResource("2_c2sso")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 1278
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 11)
 shape = SubResource("CircleShape2D_h7ium")
 
 [node name="HurtComponent" parent="." instance=ExtResource("2_e2icj")]
-material = SubResource("ShaderMaterial_cyyob")
+material = SubResource("ShaderMaterial_a0swq")
 tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]

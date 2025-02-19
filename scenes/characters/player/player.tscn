@@ -1,6 +1,6 @@
 [gd_scene load_steps=63 format=3 uid="uid://07cfy2qe8hvm"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_5vq7b"]
+[ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_5vq7b"]
 [ext_resource type="Texture2D" uid="uid://b7ejedhw4xs8d" path="res://assets/Sprites/Basic Charakter Spritesheet.png" id="1_k0ewm"]
 [ext_resource type="Texture2D" uid="uid://dqr0iby6mjy6v" path="res://assets/Sprites/Basic Charakter Actions.png" id="2_awvis"]
 [ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="4_n7mtf"]
@@ -477,15 +477,15 @@ radius = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ukrm"]
 radius = 3.0
 
-[node name="Player" type="CharacterBody2D"]
-y_sort_enabled = true
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, -8)
-collision_layer = 7
+collision_layer = 8
+collision_mask = 4087
 script = ExtResource("1_5vq7b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pw1us")
-animation = &"watering_right"
+animation = &"mining_right"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -512,10 +512,11 @@ player = NodePath("../..")
 animated_sprite = NodePath("../../AnimatedSprite2D")
 hit_component_collision_shape = NodePath("../../HitComponent/HitComponentCollisionShape")
 
-[node name="Tilling" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite")]
+[node name="Tilling" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite", "hit_component_collision_shape")]
 script = ExtResource("8_qono8")
 player = NodePath("../..")
 animated_sprite = NodePath("../../AnimatedSprite2D")
+hit_component_collision_shape = NodePath("../../HitComponent/HitComponentCollisionShape")
 
 [node name="Mining" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite", "hit_component_collision_shape")]
 script = ExtResource("9_2fqob")
@@ -535,6 +536,7 @@ position_smoothing_enabled = true
 
 [node name="HitComponent" parent="." instance=ExtResource("9_o4kdi")]
 position = Vector2(0, 8)
+collision_mask = 34
 
 [node name="HitComponentCollisionShape" type="CollisionShape2D" parent="HitComponent"]
 position = Vector2(0, -8)

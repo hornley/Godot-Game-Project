@@ -29,6 +29,8 @@ texture = SubResource("AtlasTexture_0byas")
 script = ExtResource("2_th114")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 1278
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 8)

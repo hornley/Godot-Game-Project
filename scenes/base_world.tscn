@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dn86ufby37w0w"]
+
+[node name="BaseWorld" type="Node2D"]
+
+[node name="TileMap" type="Node2D" parent="."]
+
+[node name="Background" type="TileMapLayer" parent="TileMap"]
+
+[node name="Water" type="TileMapLayer" parent="TileMap"]
+
+[node name="Ground" type="TileMapLayer" parent="TileMap"]
+
+[node name="Wall" type="TileMapLayer" parent="TileMap"]
+
+[node name="Platform" type="TileMapLayer" parent="TileMap"]
+
+[node name="InteractableObjects" type="Node2D" parent="TileMap"]
+
+[node name="Foreground" type="TileMapLayer" parent="TileMap"]
+
+[node name="Hazards" type="TileMapLayer" parent="TileMap"]

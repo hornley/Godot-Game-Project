@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://lvhlneeij70r"]
+[gd_scene load_steps=9 format=4 uid="uid://lvhlneeij70r"]
 
+[ext_resource type="PackedScene" uid="uid://bvyl6hx00ulv6" path="res://scenes/components/day_night_cycle_component.tscn" id="1_bmkbp"]
 [ext_resource type="TileSet" uid="uid://gj4jww21bicc" path="res://tilesets/World_Tileset.tres" id="1_s7ydh"]
 [ext_resource type="PackedScene" uid="uid://07cfy2qe8hvm" path="res://scenes/player.tscn" id="2_k5bhg"]
 [ext_resource type="PackedScene" uid="uid://cm1egwoonaa8g" path="res://scenes/characters/chicken/chicken.tscn" id="3_p67do"]
 [ext_resource type="PackedScene" uid="uid://y5xh26x2hxp" path="res://scenes/characters/cow/cow.tscn" id="4_dvtsf"]
+[ext_resource type="PackedScene" uid="uid://dpuxwqdq6h431" path="res://scenes/ui/game_screen.tscn" id="6_rvcit"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1fyfe"]
 vertices = PackedVector2Array(1037, 613, 1037, 581, 1123, 581, 1123, 667, 1037, 667, 1037, 635, 1011, 613, 1011, 635, 941, 573, 1011, 675, 941, 675, 1011, 573)
@@ -20,6 +22,8 @@ source_geometry_mode = 2
 
 [node name="Home" type="Node2D"]
 y_sort_enabled = true
+
+[node name="DayNightCycleComponent" parent="." instance=ExtResource("1_bmkbp")]
 
 [node name="GameTileMap" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -41,7 +45,7 @@ tile_set = ExtResource("1_s7ydh")
 
 [node name="Objects" type="TileMapLayer" parent="GameTileMap"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAoABsABQAAAAAABQAmABYABQAAAAAABQAjABcABQAAAAAABQAkAB4ABQAAAAAABgArABkABQAAAAAAAQAvAB8ABQAAAAAAAQAtAB4ABQAAAAAAAQAtAB8ABQAAAAAAAQAuAB4ABQAAAAAAAQAuAB8ABQAAAAAAAQAoACIABQAAAAAAAQAnACIABQAAAAAAAQAuABwABQAAAAAAAQAhABYABQAAAAAAAQAhABUABQAAAAAAAQAiABUABQAAAAAAAQAiABQABQAAAAAAAQAjABQABQAAAAAAAQAgAB8ABQAAAAAAAQAhAB8ABQAAAAAAAQAhACAABQAAAAAAAQAiACEABQAAAAAAAQAiACIABQAAAAAAAQAjACIABQAAAAAAAQAjACMABQAAAAAAAQAjACQABQAAAAAAAQAkACQABQAAAAAAAQAkACUABQAAAAAAAQAkACYABQAAAAAAAQAlACYABQAAAAAAAQAjACcABQAAAAAAAQAiACcABQAAAAAAAQAiACgABQAAAAAAAQAhACgABQAAAAAAAQAhACcABQAAAAAAAQAhACYABQAAAAAAAQAiACYABQAAAAAAAQAiACUABQAAAAAAAQAjACUABQAAAAAAAQAjACYABQAAAAAAAQAiACQABQAAAAAAAQAiACMABQAAAAAAAQAjACEABQAAAAAAAQAkACEABQAAAAAAAQAkACIABQAAAAAAAQAkACMABQAAAAAAAQAiACAABQAAAAAAAQAiAB8ABQAAAAAAAQAiAB4ABQAAAAAAAQAhAB4ABQAAAAAAAQAgAB4ABQAAAAAAAQAhAB0ABQAAAAAAAQAhABcABQAAAAAAAQAkABQABQAAAAAAAQAkABMABQAAAAAAAQAgABYABQAAAAAAAQAgABcABQAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAAhAB4ABQAAAAAAAQAhAB8ABQAAAAAAAQAhACAABQAAAAAAAQAhACEABQAAAAAAAQAhACIABQAAAAAAAQAhACMABQAAAAAAAQAhACQABQAAAAAAAQAhACUABQAAAAAAAQAhACYABQAAAAAAAQAhACcABQAAAAAAAQAhACgABQAAAAAAAQAmABsABQAAAAAABgAoABoABQAAAAAABgAsABoABQAAAAAABgAnACIABQAAAAAABQAqACIABQAAAAAABQAsAB8ABQAAAAAAAQA=")
 tile_set = ExtResource("1_s7ydh")
 
 [node name="Houses" type="TileMapLayer" parent="GameTileMap" groups=["navigation_polygon_source_geometry_group"]]
@@ -76,3 +80,5 @@ position = Vector2(1052, 633)
 [node name="Player" parent="." instance=ExtResource("2_k5bhg")]
 y_sort_enabled = true
 position = Vector2(671, 499)
+
+[node name="GameScreen" parent="." instance=ExtResource("6_rvcit")]
