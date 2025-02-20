@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://3i7s60gbasks"]
+[gd_scene load_steps=23 format=4 uid="uid://3i7s60gbasks"]
 
 [ext_resource type="TileSet" uid="uid://gj4jww21bicc" path="res://tilesets/World_Tileset.tres" id="1_6ptms"]
 [ext_resource type="PackedScene" uid="uid://dxsh5x7h50oi4" path="res://scenes/components/test_scene_save_data_manager_component.tscn" id="1_51x7u"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://d0v0jfxch7yuu" path="res://scenes/components/save_level_data_component.tscn" id="3_s6p7a"]
 [ext_resource type="PackedScene" uid="uid://dpuxwqdq6h431" path="res://scenes/ui/game_screen.tscn" id="4_kaidj"]
 [ext_resource type="PackedScene" uid="uid://cxjh0yvq2rlhb" path="res://scenes/objects/trees/large_tree.tscn" id="4_rcvny"]
-[ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="4_xe8x6"]
 [ext_resource type="Shader" path="res://scenes/objects/trees/tree_shake.gdshader" id="5_oyqtm"]
 [ext_resource type="PackedScene" uid="uid://cwgabmm58wrk7" path="res://scenes/objects/trees/SmallTree.tscn" id="6_b4u0u"]
 [ext_resource type="PackedScene" uid="uid://dvpxrqy62tikh" path="res://scenes/components/save_data_component.tscn" id="7_xbhua"]
@@ -16,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://cfibfkgb5e8xw" path="res://scenes/components/field_cursor_component.tscn" id="10_xe8lq"]
 [ext_resource type="PackedScene" uid="uid://bvyl6hx00ulv6" path="res://scenes/components/day_night_cycle_component.tscn" id="11_bkg3r"]
 [ext_resource type="PackedScene" uid="uid://b45hel406radw" path="res://scenes/components/crops_cursor_component.tscn" id="11_hvl7r"]
-[ext_resource type="Script" path="res://scenes/components/crops_cursor_component.gd" id="12_l7a7y"]
 [ext_resource type="PackedScene" uid="uid://07cfy2qe8hvm" path="res://scenes/characters/player/player.tscn" id="17_mvs70"]
 [ext_resource type="PackedScene" uid="uid://baj74gnng5lr6" path="res://scenes/characters/guide/guide.tscn" id="19_uf8w6"]
 [ext_resource type="PackedScene" uid="uid://cjunkqoetwd6l" path="res://scenes/characters/merchant/merchant.tscn" id="20_e255f"]
@@ -41,7 +39,6 @@ shader_parameter/shake_speed = 20.0
 script = ExtResource("2_lexso")
 
 [node name="SaveLevelDataComponent" parent="." instance=ExtResource("3_s6p7a")]
-script = ExtResource("4_xe8x6")
 
 [node name="DayNightCycleComponent" parent="." instance=ExtResource("11_bkg3r")]
 
@@ -111,10 +108,12 @@ grass_tilemap_layer = NodePath("../TileMap/Land")
 tilled_soil_tilemap_layer = NodePath("../TileMap/TilledSoil")
 
 [node name="CropsCursorComponent" parent="." node_paths=PackedStringArray("tilled_soil_tilemap_layer") instance=ExtResource("11_hvl7r")]
-script = ExtResource("12_l7a7y")
 tilled_soil_tilemap_layer = NodePath("../TileMap/TilledSoil")
 
 [node name="Player" parent="." instance=ExtResource("17_mvs70")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
 
 [node name="GameScreen" parent="." instance=ExtResource("4_kaidj")]
 

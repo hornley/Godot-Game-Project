@@ -9,6 +9,9 @@ func _on_process(_delta : float) -> void:
 
 
 func _on_physics_process(_delta : float) -> void:
+	if player.disable_input_events:
+		return
+	
 	var direction: Vector2 = GameInputEvents.movement_input()
 	
 	if direction == Vector2.UP:

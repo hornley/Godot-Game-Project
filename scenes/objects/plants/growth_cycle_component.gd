@@ -3,13 +3,13 @@ extends Node
 
 @export var current_growth_state: DataTypes.GrowthStates = DataTypes.GrowthStates.Germination
 @export_range(5, 365) var days_until_harvest: int = 7
+@export var is_watered: bool
+@export var starting_day: int
+@export var current_day: int
 
 signal crop_maturity
 signal crop_harvesting
 
-var is_watered: bool
-var starting_day: int
-var current_day: int
 
 func _ready() -> void:
 	DayAndNightCycleManager.time_tick_day.connect(on_time_tick_day)

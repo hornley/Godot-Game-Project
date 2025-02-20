@@ -485,7 +485,7 @@ script = ExtResource("1_5vq7b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pw1us")
-animation = &"mining_right"
+animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -529,10 +529,6 @@ script = ExtResource("10_6nw22")
 player = NodePath("../..")
 animated_sprite = NodePath("../../AnimatedSprite2D")
 hit_component_collision_shape = NodePath("../../HitComponent/HitComponentCollisionShape")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
 
 [node name="HitComponent" parent="." instance=ExtResource("9_o4kdi")]
 position = Vector2(0, 8)

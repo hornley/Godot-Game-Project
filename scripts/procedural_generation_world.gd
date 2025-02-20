@@ -20,13 +20,15 @@ func _ready() -> void:
 	generate_world()
 
 func generate_world() -> void:
+	var land_terrain_positions: Array[Vector2i]
 	for x in range(-width/2, width/2):
 		for y in range(-height/2, height/2):
 			var noise_val: float = noise.get_noise_2d(x, y)
 			if noise_val > 0.0:
-				water_tile_map.set_cell(Vector2(x, y), land_source_id, land_atlas)
-			elif noise_val < 0.0:
-				water_tile_map.set_cell(Vector2(x, y), water_source_id, water_atlas)
+				land_terrain_positions.append(Vector2i(x, y))
+			water_tile_map.set_cell(Vector2(x, y), water_source_id, water_atlas)
+				
+	land_tile_map.set_cells_terrain_connect(land_terrain_positions, 0, 1, true)
 
 func get_random_seed() -> int:
 	var random_seed = RandomNumberGenerator.new().randi_range(-32768, 32768)

@@ -10,20 +10,20 @@ extends PanelContainer
 func _ready() -> void:
 	ToolManager.enable_tool.connect(on_enable_tool_button)
 	
-	tool_axe.disabled = true
-	tool_axe.focus_mode = Control.FOCUS_NONE
-	
-	tool_hoe.disabled = true
-	tool_hoe.focus_mode = Control.FOCUS_NONE
-	
-	tool_watering_can.disabled = true
-	tool_watering_can.focus_mode = Control.FOCUS_NONE
-	
-	tool_corn.disabled = true
-	tool_corn.focus_mode = Control.FOCUS_NONE
-	
-	tool_tomato.disabled = true
-	tool_tomato.focus_mode = Control.FOCUS_NONE
+	#tool_axe.disabled = true
+	#tool_axe.focus_mode = Control.FOCUS_NONE
+	#
+	#tool_hoe.disabled = true
+	#tool_hoe.focus_mode = Control.FOCUS_NONE
+	#
+	#tool_watering_can.disabled = true
+	#tool_watering_can.focus_mode = Control.FOCUS_NONE
+	#
+	#tool_corn.disabled = true
+	#tool_corn.focus_mode = Control.FOCUS_NONE
+	#
+	#tool_tomato.disabled = true
+	#tool_tomato.focus_mode = Control.FOCUS_NONE
 
 
 func _on_tool_axe_pressed() -> void:

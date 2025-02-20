@@ -20,6 +20,7 @@ func _on_physics_process(_delta : float) -> void:
 		animated_sprite.play("idle_right")
 	else:
 		animated_sprite.play("idle_down")
+		animated_sprite.animation_finished
 
 
 func _on_next_transitions() -> void:

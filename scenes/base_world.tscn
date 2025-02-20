@@ -1,21 +1,43 @@
-[gd_scene format=3 uid="uid://dn86ufby37w0w"]
+[gd_scene load_steps=5 format=3 uid="uid://dn86ufby37w0w"]
+
+[ext_resource type="TileSet" uid="uid://gj4jww21bicc" path="res://tilesets/World_Tileset.tres" id="1_0y6og"]
+[ext_resource type="PackedScene" uid="uid://cfibfkgb5e8xw" path="res://scenes/components/field_cursor_component.tscn" id="3_fbosd"]
+[ext_resource type="PackedScene" uid="uid://b45hel406radw" path="res://scenes/components/crops_cursor_component.tscn" id="4_rphhk"]
+[ext_resource type="Script" path="res://scenes/components/crops_cursor_component.gd" id="5_dklkg"]
 
 [node name="BaseWorld" type="Node2D"]
 
-[node name="TileMap" type="Node2D" parent="."]
+[node name="GameTileMap" type="Node2D" parent="."]
 
-[node name="Background" type="TileMapLayer" parent="TileMap"]
+[node name="Water" type="TileMapLayer" parent="GameTileMap"]
+tile_set = ExtResource("1_0y6og")
 
-[node name="Water" type="TileMapLayer" parent="TileMap"]
+[node name="Land" type="TileMapLayer" parent="GameTileMap"]
+tile_set = ExtResource("1_0y6og")
 
-[node name="Ground" type="TileMapLayer" parent="TileMap"]
+[node name="TilledSoil" type="TileMapLayer" parent="GameTileMap"]
+tile_set = ExtResource("1_0y6og")
 
-[node name="Wall" type="TileMapLayer" parent="TileMap"]
+[node name="Undergrowth" type="TileMapLayer" parent="GameTileMap"]
+tile_set = ExtResource("1_0y6og")
 
-[node name="Platform" type="TileMapLayer" parent="TileMap"]
+[node name="Overgrowth" type="TileMapLayer" parent="GameTileMap"]
+tile_set = ExtResource("1_0y6og")
 
-[node name="InteractableObjects" type="Node2D" parent="TileMap"]
+[node name="Objects" type="TileMapLayer" parent="GameTileMap" groups=["navigation_polygon_source_geometry_group"]]
+tile_set = ExtResource("1_0y6og")
 
-[node name="Foreground" type="TileMapLayer" parent="TileMap"]
+[node name="Houses" type="Node2D" parent="GameTileMap"]
 
-[node name="Hazards" type="TileMapLayer" parent="TileMap"]
+[node name="CropFields" type="Node2D" parent="."]
+
+[node name="FieldCursorComponent" parent="." instance=ExtResource("3_fbosd")]
+
+[node name="CropsCursorComponent" parent="." instance=ExtResource("4_rphhk")]
+script = ExtResource("5_dklkg")
+
+[node name="Animals" type="Node2D" parent="."]
+
+[node name="Chickens" type="Node2D" parent="Animals"]
+
+[node name="Cows" type="Node2D" parent="Animals"]

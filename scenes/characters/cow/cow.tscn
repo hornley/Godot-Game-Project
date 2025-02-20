@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://y5xh26x2hxp"]
+[gd_scene load_steps=15 format=3 uid="uid://y5xh26x2hxp"]
 
 [ext_resource type="Script" path="res://scenes/characters/cow/cow.gd" id="1_y4i8y"]
 [ext_resource type="Texture2D" uid="uid://cmayxbfmg1gwx" path="res://assets/Sprites/Free Cow Sprites.png" id="2_7rwgh"]
 [ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="3_abytm"]
 [ext_resource type="Script" path="res://scenes/characters/cow/idle_state.gd" id="4_mn3yh"]
 [ext_resource type="Script" path="res://scenes/characters/cow/move_state.gd" id="5_fefx6"]
+[ext_resource type="PackedScene" uid="uid://dkoni4wf6w4vl" path="res://scenes/components/audio_play_time_component.tscn" id="6_e3f6r"]
+[ext_resource type="PackedScene" uid="uid://daadlqurx7406" path="res://audio/sfx/cow_moo_sfx.tscn" id="7_b3fsw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7of7g"]
 atlas = ExtResource("2_7rwgh")
@@ -91,3 +93,10 @@ navigation_agent = NodePath("../../NavigationAgent2D")
 navigation_layers = 2
 avoidance_enabled = true
 radius = 5.0
+
+[node name="AudioPlayTimeComponent" parent="." node_paths=PackedStringArray("audio_stream_player_2D") instance=ExtResource("6_e3f6r")]
+wait_time = 20.0
+autostart = true
+audio_stream_player_2D = NodePath("../CowMooSFX")
+
+[node name="CowMooSFX" parent="." instance=ExtResource("7_b3fsw")]

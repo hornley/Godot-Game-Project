@@ -3,7 +3,7 @@ extends Node
 
 @export var tilled_soil_tilemap_layer: TileMapLayer
 
-@onready var player: Player = get_tree().get_first_node_in_group("player")
+@onready var player: Player
 
 var corn_plant_scene = preload("res://scenes/objects/plants/corn.tscn")
 var tomato_plant_scene = preload("res://scenes/objects/plants/tomato.tscn")
@@ -13,6 +13,11 @@ var cell_position: Vector2i
 var cell_source_id: int
 var local_cell_position: Vector2
 var distance: float
+
+func _ready() -> void:
+	await get_tree().process_frame
+	player = get_tree().get_first_node_in_group("player")
+	
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -30,7 +35,7 @@ func get_cell_under_mouse() -> void:
 	distance = player.global_position.distance_to(local_cell_position)
 
 func add_crop() -> void:
-	if distance < 20.0:
+	if distance < 20.0 and cell_source_id != -1:
 		if ToolManager.selected_tool == DataTypes.Tools.PlantCorn:
 			var corn_instance = corn_plant_scene.instantiate() as Node2D
 			corn_instance.global_position = local_cell_position
