@@ -478,18 +478,19 @@ radius = 4.0
 radius = 3.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-position = Vector2(0, -8)
+y_sort_enabled = true
 collision_layer = 8
 collision_mask = 4087
 script = ExtResource("1_5vq7b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_pw1us")
 animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_04k14")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
@@ -531,7 +532,6 @@ animated_sprite = NodePath("../../AnimatedSprite2D")
 hit_component_collision_shape = NodePath("../../HitComponent/HitComponentCollisionShape")
 
 [node name="HitComponent" parent="." instance=ExtResource("9_o4kdi")]
-position = Vector2(0, 8)
 collision_mask = 34
 
 [node name="HitComponentCollisionShape" type="CollisionShape2D" parent="HitComponent"]

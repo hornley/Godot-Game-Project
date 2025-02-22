@@ -39,6 +39,8 @@ func get_cell_under_mouse() -> bool:
 	local_cell_position = undergrowth_tilemap_layer.map_to_local(cell_position)
 	distance = player.global_position.distance_to(local_cell_position)
 	
+	print(cell_position)
+	
 	if cell_source_id != -1:
 		return false
 	

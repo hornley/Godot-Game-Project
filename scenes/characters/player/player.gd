@@ -16,7 +16,6 @@ func _ready() -> void:
 	PlayerManager.set_player(self)
 	
 	ToolManager.tool_selected.connect(on_tool_selected)
-	
 
 func on_tool_selected(tool: DataTypes.Tools) -> void:
 	current_tool = tool

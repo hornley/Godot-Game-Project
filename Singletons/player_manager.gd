@@ -33,3 +33,6 @@ func _player_name_prompt() -> void:
 	get_parent().add_child(player_name_prompt_instance)
 	player.disable_input_events = true
 	await player_name_prompt_instance.player_name_prompt_finished
+
+func change_player_position(new_pos: Vector2) -> void:
+	player.global_position = new_pos

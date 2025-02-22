@@ -13,9 +13,9 @@ shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7ium"]
-radius = 4.0
+radius = 5.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_a0swq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dumlu"]
 resource_local_to_scene = true
 shader = ExtResource("4_lhmgi")
 shader_parameter/shake_intensity = 0.0
@@ -25,6 +25,7 @@ shader_parameter/shake_speed = 20.0
 size = Vector2(16, 24)
 
 [node name="LargeTree" type="Sprite2D"]
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_3sjjm")
 position = Vector2(0, -14)
 texture = ExtResource("1_7qdyq")
@@ -37,11 +38,11 @@ collision_layer = 2
 collision_mask = 1278
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 11)
+position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_h7ium")
 
 [node name="HurtComponent" parent="." instance=ExtResource("2_e2icj")]
-material = SubResource("ShaderMaterial_a0swq")
+material = SubResource("ShaderMaterial_dumlu")
 tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]

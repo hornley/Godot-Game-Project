@@ -76,7 +76,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="Door" type="StaticBody2D"]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 90
 script = ExtResource("2_irsga")

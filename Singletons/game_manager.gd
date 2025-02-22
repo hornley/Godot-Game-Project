@@ -11,7 +11,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func start_game() -> void:
 	SceneManager.load_main_scene_container()
-	SceneManager.load_level("home") 
+	SceneManager.load_world(DataTypes.Worlds.Home) 
 	
 	GameDataManager.load_game_data(game_data_path)
 	

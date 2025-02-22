@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="1_ab0xc"]
 [ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="2_0hbqo"]
-[ext_resource type="Script" path="res://scenes/ui/day_and_night_panel.gd" id="2_pxuim"]
+[ext_resource type="Script" path="res://scripts/ui/day_and_night_panel.gd" id="2_pxuim"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgpm0"]
 atlas = ExtResource("2_0hbqo")

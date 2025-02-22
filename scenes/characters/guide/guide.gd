@@ -32,5 +32,5 @@ func _unhandled_input(event: InputEvent) -> void:
 func on_give_crop_seeds() -> void:
 	ToolManager.enable_tool_button(DataTypes.Tools.Hoe)
 	ToolManager.enable_tool_button(DataTypes.Tools.WateringCan)
-	ToolManager.enable_tool_button(DataTypes.Tools.PlantCorn)
+	ToolManager.enable_tool_button(DataTypes.Tools.PlantWheat)
 	ToolManager.enable_tool_button(DataTypes.Tools.PlantTomato)

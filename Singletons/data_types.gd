@@ -6,7 +6,7 @@ enum Tools {
 	Hoe,
 	Pickaxe,
 	WateringCan,
-	PlantCorn,
+	PlantWheat,
 	PlantTomato
 }
 
@@ -37,4 +37,9 @@ enum ResourceTypes {
 	Stone,
 	Ore,
 	Ingot
+}
+
+enum Worlds {
+	Village,
+	Home
 }

@@ -1,6 +1,5 @@
 extends PanelContainer
 
-@onready var texture_rect: TextureRect = $MarginContainer/VBoxContainer/TextureRect
 @onready var silver_coin_label: Label = $MarginContainer/HBoxContainer/VBoxContainer/SilverCoinLabel
 @onready var gold_coin_label: Label = $MarginContainer/HBoxContainer/VBoxContainer2/GoldCoinLabel
 

@@ -2,7 +2,7 @@ extends Node2D
 
 var balloon_scene = preload("res://dialogue/game_dialogue_balloon.tscn")
 
-var corn_scene = preload("res://scenes/objects/collectibles/corn.tscn")
+var wheat_scene = preload("res://scenes/objects/collectibles/wheat.tscn")
 var tomato_scene = preload("res://scenes/objects/collectibles/tomato.tscn")
 
 @export var dialogue_start_command: String
@@ -53,7 +53,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func on_trade_crops() -> void:
 	if in_range:
-		trigger_trade_crops("Corn", corn_scene)
+		trigger_trade_crops("Wheat", wheat_scene)
 		trigger_trade_crops("Tomato", tomato_scene)
 
 func trigger_trade_crops(inventory_item: String, scene: Resource) -> void:

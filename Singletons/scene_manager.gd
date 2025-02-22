@@ -4,8 +4,9 @@ var main_scene_path: String = "res://scenes/main_scene.tscn"
 var main_scene_root_path: String = "/root/MainScene"
 var main_scene_world_root_path: String = "/root/MainScene/GameRoot/Worlds"
 
-var level_scenes : Dictionary = {
-	"home" : "res://scenes/home.tscn"
+var world_scenes: Dictionary = {
+	DataTypes.Worlds.Village : "res://scenes/village.tscn",
+	DataTypes.Worlds.Home : "res://scenes/home.tscn"
 }
 
 func load_main_scene_container() -> void:
@@ -18,22 +19,22 @@ func load_main_scene_container() -> void:
 		get_tree().root.add_child(node)
 
 
-func load_level(level: String) -> void:
-	var scene_path: String = level_scenes.get(level)
+func load_world(world: DataTypes.Worlds) -> void:
+	var world_scene_path: String = world_scenes.get(world)
 	
-	if scene_path == null:
+	if world_scene_path == null:
 		return
 	
-	var level_scene: Node = load(scene_path).instantiate()
-	var world_root: Node = get_node(main_scene_world_root_path)
+	var world_scene: Node = load(world_scene_path).instantiate()
+	var worlds_root: Node = get_node(main_scene_world_root_path)
 	
-	if world_root != null:
-		var nodes = world_root.get_children()
+	if worlds_root != null:
+		var nodes = worlds_root.get_children()
 		
 		if nodes != null:
 			for node: Node in nodes:
-				node.queue_free()
+				node.visible = false
 		
 		await get_tree().process_frame
 		
-		world_root.add_child(level_scene)
+		worlds_root.add_child(world_scene)

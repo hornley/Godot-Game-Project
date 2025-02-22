@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cfilcj7icd6up" path="res://audio/music/on_the_farm_music.tscn" id="7_7fpkt"]
 [ext_resource type="PackedScene" uid="uid://cjunkqoetwd6l" path="res://scenes/characters/merchant/merchant.tscn" id="8_k1y6o"]
 [ext_resource type="PackedScene" uid="uid://cekw01a1k07ru" path="res://scenes/objects/collectibles/coin.tscn" id="9_1837m"]
-[ext_resource type="PackedScene" uid="uid://c31a3ttvdjnol" path="res://scenes/objects/collectibles/corn.tscn" id="9_eaen4"]
+[ext_resource type="PackedScene" uid="uid://c31a3ttvdjnol" path="res://scenes/objects/collectibles/wheat.tscn" id="9_eaen4"]
 [ext_resource type="PackedScene" uid="uid://n0lx08kmqa20" path="res://scenes/objects/collectibles/tomato.tscn" id="10_61vds"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1fyfe"]

@@ -6,8 +6,8 @@ extends Node
 
 @onready var player: Player
 
-var corn_plant_scene = preload("res://scenes/objects/plants/corn.tscn")
-var tomato_plant_scene = preload("res://scenes/objects/plants/tomato.tscn")
+var wheat_plant_scene = preload("res://scenes/objects/plants/wheat/wheat.gd")
+var tomato_plant_scene = preload("res://scenes/objects/plants/tomato/tomato.tscn")
 
 var mouse_position: Vector2
 var cell_position: Vector2i
@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("use_item"):
-		if ToolManager.selected_tool == DataTypes.Tools.PlantCorn or ToolManager.selected_tool == DataTypes.Tools.PlantTomato:
+		if ToolManager.selected_tool == DataTypes.Tools.PlantWheat or ToolManager.selected_tool == DataTypes.Tools.PlantTomato:
 			get_cell_under_mouse()
 			add_crop()
 
@@ -42,10 +42,10 @@ func add_crop() -> void:
 	#if field_cursor_component.tilemap[cell_position]["Hits"] / 2 != 5:
 		#return
 	
-	if ToolManager.selected_tool == DataTypes.Tools.PlantCorn:
-		var corn_instance = corn_plant_scene.instantiate() as Node2D
-		corn_instance.global_position = local_cell_position
-		get_parent().find_child("CropFields").add_child(corn_instance)
+	if ToolManager.selected_tool == DataTypes.Tools.PlantWheat:
+		var wheat_instance = wheat_plant_scene.instantiate() as Node2D
+		wheat_instance.global_position = local_cell_position
+		get_parent().find_child("CropFields").add_child(wheat_instance)
 	
 	if ToolManager.selected_tool == DataTypes.Tools.PlantTomato:
 		var tomato_instance = tomato_plant_scene.instantiate() as Node2D

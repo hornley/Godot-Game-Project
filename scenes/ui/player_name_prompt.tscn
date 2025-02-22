@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://djabqsyavn0cx"]
 
-[ext_resource type="Script" path="res://scenes/test/testing/control.gd" id="1_e5obn"]
+[ext_resource type="Script" path="res://scripts/ui/player_name_prompt.gd" id="1_e5obn"]
 [ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="2_dympo"]
 
 [node name="PlayerNamePrompt" type="CanvasLayer"]

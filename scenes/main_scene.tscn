@@ -1,22 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvxoev3hgrlcp"]
+[gd_scene load_steps=4 format=3 uid="uid://dvxoev3hgrlcp"]
 
 [ext_resource type="PackedScene" uid="uid://bvyl6hx00ulv6" path="res://scenes/components/day_night_cycle_component.tscn" id="1_esq0k"]
-[ext_resource type="PackedScene" uid="uid://syt2pbsuhl5s" path="res://scenes/home.tscn" id="2_hy3a1"]
 [ext_resource type="PackedScene" uid="uid://07cfy2qe8hvm" path="res://scenes/characters/player/player.tscn" id="3_fdgdd"]
 [ext_resource type="PackedScene" uid="uid://dpuxwqdq6h431" path="res://scenes/ui/game_screen.tscn" id="4_wlnht"]
 
 [node name="MainScene" type="Node2D"]
+y_sort_enabled = true
 
 [node name="DayNightCycleComponent" parent="." instance=ExtResource("1_esq0k")]
 
 [node name="GameRoot" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Worlds" type="Node2D" parent="GameRoot"]
-
-[node name="Home" parent="GameRoot/Worlds" instance=ExtResource("2_hy3a1")]
+y_sort_enabled = true
 
 [node name="Player" parent="GameRoot" instance=ExtResource("3_fdgdd")]
-position = Vector2(679, 472)
+position = Vector2(600, 478)
 
 [node name="Camera2D" type="Camera2D" parent="GameRoot/Player"]
 zoom = Vector2(2, 2)

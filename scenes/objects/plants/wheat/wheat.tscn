@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b80ppauskuewh"]
 
 [ext_resource type="Texture2D" uid="uid://jlirkxe0hfyq" path="res://assets/Sprites/Basic_Plants.png" id="1_1u61g"]
-[ext_resource type="Script" path="res://scenes/objects/plants/corn.gd" id="1_myc73"]
+[ext_resource type="Script" path="res://scenes/objects/plants/wheat/wheat.gd" id="1_myc73"]
 [ext_resource type="PackedScene" uid="uid://dc7lth3lb6qfe" path="res://scenes/objects/plants/watering_particles.tscn" id="2_fvxpx"]
 [ext_resource type="PackedScene" uid="uid://b54fl2s7kn1tl" path="res://scenes/components/hurt_component.tscn" id="2_jeimy"]
 [ext_resource type="PackedScene" uid="uid://cjneesawtlqgr" path="res://scenes/objects/plants/flowering_particles.tscn" id="3_e3si4"]
@@ -12,7 +12,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0iep"]
 size = Vector2(13, 8)
 
-[node name="Corn" type="Node2D"]
+[node name="Wheat" type="Node2D"]
 script = ExtResource("1_myc73")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
