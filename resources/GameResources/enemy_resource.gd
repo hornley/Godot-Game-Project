@@ -5,4 +5,4 @@ class_name EnemyResource
 @export var health: int
 @export var attack_power: int
 @export var speed: float
-@export var icon: Texture
+@export var texture: Texture

@@ -12,6 +12,11 @@ var growth_state: DataTypes.GrowthStates = DataTypes.GrowthStates.Seed
 var start_tomato_frame_offset: int = 6
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("interact"):
+		#fertilize(3)
+	pass
+
 func _ready() -> void:
 	watering_particles.emitting = false
 	flowering_particles.emitting = false
@@ -43,3 +48,7 @@ func on_crop_harvesting() -> void:
 	get_parent().add_child(tomato_harvest_instance)
 	
 	queue_free()
+
+func fertilize(fertilizer_power: int) -> void:
+	growth_cycle_component.fertilizer_power = fertilizer_power
+	growth_cycle_component.growth_states(growth_cycle_component.starting_day, DayAndNightCycleManager.current_day)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://n0lx08kmqa20"]
+[gd_scene load_steps=6 format=3 uid="uid://n0lx08kmqa20"]
 
 [ext_resource type="Texture2D" uid="uid://jlirkxe0hfyq" path="res://assets/Sprites/Basic_Plants.png" id="1_58sa6"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_v6a83"]
+[ext_resource type="Resource" uid="uid://c8xo2jqqco68r" path="res://resources/GameResources/items/tomato.tres" id="3_ipiol"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fp7hw"]
 atlas = ExtResource("1_58sa6")
@@ -14,7 +15,8 @@ radius = 6.0
 texture = SubResource("AtlasTexture_fp7hw")
 
 [node name="CollectibleComponent" parent="." instance=ExtResource("2_v6a83")]
-collectible_name = "Tomato"
+item_name = "Tomato"
+item_resource = ExtResource("3_ipiol")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
 shape = SubResource("CircleShape2D_dqni2")

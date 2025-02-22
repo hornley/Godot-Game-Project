@@ -108,6 +108,7 @@ radius = 23.0
 
 [node name="Merchant" type="Node2D"]
 script = ExtResource("1_2kqvm")
+dialogue_start_command = "start_merchant"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kpofx")

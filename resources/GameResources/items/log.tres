@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://c7pgtokqhs541"]
+
+[ext_resource type="Script" path="res://resources/GameResources/item_resource.gd" id="1_k0ibj"]
+[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/objects/items-spritesheet.png" id="2_rhlhw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfyjf"]
+atlas = ExtResource("2_rhlhw")
+region = Rect2(32, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_k0ibj")
+name = "Log"
+description = "log"
+value = 3.0
+texture = SubResource("AtlasTexture_kfyjf")

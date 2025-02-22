@@ -5,8 +5,8 @@ var main_scene_root_path: String = "/root/MainScene"
 var main_scene_world_root_path: String = "/root/MainScene/GameRoot/Worlds"
 
 var world_scenes: Dictionary = {
-	DataTypes.Worlds.Village : "res://scenes/village.tscn",
-	DataTypes.Worlds.Home : "res://scenes/home.tscn"
+	DataTypes.Worlds.Village : "res://scenes/world/village.tscn",
+	DataTypes.Worlds.Home : "res://scenes/world/home.tscn"
 }
 
 func load_main_scene_container() -> void:

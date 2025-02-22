@@ -49,7 +49,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 			var balloon: BaseGameDialogueBalloon = balloon_scene.instantiate()
 			get_tree().root.add_child(balloon)
-			balloon.start(load("res://dialogue/conversations/merchant.dialogue"), dialogue_start_command)
+			balloon.start(load("res://dialogue/conversations/village.dialogue"), dialogue_start_command)
 
 func on_trade_crops() -> void:
 	if in_range:
@@ -78,7 +78,7 @@ func trigger_trade_crops(inventory_item: String, scene: Resource) -> void:
 		tween.tween_property(crop_instance, "scale", Vector2(0.5, 0.5), 1.0)
 		tween.tween_callback(crop_instance.queue_free)
 		
-		InventoryManager.remove_collectable(inventory_item)
+		InventoryManager.remove_item(inventory_item)
 
 func on_crop_received(area: Area2D) -> void:
 	call_deferred("add_reward_scene")

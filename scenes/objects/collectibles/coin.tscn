@@ -55,7 +55,7 @@ autoplay = "default"
 frame_progress = 0.965452
 
 [node name="CollectibleComponent" parent="." instance=ExtResource("2_o7lyq")]
-collectible_name = "Coin"
+item_name = "Coin"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
 shape = SubResource("CircleShape2D_k57rn")

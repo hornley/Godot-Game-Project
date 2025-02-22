@@ -1,0 +1,24 @@
+~ start_merchant
+
+Merchant: [[Hi|Hello]], care for a trade?
+- Yes please.
+	Merchant: Alright then!
+	do GameDialogueManager.action_trade_crops()
+- No!
+	Merchant: Welp, aight... See you.
+
+=> END
+
+~ start_farmer
+
+Farmer: [[Howdy!|Hey There|Hiya]], what's up?
+- Sell
+	{{PlayerManager.player_name}}: I would like to sell my crops.
+	Farmer: Whatcha got there, partner?
+	# open farmer shop shit
+- Buy
+	{{PlayerManager.player_name}}: I would like to buy something, what do you have?
+	Farmer: Sure thing partner!
+	# open farmer shop shit
+
+=> END
