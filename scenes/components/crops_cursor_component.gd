@@ -2,6 +2,7 @@ class_name CropsCursorComponent
 extends Node
 
 @export var tilled_soil_tilemap_layer: TileMapLayer
+#@export var field_cursor_component: FieldCursorComponent
 
 @onready var player: Player
 
@@ -35,13 +36,18 @@ func get_cell_under_mouse() -> void:
 	distance = player.global_position.distance_to(local_cell_position)
 
 func add_crop() -> void:
-	if distance < 20.0 and cell_source_id != -1:
-		if ToolManager.selected_tool == DataTypes.Tools.PlantCorn:
-			var corn_instance = corn_plant_scene.instantiate() as Node2D
-			corn_instance.global_position = local_cell_position
-			get_parent().find_child("CropFields").add_child(corn_instance)
+	if cell_source_id == -1 or distance > 20:
+		return
 		
-		if ToolManager.selected_tool == DataTypes.Tools.PlantTomato:
-			var tomato_instance = tomato_plant_scene.instantiate() as Node2D
-			tomato_instance.global_position = local_cell_position
-			get_parent().find_child("CropFields").add_child(tomato_instance)
+	#if field_cursor_component.tilemap[cell_position]["Hits"] / 2 != 5:
+		#return
+	
+	if ToolManager.selected_tool == DataTypes.Tools.PlantCorn:
+		var corn_instance = corn_plant_scene.instantiate() as Node2D
+		corn_instance.global_position = local_cell_position
+		get_parent().find_child("CropFields").add_child(corn_instance)
+	
+	if ToolManager.selected_tool == DataTypes.Tools.PlantTomato:
+		var tomato_instance = tomato_plant_scene.instantiate() as Node2D
+		tomato_instance.global_position = local_cell_position
+		get_parent().find_child("CropFields").add_child(tomato_instance)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://lvhlneeij70r"]
+[gd_scene load_steps=14 format=4 uid="uid://lvhlneeij70r"]
 
 [ext_resource type="PackedScene" uid="uid://bvyl6hx00ulv6" path="res://scenes/components/day_night_cycle_component.tscn" id="1_bmkbp"]
 [ext_resource type="TileSet" uid="uid://gj4jww21bicc" path="res://tilesets/World_Tileset.tres" id="1_s7ydh"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://y5xh26x2hxp" path="res://scenes/characters/cow/cow.tscn" id="4_dvtsf"]
 [ext_resource type="PackedScene" uid="uid://dpuxwqdq6h431" path="res://scenes/ui/game_screen.tscn" id="6_rvcit"]
 [ext_resource type="PackedScene" uid="uid://cfilcj7icd6up" path="res://audio/music/on_the_farm_music.tscn" id="7_7fpkt"]
+[ext_resource type="PackedScene" uid="uid://cjunkqoetwd6l" path="res://scenes/characters/merchant/merchant.tscn" id="8_k1y6o"]
+[ext_resource type="PackedScene" uid="uid://cekw01a1k07ru" path="res://scenes/objects/collectibles/coin.tscn" id="9_1837m"]
+[ext_resource type="PackedScene" uid="uid://c31a3ttvdjnol" path="res://scenes/objects/collectibles/corn.tscn" id="9_eaen4"]
+[ext_resource type="PackedScene" uid="uid://n0lx08kmqa20" path="res://scenes/objects/collectibles/tomato.tscn" id="10_61vds"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1fyfe"]
 vertices = PackedVector2Array(1037, 613, 1037, 581, 1123, 581, 1123, 667, 1037, 667, 1037, 635, 1011, 613, 1011, 635, 941, 573, 1011, 675, 941, 675, 1011, 573)
@@ -88,3 +92,14 @@ zoom = Vector2(2, 2)
 [node name="GameScreen" parent="." instance=ExtResource("6_rvcit")]
 
 [node name="OnTheFarmMusic" parent="." instance=ExtResource("7_7fpkt")]
+
+[node name="Merchant" parent="." instance=ExtResource("8_k1y6o")]
+position = Vector2(751, 480)
+dialogue_start_command = "start_merchant"
+output_reward_scenes = Array[PackedScene]([ExtResource("9_1837m")])
+
+[node name="Tomato" parent="." instance=ExtResource("10_61vds")]
+position = Vector2(647, 473)
+
+[node name="Corn" parent="." instance=ExtResource("9_eaen4")]
+position = Vector2(681, 463)

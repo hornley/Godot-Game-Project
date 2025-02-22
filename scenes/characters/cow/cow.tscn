@@ -100,3 +100,4 @@ autostart = true
 audio_stream_player_2D = NodePath("../CowMooSFX")
 
 [node name="CowMooSFX" parent="." instance=ExtResource("7_b3fsw")]
+stream = null

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://clsg80w308q00"]
+
+[ext_resource type="Script" path="res://resources/GameResources/item_resource.gd" id="1_05kg5"]
+
+[resource]
+script = ExtResource("1_05kg5")
+name = "Rusty Sword"
+description = "A rusty sword"
+value = 5.0

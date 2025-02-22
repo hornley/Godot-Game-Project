@@ -54,6 +54,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func on_trade_crops() -> void:
 	if in_range:
 		trigger_trade_crops("Corn", corn_scene)
+		trigger_trade_crops("Tomato", tomato_scene)
 
 func trigger_trade_crops(inventory_item: String, scene: Resource) -> void:
 	var inventory: Dictionary = InventoryManager.inventory

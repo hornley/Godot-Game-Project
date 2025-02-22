@@ -18,3 +18,23 @@ enum GrowthStates {
 	Maturity,
 	Harvesting
 }
+
+enum Classes {
+	Warrior,
+	Archer,
+	Mage,
+	Assassin
+}
+
+enum ItemCategories {
+	Weapon,
+	Armor,
+	Resource
+}
+
+enum ResourceTypes {
+	Wood,
+	Stone,
+	Ore,
+	Ingot
+}

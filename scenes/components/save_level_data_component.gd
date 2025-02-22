@@ -2,7 +2,7 @@ class_name SaveLevelDataComponent
 extends Node
 
 var level_scene_name: String
-var save_game_data_path: String = "user://game_data/"
+var save_user_data_path: String = "user://save_data/"
 var save_file_name: String = "save_%s_game_data.tres"
 var game_data_resource: SaveGameDataResource
 
@@ -26,20 +26,20 @@ func save_node_data() -> void:
 
 
 func save_game() -> void:
-	if !DirAccess.dir_exists_absolute(save_game_data_path):
-		DirAccess.make_dir_absolute(save_game_data_path)
+	if !DirAccess.dir_exists_absolute(save_user_data_path):
+		DirAccess.make_dir_absolute(save_user_data_path)
 	
 	var level_save_file_name: String = save_file_name % level_scene_name
 	
 	save_node_data()
 	
-	var result: int = ResourceSaver.save(game_data_resource, save_game_data_path + level_save_file_name)
+	var result: int = ResourceSaver.save(game_data_resource, save_user_data_path + level_save_file_name)
 	print("save result:", result)
 
 
 func load_game() -> void:
 	var level_save_file_name: String = save_file_name % level_scene_name
-	var save_game_path: String = save_game_data_path + level_save_file_name
+	var save_game_path: String = save_user_data_path + level_save_file_name
 	
 	if !FileAccess.file_exists(save_game_path):
 		return
