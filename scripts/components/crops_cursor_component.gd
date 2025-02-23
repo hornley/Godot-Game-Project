@@ -6,7 +6,7 @@ extends Node
 
 @onready var player: Player
 
-var wheat_plant_scene = preload("res://scenes/objects/plants/wheat/wheat.gd")
+var wheat_plant_scene = preload("res://scenes/objects/plants/wheat/wheat.tscn")
 var tomato_plant_scene = preload("res://scenes/objects/plants/tomato/tomato.tscn")
 
 var mouse_position: Vector2
@@ -18,12 +18,11 @@ var distance: float
 func _ready() -> void:
 	await get_tree().process_frame
 	player = get_tree().get_first_node_in_group("player")
-	
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("use_item"):
-		if ToolManager.selected_tool == DataTypes.Tools.PlantWheat or ToolManager.selected_tool == DataTypes.Tools.PlantTomato:
+		if HotbarManager.equipped_item != null:
 			get_cell_under_mouse()
 			add_crop()
 
@@ -42,12 +41,12 @@ func add_crop() -> void:
 	#if field_cursor_component.tilemap[cell_position]["Hits"] / 2 != 5:
 		#return
 	
-	if ToolManager.selected_tool == DataTypes.Tools.PlantWheat:
+	if HotbarManager.equipped_item == Util.Seeds.Wheat:
 		var wheat_instance = wheat_plant_scene.instantiate() as Node2D
 		wheat_instance.global_position = local_cell_position
 		get_parent().find_child("CropFields").add_child(wheat_instance)
 	
-	if ToolManager.selected_tool == DataTypes.Tools.PlantTomato:
+	if HotbarManager.equipped_item == Util.Seeds.Tomato:
 		var tomato_instance = tomato_plant_scene.instantiate() as Node2D
 		tomato_instance.global_position = local_cell_position
 		get_parent().find_child("CropFields").add_child(tomato_instance)

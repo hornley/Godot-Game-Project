@@ -1,6 +1,6 @@
 extends AnimatedSprite2D
 
-@export var world_destination: DataTypes.Worlds
+@export var world_destination: Util.Worlds
 
 var player_is_in_portal: bool
 

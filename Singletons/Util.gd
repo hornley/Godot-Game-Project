@@ -1,13 +1,17 @@
-class_name DataTypes
+class_name Util
 
 enum Tools {
 	None,
 	Axe,
 	Hoe,
 	Pickaxe,
-	WateringCan,
-	PlantWheat,
-	PlantTomato
+	WateringCan
+}
+
+enum Seeds {
+	Wheat,
+	Tomato,
+	Eggplant
 }
 
 enum GrowthStates {
@@ -27,9 +31,12 @@ enum Classes {
 }
 
 enum ItemCategories {
+	Tool,
 	Weapon,
 	Armor,
-	Resource
+	Resource,
+	Seeds,
+	Consumable
 }
 
 enum ResourceTypes {

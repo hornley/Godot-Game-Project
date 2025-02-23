@@ -35,7 +35,6 @@ func load_game_data(directory: String):
 
 func save_resource(resource: Resource, path: String):
 	var result: int = ResourceSaver.save(resource, path)
-	print("Save Result: ", result, " ", path)
 
 func save_game_data(directory: String):
 	if !DirAccess.dir_exists_absolute(directory):

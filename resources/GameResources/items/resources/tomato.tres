@@ -11,5 +11,6 @@ region = Rect2(16, 64, 16, 16)
 script = ExtResource("1_ojxvg")
 name = "Tomato"
 description = "tomato"
+category = 3
 value = 2.0
 texture = SubResource("AtlasTexture_ke4ms")

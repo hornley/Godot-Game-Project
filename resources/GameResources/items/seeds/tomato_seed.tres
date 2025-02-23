@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://dapl5kqkoj5pr"]
+
+[ext_resource type="Script" path="res://resources/GameResources/item_resource.gd" id="1_p1a2d"]
+[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/objects/items-spritesheet.png" id="2_sa4hs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd8u5"]
+atlas = ExtResource("2_sa4hs")
+region = Rect2(0, 64, 16, 16)
+
+[resource]
+script = ExtResource("1_p1a2d")
+name = "Tomato Seed"
+description = "Tomato seed"
+category = 4
+value = 3.0
+texture = SubResource("AtlasTexture_hd8u5")

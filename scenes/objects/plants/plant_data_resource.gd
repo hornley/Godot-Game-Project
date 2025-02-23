@@ -1,7 +1,7 @@
 class_name PlantDataResource
 extends SceneDataResource
 
-@export var current_growth_state: DataTypes.GrowthStates
+@export var current_growth_state: Util.GrowthStates
 @export var days_until_harvest: int
 @export var is_watered: bool
 @export var starting_day: int

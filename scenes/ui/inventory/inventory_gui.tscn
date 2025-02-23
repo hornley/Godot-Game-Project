@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4i3rdqnclvhx"]
 
-[ext_resource type="Script" path="res://scenes/ui/inventory_gui.gd" id="1_6kokk"]
+[ext_resource type="Script" path="res://scenes/ui/inventory/inventory_gui.gd" id="1_6kokk"]
 [ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="1_nnb24"]
-[ext_resource type="PackedScene" uid="uid://c0qit85yw1iqs" path="res://scenes/ui/inventory_slot.tscn" id="2_m2gjb"]
+[ext_resource type="PackedScene" uid="uid://c0qit85yw1iqs" path="res://scenes/ui/inventory/inventory_slot.tscn" id="2_m2gjb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5pwfr"]
 atlas = ExtResource("1_nnb24")

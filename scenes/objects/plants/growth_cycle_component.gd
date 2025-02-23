@@ -12,7 +12,7 @@ extends Node
 #var minute = current_time["minute"]
 #var second = current_time["second"]
 
-@export var current_growth_state: DataTypes.GrowthStates = DataTypes.GrowthStates.Germination
+@export var current_growth_state: Util.GrowthStates = Util.GrowthStates.Germination
 @export_range(5, 365) var days_until_harvest: int = 7
 @export var is_watered: bool
 @export var starting_day: int
@@ -36,7 +36,7 @@ func on_time_tick_day(day: int) -> void:
 		harvest_state(starting_day, day)
 
 func growth_states(starting_day: int, current_day: int):
-	if current_growth_state == DataTypes.GrowthStates.Maturity:
+	if current_growth_state == Util.GrowthStates.Maturity:
 		return
 	
 	var num_states = 5
@@ -46,20 +46,20 @@ func growth_states(starting_day: int, current_day: int):
 	
 	current_growth_state = state_index
 	
-	var name = DataTypes.GrowthStates.keys()[current_growth_state]
+	var name = Util.GrowthStates.keys()[current_growth_state]
 	
-	if current_growth_state == DataTypes.GrowthStates.Maturity:
+	if current_growth_state == Util.GrowthStates.Maturity:
 		crop_maturity.emit()
 
 func harvest_state(starting_day: int, current_day: int):
-	if current_growth_state == DataTypes.GrowthStates.Harvesting:
+	if current_growth_state == Util.GrowthStates.Harvesting:
 		return
 	
 	var days_passed = (current_day - starting_day) % days_until_harvest
 	
 	if days_passed == days_until_harvest - 1 - fertilizer_power:
-		current_growth_state = DataTypes.GrowthStates.Harvesting
+		current_growth_state = Util.GrowthStates.Harvesting
 		crop_harvesting.emit()
 
-func get_current_growth_state() -> DataTypes.GrowthStates:
+func get_current_growth_state() -> Util.GrowthStates:
 	return current_growth_state

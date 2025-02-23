@@ -11,5 +11,6 @@ region = Rect2(80, 16, 16, 16)
 script = ExtResource("1_g6oxb")
 name = "Processed Milk"
 description = "Processed Milk"
+category = 3
 value = 7.0
 texture = SubResource("AtlasTexture_cqakj")

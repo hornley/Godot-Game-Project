@@ -1,6 +1,6 @@
 extends Node2D
 
-var wheat_harvest_scene = preload("res://scenes/objects/collectibles/wheat.tscn")
+var wheat_harvest_scene = preload("res://scenes/objects/collectibles/resources/wheat.tscn")
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var watering_particles: GPUParticles2D = $WateringParticles
@@ -8,7 +8,7 @@ var wheat_harvest_scene = preload("res://scenes/objects/collectibles/wheat.tscn"
 @onready var growth_cycle_component: GrowthCycleComponent = $GrowthCycleComponent
 @onready var hurt_component: HurtComponent = $HurtComponent
 
-var growth_state: DataTypes.GrowthStates = DataTypes.GrowthStates.Seed
+var growth_state: Util.GrowthStates = Util.GrowthStates.Seed
 
 
 func _ready() -> void:
@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	growth_state = growth_cycle_component.get_current_growth_state()
 	sprite_2d.frame = growth_state
 	
-	if growth_state == DataTypes.GrowthStates.Maturity:
+	if growth_state == Util.GrowthStates.Maturity:
 		flowering_particles.emitting = true
 
 func on_hurt(hit_damage: int) -> void:

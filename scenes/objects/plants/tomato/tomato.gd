@@ -1,6 +1,6 @@
 extends Node2D
 
-var tomato_harvest_scene = preload("res://scenes/objects/collectibles/tomato.tscn")
+var tomato_harvest_scene = preload("res://scenes/objects/collectibles/resources/tomato.tscn")
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var watering_particles: GPUParticles2D = $WateringParticles
@@ -8,7 +8,7 @@ var tomato_harvest_scene = preload("res://scenes/objects/collectibles/tomato.tsc
 @onready var growth_cycle_component: GrowthCycleComponent = $GrowthCycleComponent
 @onready var hurt_component: HurtComponent = $HurtComponent
 
-var growth_state: DataTypes.GrowthStates = DataTypes.GrowthStates.Seed
+var growth_state: Util.GrowthStates = Util.GrowthStates.Seed
 var start_tomato_frame_offset: int = 6
 
 
@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 	growth_state = growth_cycle_component.get_current_growth_state()
 	sprite_2d.frame = growth_state + start_tomato_frame_offset
 	
-	if growth_state == DataTypes.GrowthStates.Maturity:
+	if growth_state == Util.GrowthStates.Maturity:
 		flowering_particles.emitting = true
 
 func on_hurt(hit_damage: int) -> void:

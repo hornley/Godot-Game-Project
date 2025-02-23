@@ -29,13 +29,13 @@ func _on_next_transitions() -> void:
 	if GameInputEvents.is_movement_input():
 		transition.emit("Move")
 	
-	if player.current_tool == DataTypes.Tools.Axe && GameInputEvents.use_tool():
+	if player.current_tool == Util.Tools.Axe && GameInputEvents.use_tool():
 		transition.emit("Chopping")
-	elif player.current_tool == DataTypes.Tools.Hoe && GameInputEvents.use_tool():
+	elif player.current_tool == Util.Tools.Hoe && GameInputEvents.use_tool():
 		transition.emit("Tilling")
-	elif player.current_tool == DataTypes.Tools.Pickaxe && GameInputEvents.use_tool():
+	elif player.current_tool == Util.Tools.Pickaxe && GameInputEvents.use_tool():
 		transition.emit("Mining")
-	elif player.current_tool == DataTypes.Tools.WateringCan && GameInputEvents.use_tool():
+	elif player.current_tool == Util.Tools.WateringCan && GameInputEvents.use_tool():
 		transition.emit("Watering")
 
 

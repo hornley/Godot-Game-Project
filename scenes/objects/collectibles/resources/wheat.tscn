@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://jlirkxe0hfyq" path="res://assets/Sprites/Basic_Plants.png" id="1_3huwx"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_wpl3s"]
-[ext_resource type="Resource" uid="uid://i25efnoy6hci" path="res://resources/GameResources/items/wheat.tres" id="3_p0ehi"]
+[ext_resource type="Resource" uid="uid://i25efnoy6hci" path="res://resources/GameResources/items/resources/wheat.tres" id="3_p0ehi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kgdh"]
 atlas = ExtResource("1_3huwx")

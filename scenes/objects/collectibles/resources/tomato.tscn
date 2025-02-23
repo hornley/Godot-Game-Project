@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://jlirkxe0hfyq" path="res://assets/Sprites/Basic_Plants.png" id="1_58sa6"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_v6a83"]
-[ext_resource type="Resource" uid="uid://c8xo2jqqco68r" path="res://resources/GameResources/items/tomato.tres" id="3_ipiol"]
+[ext_resource type="Resource" uid="uid://c8xo2jqqco68r" path="res://resources/GameResources/items/resources/tomato.tres" id="3_ipiol"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fp7hw"]
 atlas = ExtResource("1_58sa6")

@@ -1,18 +1,24 @@
-[gd_scene load_steps=14 format=4 uid="uid://cs4wr08ptxxiv"]
+[gd_scene load_steps=20 format=4 uid="uid://cs4wr08ptxxiv"]
 
 [ext_resource type="Script" path="res://scenes/test/basta_testing.gd" id="1_o4d4k"]
 [ext_resource type="TileSet" uid="uid://gj4jww21bicc" path="res://tilesets/World_Tileset.tres" id="3_5hhuc"]
 [ext_resource type="PackedScene" uid="uid://d3fgegd8cifhy" path="res://scenes/houses/medium_house.tscn" id="6_eaggr"]
 [ext_resource type="PackedScene" uid="uid://cfibfkgb5e8xw" path="res://scenes/components/field_cursor_component.tscn" id="7_plk8m"]
 [ext_resource type="PackedScene" uid="uid://b45hel406radw" path="res://scenes/components/crops_cursor_component.tscn" id="8_7ka3j"]
-[ext_resource type="PackedScene" uid="uid://dlhb50vd88y2g" path="res://scenes/objects/collectibles/egg.tscn" id="8_ljkh1"]
-[ext_resource type="PackedScene" uid="uid://du78ei2t4h3y0" path="res://scenes/objects/collectibles/log.tscn" id="9_gl4oc"]
+[ext_resource type="PackedScene" uid="uid://dlhb50vd88y2g" path="res://scenes/objects/collectibles/resources/egg.tscn" id="8_ljkh1"]
+[ext_resource type="PackedScene" uid="uid://du78ei2t4h3y0" path="res://scenes/objects/collectibles/resources/log.tscn" id="9_gl4oc"]
 [ext_resource type="PackedScene" uid="uid://07cfy2qe8hvm" path="res://scenes/characters/player/player.tscn" id="10_85u0p"]
-[ext_resource type="PackedScene" uid="uid://bptyn7jixpenw" path="res://scenes/objects/collectibles/stone.tscn" id="10_qctnw"]
-[ext_resource type="PackedScene" uid="uid://n0lx08kmqa20" path="res://scenes/objects/collectibles/tomato.tscn" id="11_47lu2"]
+[ext_resource type="PackedScene" uid="uid://bptyn7jixpenw" path="res://scenes/objects/collectibles/resources/stone.tscn" id="10_qctnw"]
+[ext_resource type="PackedScene" uid="uid://n0lx08kmqa20" path="res://scenes/objects/collectibles/resources/tomato.tscn" id="11_47lu2"]
 [ext_resource type="PackedScene" uid="uid://dpuxwqdq6h431" path="res://scenes/ui/game_screen.tscn" id="11_alfcn"]
-[ext_resource type="PackedScene" uid="uid://csfle628v3pb8" path="res://scenes/objects/collectibles/unprocessed_milk.tscn" id="12_u2xhi"]
-[ext_resource type="PackedScene" uid="uid://c31a3ttvdjnol" path="res://scenes/objects/collectibles/wheat.tscn" id="13_8sd7x"]
+[ext_resource type="PackedScene" uid="uid://csfle628v3pb8" path="res://scenes/objects/collectibles/resources/unprocessed_milk.tscn" id="12_u2xhi"]
+[ext_resource type="PackedScene" uid="uid://c31a3ttvdjnol" path="res://scenes/objects/collectibles/resources/wheat.tscn" id="13_8sd7x"]
+[ext_resource type="PackedScene" uid="uid://fotvh45ef7g7" path="res://scenes/objects/collectibles/tools/hoe.tscn" id="14_dnnsy"]
+[ext_resource type="PackedScene" uid="uid://cbrng3gywga74" path="res://scenes/objects/collectibles/tools/axe.tscn" id="15_dcrdc"]
+[ext_resource type="PackedScene" uid="uid://d0g784flvjxkv" path="res://scenes/objects/collectibles/tools/watering_can.tscn" id="16_lyte7"]
+[ext_resource type="PackedScene" uid="uid://b1vl53d0q2nva" path="res://scenes/objects/collectibles/seeds/tomato_seed.tscn" id="17_poh5y"]
+[ext_resource type="PackedScene" uid="uid://8f05a4ytuaht" path="res://scenes/objects/collectibles/seeds/wheat_seed.tscn" id="18_g3b6y"]
+[ext_resource type="PackedScene" uid="uid://baj74gnng5lr6" path="res://scenes/characters/guide/guide.tscn" id="19_0rbpf"]
 
 [node name="Home" type="Node2D"]
 y_sort_enabled = true
@@ -63,33 +69,53 @@ tilemap = {}
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
 
 [node name="Player" parent="." instance=ExtResource("10_85u0p")]
-position = Vector2(728, 632)
+position = Vector2(679, 510)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
 
 [node name="GameScreen" parent="." instance=ExtResource("11_alfcn")]
 
-[node name="Egg" parent="." instance=ExtResource("8_ljkh1")]
+[node name="Node" type="Node2D" parent="."]
+
+[node name="Egg" parent="Node" instance=ExtResource("8_ljkh1")]
 position = Vector2(741, 557)
 
-[node name="Log" parent="." instance=ExtResource("9_gl4oc")]
+[node name="Log" parent="Node" instance=ExtResource("9_gl4oc")]
 position = Vector2(772, 555)
 
-[node name="Stone" parent="." instance=ExtResource("10_qctnw")]
+[node name="Stone" parent="Node" instance=ExtResource("10_qctnw")]
 position = Vector2(790, 587)
 
-[node name="Tomato" parent="." instance=ExtResource("11_47lu2")]
+[node name="Tomato" parent="Node" instance=ExtResource("11_47lu2")]
 position = Vector2(704, 573)
 
-[node name="Unprocessed Milk" parent="." instance=ExtResource("12_u2xhi")]
+[node name="Unprocessed Milk" parent="Node" instance=ExtResource("12_u2xhi")]
 position = Vector2(759, 606)
 
-[node name="Wheat" parent="." instance=ExtResource("13_8sd7x")]
+[node name="Wheat" parent="Node" instance=ExtResource("13_8sd7x")]
 position = Vector2(791, 624)
 
-[node name="Egg2" parent="." instance=ExtResource("8_ljkh1")]
+[node name="Egg2" parent="Node" instance=ExtResource("8_ljkh1")]
 position = Vector2(738, 584)
 
-[node name="Log2" parent="." instance=ExtResource("9_gl4oc")]
+[node name="Log2" parent="Node" instance=ExtResource("9_gl4oc")]
 position = Vector2(711, 601)
+
+[node name="Hoe" parent="Node" instance=ExtResource("14_dnnsy")]
+position = Vector2(703, 642)
+
+[node name="Axe" parent="Node" instance=ExtResource("15_dcrdc")]
+position = Vector2(671, 668)
+
+[node name="Watering Can" parent="Node" instance=ExtResource("16_lyte7")]
+position = Vector2(701, 675)
+
+[node name="Tomato Seed" parent="Node" instance=ExtResource("17_poh5y")]
+position = Vector2(706, 548)
+
+[node name="Wheat Seed" parent="Node" instance=ExtResource("18_g3b6y")]
+position = Vector2(672, 571)
+
+[node name="Guide" parent="Node" instance=ExtResource("19_0rbpf")]
+position = Vector2(650, 490)

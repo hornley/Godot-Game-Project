@@ -2,8 +2,8 @@ extends Node2D
 
 var balloon_scene = preload("res://dialogue/game_dialogue_balloon.tscn")
 
-var wheat_scene = preload("res://scenes/objects/collectibles/wheat.tscn")
-var tomato_scene = preload("res://scenes/objects/collectibles/tomato.tscn")
+var wheat_scene = preload("res://scenes/objects/collectibles/resources/wheat.tscn")
+var tomato_scene = preload("res://scenes/objects/collectibles/resources/tomato.tscn")
 
 @export var dialogue_start_command: String
 @export var food_drop_height: int = 40

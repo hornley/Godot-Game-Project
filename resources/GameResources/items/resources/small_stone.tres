@@ -11,5 +11,6 @@ region = Rect2(32, 80, 16, 16)
 script = ExtResource("1_us3wv")
 name = "Small Stone"
 description = "smol stone"
+category = 3
 value = 1.0
 texture = SubResource("AtlasTexture_ucf73")

@@ -5,8 +5,8 @@ var main_scene_root_path: String = "/root/MainScene"
 var main_scene_world_root_path: String = "/root/MainScene/GameRoot/Worlds"
 
 var world_scenes: Dictionary = {
-	DataTypes.Worlds.Village : "res://scenes/world/village.tscn",
-	DataTypes.Worlds.Home : "res://scenes/world/home.tscn"
+	Util.Worlds.Village : "res://scenes/world/village.tscn",
+	Util.Worlds.Home : "res://scenes/world/home.tscn"
 }
 
 func load_main_scene_container() -> void:
@@ -19,7 +19,7 @@ func load_main_scene_container() -> void:
 		get_tree().root.add_child(node)
 
 
-func load_world(world: DataTypes.Worlds) -> void:
+func load_world(world: Util.Worlds) -> void:
 	var world_scene_path: String = world_scenes.get(world)
 	
 	if world_scene_path == null:
