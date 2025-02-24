@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://c43jv2habpp7a"]
+
+[ext_resource type="Script" path="res://resources/GameResources/item_resource.gd" id="1_x5s20"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/objects/Farming_Plants_v1.5.png" id="2_3hu08"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3dmg"]
+atlas = ExtResource("2_3hu08")
+region = Rect2(0, 32, 16, 16)
+
+[resource]
+script = ExtResource("1_x5s20")
+name = "Carrot Seed"
+description = "carrot seed"
+category = 4
+value = 1.0
+texture = SubResource("AtlasTexture_e3dmg")

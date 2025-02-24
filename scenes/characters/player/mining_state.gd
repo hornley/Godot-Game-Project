@@ -24,10 +24,10 @@ func _on_next_transitions() -> void:
 
 func _on_enter() -> void:
 	if player.player_direction == Vector2.UP:
-		animated_sprite.play("mining_up")
+		animated_sprite.play("mining_back")
 		hit_component_collision_shape.position = Vector2(0, -8)
 	elif player.player_direction == Vector2.DOWN:
-		animated_sprite.play("mining_down")
+		animated_sprite.play("mining_front")
 		hit_component_collision_shape.position = Vector2(-3, 0)
 	elif player.player_direction == Vector2.LEFT:
 		animated_sprite.play("mining_left")
@@ -36,7 +36,7 @@ func _on_enter() -> void:
 		animated_sprite.play("mining_right")
 		hit_component_collision_shape.position = Vector2(11, 0)
 	else:
-		animated_sprite.play("mining_down")
+		animated_sprite.play("mining_front")
 		
 	hit_component_collision_shape.disabled = false
 

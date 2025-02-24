@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://bvavlcg20he4r"]
+
+[ext_resource type="Script" path="res://resources/GameResources/item_resource.gd" id="1_8y7t1"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/objects/Farming_Plants_v1.5.png" id="2_ret0p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd8u5"]
+atlas = ExtResource("2_ret0p")
+region = Rect2(0, 208, 16, 16)
+
+[resource]
+script = ExtResource("1_8y7t1")
+name = "Starfruit Seed"
+description = "starfruit seed"
+category = 4
+value = 3.0
+texture = SubResource("AtlasTexture_hd8u5")

@@ -13,7 +13,7 @@ extends Node
 #var second = current_time["second"]
 
 @export var current_growth_state: Util.GrowthStates = Util.GrowthStates.Germination
-@export_range(5, 365) var days_until_harvest: int = 7
+@export_range(7, 365) var days_until_harvest: int = 7
 @export var is_watered: bool
 @export var starting_day: int
 @export var current_day: int
@@ -22,6 +22,7 @@ extends Node
 signal crop_maturity
 signal crop_harvesting
 
+var num_states = 7 # not including Harvesting state
 
 func _ready() -> void:
 	DayAndNightCycleManager.time_tick_day.connect(on_time_tick_day)
@@ -36,10 +37,8 @@ func on_time_tick_day(day: int) -> void:
 		harvest_state(starting_day, day)
 
 func growth_states(starting_day: int, current_day: int):
-	if current_growth_state == Util.GrowthStates.Maturity:
+	if current_growth_state == Util.GrowthStates.Flowering:
 		return
-	
-	var num_states = 5
 	
 	var growth_days_passed = (current_day - starting_day) % num_states
 	var state_index = growth_days_passed % num_states + 1
@@ -48,7 +47,7 @@ func growth_states(starting_day: int, current_day: int):
 	
 	var name = Util.GrowthStates.keys()[current_growth_state]
 	
-	if current_growth_state == Util.GrowthStates.Maturity:
+	if current_growth_state == Util.GrowthStates.Flowering:
 		crop_maturity.emit()
 
 func harvest_state(starting_day: int, current_day: int):

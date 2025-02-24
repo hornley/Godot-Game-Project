@@ -6,10 +6,8 @@ var item: ItemResource
 var toggled_slot: Node
 
 func _ready() -> void:
+	HotbarManager.hotbar_changed.connect(on_hotbar_changed)
 	slots = $NinePatchRect/HBoxContainer.get_children()
-	update()
-
-func update() -> void:
 	var index = 1
 	for slot in slots:
 		slot.update_slot_number(index)
@@ -17,6 +15,15 @@ func update() -> void:
 		callable = callable.bind(slot)
 		slot.pressed.connect(callable)
 		index += 1
+
+func update() -> void:
+	for index in range(5):
+		var slot = slots[index]
+		if HotbarManager.hotbar_array[index]:
+			var item_resource: ItemResource = HotbarManager.hotbar_array[index]
+			slot.update(item_resource.texture)
+		else:
+			slot.update(null)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
@@ -39,6 +46,9 @@ func press_equip_in_hotbar(slot: Node) -> void:
 # Equip using hotkeys
 func hotkey_equip_in_hotbar(index: int) -> void:
 	equip_item(index)
+
+func on_hotbar_changed(index: int) -> void:
+	update()
 
 func equip_item(index: int) -> void:
 	var slot: Button = slots[index]

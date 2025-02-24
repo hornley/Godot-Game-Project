@@ -9,17 +9,30 @@ enum Tools {
 }
 
 enum Seeds {
-	Wheat,
+	Corn,
+	Carrot,
+	Cauliflower,
 	Tomato,
-	Eggplant
+	Eggplant,
+	Tulip,
+	Cabbage,
+	Wheat,
+	Pumpkin,
+	Turnip,
+	BigFlower,
+	Beetroot,
+	Starfruit,
+	Cucumber
 }
 
 enum GrowthStates {
 	Seed,
 	Germination,
+	Seedling,
 	Vegetative,
-	Reproduction,
-	Maturity,
+	Budding,
+	Flowering,
+	Fruiting,
 	Harvesting
 }
 

@@ -9,9 +9,13 @@ var item_in_hand: InventoryItemStack
 var is_in_hotbar_gui: bool
 
 func _ready() -> void:
+	InventoryManager.inventory_changed.connect(on_inventory_changed)
 	connect_slots()
 	update()
 	connect_hotbar()
+
+func on_inventory_changed() -> void:
+	update()
 
 func connect_hotbar() -> void:
 	for slot in hotbar_gui.slots:
@@ -26,16 +30,31 @@ func connect_slots() -> void:
 		slot.pressed.connect(callable)
 
 func update() -> void:
-	for key in InventoryManager.inventory:
-		var value = InventoryManager.inventory[key]
-		var index = value["Index"]
-		
-		var inventory_item_stack: InventoryItemStack = slots[index].item_stack
-		if !inventory_item_stack:
-			inventory_item_stack = inventory_item_stack_scene.instantiate()
-			slots[index].update(inventory_item_stack)
-		
-		inventory_item_stack.update(value["ItemResource"], value["Amount"])
+	for slot in slots:
+		var item_resource: ItemResource = slot.get_item_resource()
+		if !item_resource:
+			for key in InventoryManager.inventory.keys():
+				var value = InventoryManager.inventory[key]
+				var index = value["Index"]
+				
+				var inventory_item_stack: InventoryItemStack = slots[index].item_stack
+				if !inventory_item_stack:
+					inventory_item_stack = inventory_item_stack_scene.instantiate()
+					slots[index].update(inventory_item_stack)
+				
+				inventory_item_stack.update(value["ItemResource"], value["Amount"])
+		elif InventoryManager.inventory.has(item_resource.name):
+			var value = InventoryManager.inventory[item_resource.name]
+			var index = value["Index"]
+			
+			var inventory_item_stack: InventoryItemStack = slots[index].item_stack
+			if !inventory_item_stack:
+				inventory_item_stack = inventory_item_stack_scene.instantiate()
+				slots[index].update(inventory_item_stack)
+			
+			inventory_item_stack.update(value["ItemResource"], value["Amount"])
+		else:
+			slot.remove_item()
 
 func open():
 	update()
@@ -114,4 +133,3 @@ func equip_on_hotbar(slot) -> void:
 	var index = hotbar_gui.slots.find(slot)
 	put_item_back()
 	HotbarManager.insert_to_hotbar(index, item.item_resource)
-	slot.update(item.item_resource.texture)

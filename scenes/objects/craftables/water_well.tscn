@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://byi53i4fcovye"]
+
+[node name="WaterWell" type="Sprite2D"]

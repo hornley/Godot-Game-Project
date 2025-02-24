@@ -24,10 +24,10 @@ func _on_next_transitions() -> void:
 
 func _on_enter() -> void:
 	if player.player_direction == Vector2.UP:
-		animated_sprite.play("watering_up")
+		animated_sprite.play("watering_back")
 		hit_component_collision_shape.position = Vector2(0, -18)
 	elif player.player_direction == Vector2.DOWN:
-		animated_sprite.play("watering_down")
+		animated_sprite.play("watering_front")
 		hit_component_collision_shape.position = Vector2(0, 3)
 	elif player.player_direction == Vector2.LEFT:
 		animated_sprite.play("watering_left")
@@ -36,7 +36,7 @@ func _on_enter() -> void:
 		animated_sprite.play("watering_right")
 		hit_component_collision_shape.position = Vector2(9, 0)
 	else:
-		animated_sprite.play("watering_down")
+		animated_sprite.play("watering_front")
 		
 	hit_component_collision_shape.disabled = false
 

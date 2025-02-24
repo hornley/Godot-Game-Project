@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://bxwouamyrc78p"]
+
+[ext_resource type="Script" path="res://resources/GameResources/item_resource.gd" id="1_ejdai"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/objects/Farming_Plants_v1.5.png" id="2_h56se"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd8u5"]
+atlas = ExtResource("2_h56se")
+region = Rect2(0, 176, 16, 16)
+
+[resource]
+script = ExtResource("1_ejdai")
+name = "Big Flower Seed"
+description = "big flower seed"
+category = 4
+value = 3.0
+texture = SubResource("AtlasTexture_hd8u5")

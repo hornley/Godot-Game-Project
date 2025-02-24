@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("use_item"):
-		if HotbarManager.equipped_item == Util.Tools.Hoe:
+		if HotbarManager.equipped_item == Util.Tools.Hoe and HotbarManager.equipped_item_category == Util.ItemCategories.Tool:
 			var is_clear = get_cell_under_mouse()
 			if is_clear:
 				add_tilled_soil_cell()

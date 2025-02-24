@@ -1,17 +1,24 @@
 extends Node2D
 
-var wheat_harvest_scene = preload("res://scenes/objects/collectibles/resources/wheat.tscn")
-
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var watering_particles: GPUParticles2D = $WateringParticles
 @onready var flowering_particles: GPUParticles2D = $FloweringParticles
 @onready var growth_cycle_component: GrowthCycleComponent = $GrowthCycleComponent
 @onready var hurt_component: HurtComponent = $HurtComponent
 
-var growth_state: Util.GrowthStates = Util.GrowthStates.Seed
+var start_frame_offset: int
+@export var harvest_scene: PackedScene
 
+var growth_state: Util.GrowthStates
+
+func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("interact"):
+		#fertilize(3)
+	pass
 
 func _ready() -> void:
+	start_frame_offset = sprite_2d.frame
+	
 	watering_particles.emitting = false
 	flowering_particles.emitting = false
 	
@@ -21,9 +28,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	growth_state = growth_cycle_component.get_current_growth_state()
-	sprite_2d.frame = growth_state
+	sprite_2d.frame = growth_state + start_frame_offset
 	
-	if growth_state == Util.GrowthStates.Maturity:
+	if growth_state == Util.GrowthStates.Flowering:
 		flowering_particles.emitting = true
 
 func on_hurt(hit_damage: int) -> void:
@@ -37,8 +44,12 @@ func on_crop_maturity() -> void:
 	flowering_particles.emitting = true
 
 func on_crop_harvesting() -> void:
-	var wheat_harvest_instance = wheat_harvest_scene.instantiate() as Node2D
-	wheat_harvest_instance.global_position = global_position
-	get_parent().add_child(wheat_harvest_instance)
+	var harvest_instance = harvest_scene.instantiate() as Node2D
+	harvest_instance.global_position = global_position
+	get_parent().add_child(harvest_instance)
 	
 	queue_free()
+
+func fertilize(fertilizer_power: int) -> void:
+	growth_cycle_component.fertilizer_power = fertilizer_power
+	growth_cycle_component.growth_states(growth_cycle_component.starting_day, DayAndNightCycleManager.current_day)

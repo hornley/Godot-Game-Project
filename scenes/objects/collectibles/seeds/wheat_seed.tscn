@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://8f05a4ytuaht"]
 
-[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/objects/items-spritesheet.png" id="1_kndpg"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/objects/Farming_Plants_v1.5.png" id="1_0g3gw"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_0q1tv"]
 [ext_resource type="Resource" uid="uid://60nw5inn5263" path="res://resources/GameResources/items/seeds/wheat_seed.tres" id="3_t116e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kgdh"]
-atlas = ExtResource("1_kndpg")
+atlas = ExtResource("1_0g3gw")
 region = Rect2(0, 128, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y61w7"]
