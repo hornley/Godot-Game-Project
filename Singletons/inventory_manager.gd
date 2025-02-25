@@ -48,3 +48,23 @@ func swap_item(item_name_1: String, item_1_new_index: int, item_name_2: String, 
 	inventory[item_name_2]["Index"] = item_2_new_index
 	
 	inventory_changed.emit()
+
+func craft_item(item_recipe_resource: ItemRecipeResource) -> void:
+	var can_be_crafted: bool = true
+	for key in item_recipe_resource.input.keys():
+		var amount = item_recipe_resource.input[key]
+		if !inventory.has(key):
+			can_be_crafted = false
+		
+		if inventory[key]["Amount"] < amount:
+			can_be_crafted = false
+	
+	if !can_be_crafted:
+		return
+	
+	for key in item_recipe_resource.input.keys():
+		var amount = item_recipe_resource.input[key]
+		for i in range(amount):
+			remove_item(key)
+	
+	add_item(item_recipe_resource.output.name, item_recipe_resource.output, 1)

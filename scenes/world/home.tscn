@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://syt2pbsuhl5s"]
+[gd_scene load_steps=12 format=4 uid="uid://syt2pbsuhl5s"]
 
 [ext_resource type="PackedScene" uid="uid://d0v0jfxch7yuu" path="res://scenes/components/save_level_data_component.tscn" id="1_asdl7"]
 [ext_resource type="TileSet" uid="uid://gj4jww21bicc" path="res://tilesets/World_Tileset.tres" id="1_ldksl"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://c6etwb18k75et" path="res://resources/tilemap_layer_data_resource.tres" id="4_mfii6"]
 [ext_resource type="PackedScene" uid="uid://baj74gnng5lr6" path="res://scenes/characters/guide/guide.tscn" id="6_r6oe0"]
 [ext_resource type="PackedScene" uid="uid://suvitjjl00a2" path="res://scenes/world/portal.tscn" id="10_h20iw"]
+[ext_resource type="PackedScene" uid="uid://du78ei2t4h3y0" path="res://scenes/objects/collectibles/resources/log.tscn" id="11_exm1k"]
 
 [node name="Home" type="Node2D"]
 y_sort_enabled = true
@@ -83,3 +84,18 @@ position = Vector2(650, 484)
 [node name="Portal" parent="." instance=ExtResource("10_h20iw")]
 visible = false
 position = Vector2(720, 560)
+
+[node name="Log" parent="." instance=ExtResource("11_exm1k")]
+position = Vector2(688, 520)
+
+[node name="Log2" parent="." instance=ExtResource("11_exm1k")]
+position = Vector2(712, 528)
+
+[node name="Log3" parent="." instance=ExtResource("11_exm1k")]
+position = Vector2(696, 512)
+
+[node name="Log4" parent="." instance=ExtResource("11_exm1k")]
+position = Vector2(672, 512)
+
+[node name="Log5" parent="." instance=ExtResource("11_exm1k")]
+position = Vector2(688, 488)

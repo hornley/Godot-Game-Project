@@ -1,6 +1,7 @@
 extends Node
 
 var items: Dictionary = {}
+var item_recipes: Dictionary = {}
 var enemies: Dictionary = {}
 var quests: Dictionary = {}
 
@@ -26,6 +27,8 @@ func load_game_data(directory: String):
 						enemies[resource.name] = resource
 					elif resource is QuestResource:
 						quests[resource.title] = resource
+					elif resource is ItemRecipeResource:
+						item_recipes[resource.name] = resource
 				file_name = dir_category.get_next()
 			dir_category.list_dir_end()
 		dir_name = dir.get_next()
@@ -45,6 +48,12 @@ func save_game_data(directory: String):
 		DirAccess.make_dir_absolute(items_directory)
 	for item in items.values():
 		save_resource(item, items_directory + item.name + ".tres")
+		
+	var item_recipes_directory = directory + "/item_recipes/"
+	if !DirAccess.dir_exists_absolute(item_recipes_directory):
+		DirAccess.make_dir_absolute(item_recipes_directory)
+	for item_recipe in items.values():
+		save_resource(item_recipe, item_recipes_directory + item_recipe.name + ".tres")
 	
 	var enemies_directory = directory + "/enemies/"
 	if !DirAccess.dir_exists_absolute(enemies_directory):
@@ -61,22 +70,11 @@ func save_game_data(directory: String):
 func get_item(name: String) -> ItemResource:
 	return items.get(name, null)
 
+func get_item_recipe(name: String) -> ItemRecipeResource:
+	return item_recipes.get(name, null)
+
 func get_enemy(name: String) -> EnemyResource:
 	return enemies.get(name, null)
 
 func get_quest(title: String) -> QuestResource:
-	return quests.get(title, null)
-
-func create_new_item(_name: String, desc: String, _value: float) -> ItemResource:
-	var new_item: ItemResource = ItemResource.new()
-	new_item.name = _name
-	new_item.description = desc
-	new_item.value = _value
-	items[_name] = new_item
-	return new_item
-
-func create_new_enemy(name: String) -> EnemyResource:
-	return enemies.get(name, null)
-
-func create_new_quest(title: String) -> QuestResource:
 	return quests.get(title, null)

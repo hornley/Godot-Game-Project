@@ -3,9 +3,15 @@ class_name InventoryItemStack extends Panel
 @onready var item_texture: Sprite2D = $ItemTexture
 @onready var item_amount_label: Label = $ItemAmountLabel
 var item_resource: ItemResource
+var scaled: bool = false
 
 func update(item: ItemResource, amount: int) -> void:
 	if item:
+		var region: Rect2 = item.texture.region
+		var scale: Vector2 = Vector2(16/region.size.x, 16/region.size.y)
 		item_resource = item
 		item_texture.texture = item.texture
+		if !scaled:
+			item_texture.scale = scale * item_texture.scale
+			scaled = true
 		item_amount_label.text = str(amount)

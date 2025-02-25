@@ -25,11 +25,10 @@ func on_interactable_deactivated() -> void:
 	in_range = false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if in_range:
-		if event.is_action_pressed("show_dialogue"):
-			var balloon: BaseGameDialogueBalloon = balloon_scene.instantiate()
-			get_tree().root.add_child(balloon)
-			balloon.start(load("res://dialogue/conversations/guide.dialogue"), "start")
+	if in_range and event.is_action_pressed("show_dialogue"):
+		var balloon: BaseGameDialogueBalloon = balloon_scene.instantiate()
+		get_tree().root.add_child(balloon)
+		balloon.start(load("res://dialogue/conversations/guide.dialogue"), "start")
 
 func on_give_crop_seeds() -> void:
 	InventoryManager.add_item("Wheat Seed", wheat_seed_resource, 2)

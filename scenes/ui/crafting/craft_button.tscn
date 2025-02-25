@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://157vd8coylkm"]
+
+[ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="1_i8m18"]
+
+[node name="CraftButton" type="Button"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_i8m18")
+theme_type_variation = &"GameMenuButton"
+text = "Craft"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

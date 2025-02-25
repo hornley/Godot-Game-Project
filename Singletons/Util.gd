@@ -49,7 +49,18 @@ enum ItemCategories {
 	Armor,
 	Resource,
 	Seeds,
-	Consumable
+	Consumable,
+	Objects
+}
+
+enum CraftingStations {
+	None,
+	Workbench,
+	Anvil
+}
+
+enum Objects {
+	Workbench
 }
 
 enum ResourceTypes {

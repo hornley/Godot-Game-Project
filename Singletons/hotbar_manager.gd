@@ -78,6 +78,15 @@ func equip_item(index: int) -> bool:
 		equipped_item_name = item.name
 		equipped_item_category = Util.ItemCategories.Seeds
 		tool_selected.emit(Util.Tools.None)
+	elif item.category == Util.ItemCategories.Objects:
+		var object: Util.Objects
+		match item.name:
+			"Workbench":
+				object = Util.Objects.Workbench
+		equipped_item = object
+		equipped_item_name = item.name
+		equipped_item_category = Util.ItemCategories.Objects
+		tool_selected.emit(Util.Tools.None)
 	else:
 		return false
 	

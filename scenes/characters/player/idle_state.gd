@@ -19,7 +19,7 @@ func _on_physics_process(_delta : float) -> void:
 	elif player.player_direction == Vector2.RIGHT:
 		animated_sprite.play("idle_right")
 	else:
-		animated_sprite.play("idle_down")
+		animated_sprite.play("idle_front")
 		animated_sprite.animation_finished
 
 
