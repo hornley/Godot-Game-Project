@@ -3,7 +3,7 @@ extends Node2D
 var balloon_scene = preload("res://dialogue/game_dialogue_balloon.tscn")
 var wheat_seed_resource: ItemResource = preload("res://resources/GameResources/items/seeds/wheat_seed.tres")
 var tomato_seed_resource: ItemResource = preload("res://resources/GameResources/items/seeds/tomato_seed.tres")
-
+var axe_resource = preload("res://resources/GameResources/items/tools/axe.tres")
 @onready var interactable_component: InteractableComponent = $InteractableComponent
 @onready var interactable_label_component: Control = $InteractableLabelComponent
 
@@ -33,3 +33,4 @@ func _unhandled_input(event: InputEvent) -> void:
 func on_give_crop_seeds() -> void:
 	InventoryManager.add_item("Wheat Seed", wheat_seed_resource, 2)
 	InventoryManager.add_item("Tomato Seed", tomato_seed_resource, 2)
+	InventoryManager.add_item("Axe", axe_resource, 1)

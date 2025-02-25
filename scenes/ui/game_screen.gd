@@ -9,6 +9,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			inventory_gui.close()
 			get_tree().paused = false
 		else:
+			crafting_gui.close()
 			inventory_gui.open()
 			get_tree().paused = true
 	if event.is_action_pressed("toggle_crafting"):
@@ -16,5 +17,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			crafting_gui.close()
 			get_tree().paused = false
 		else:
+			inventory_gui.close()
 			crafting_gui.open()
 			get_tree().paused = true

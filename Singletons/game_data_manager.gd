@@ -5,6 +5,33 @@ var item_recipes: Dictionary = {}
 var enemies: Dictionary = {}
 var quests: Dictionary = {}
 
+func load_resources_recursive(path: String) -> void:
+	var dir = DirAccess.open(path)
+
+	if dir:
+		var file_names = dir.get_files()
+		for file in file_names:
+			if file.ends_with(".tres"):
+				var resource_path = path + file
+				var res = load(resource_path)
+				if !res:
+					continue
+				
+				if res is ItemResource:
+					items[res.name] = res
+				elif res is EnemyResource:
+					enemies[res.name] = res
+				elif res is QuestResource:
+					quests[res.title] = res
+				elif res is ItemRecipeResource:
+					item_recipes[res.name] = res
+		var subdirs = dir.get_directories()
+		for subdir in subdirs:
+			load_resources_recursive(path + subdir + "/")
+	else:
+		print("Failed to open directory:", path)
+
+# Loading from local_storage
 func load_game_data(directory: String):
 	if !DirAccess.dir_exists_absolute(directory):
 		return
@@ -19,6 +46,7 @@ func load_game_data(directory: String):
 			dir_category.list_dir_begin()
 			var file_name = dir_category.get_next()
 			while file_name != "":
+				print(directory + "/" + dir_name + "/" + file_name)
 				if file_name.ends_with(".tres"):
 					var resource = load(directory + "/" + dir_name + "/" + file_name)
 					if resource is ItemResource:
@@ -52,7 +80,7 @@ func save_game_data(directory: String):
 	var item_recipes_directory = directory + "/item_recipes/"
 	if !DirAccess.dir_exists_absolute(item_recipes_directory):
 		DirAccess.make_dir_absolute(item_recipes_directory)
-	for item_recipe in items.values():
+	for item_recipe in item_recipes.values():
 		save_resource(item_recipe, item_recipes_directory + item_recipe.name + ".tres")
 	
 	var enemies_directory = directory + "/enemies/"

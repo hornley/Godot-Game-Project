@@ -32,6 +32,9 @@ func on_slot_pressed(slot) -> void:
 	if slot.is_empty():
 		return
 	
+	for child in v_box_container.get_children():
+		v_box_container.remove_child(child)
+	
 	var item_recipe_resource: ItemRecipeResource = slot.get_item_recipe_resource()
 	var craft_button_instance: Button = craft_button_scene.instantiate()
 	for key in item_recipe_resource.input.keys():

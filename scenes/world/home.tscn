@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://syt2pbsuhl5s"]
+[gd_scene load_steps=13 format=4 uid="uid://syt2pbsuhl5s"]
 
 [ext_resource type="PackedScene" uid="uid://d0v0jfxch7yuu" path="res://scenes/components/save_level_data_component.tscn" id="1_asdl7"]
 [ext_resource type="TileSet" uid="uid://gj4jww21bicc" path="res://tilesets/World_Tileset.tres" id="1_ldksl"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dvpxrqy62tikh" path="res://scenes/components/save_data_component.tscn" id="3_yinbh"]
 [ext_resource type="Resource" uid="uid://c6etwb18k75et" path="res://resources/tilemap_layer_data_resource.tres" id="4_mfii6"]
 [ext_resource type="PackedScene" uid="uid://baj74gnng5lr6" path="res://scenes/characters/guide/guide.tscn" id="6_r6oe0"]
+[ext_resource type="PackedScene" uid="uid://mhj4m4mcpj15" path="res://scenes/components/object_cursor_component.tscn" id="9_4p2v1"]
 [ext_resource type="PackedScene" uid="uid://suvitjjl00a2" path="res://scenes/world/portal.tscn" id="10_h20iw"]
 [ext_resource type="PackedScene" uid="uid://du78ei2t4h3y0" path="res://scenes/objects/collectibles/resources/log.tscn" id="11_exm1k"]
 
@@ -62,12 +63,21 @@ position = Vector2(816, 128)
 
 [node name="CropFields" type="Node2D" parent="."]
 
-[node name="FieldCursorComponent" parent="." node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("2_07nxd")]
+[node name="FieldCursorComponent" parent="." node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer", "undergrowth_tilemap_layer", "overgrowth_tilemap_layer") instance=ExtResource("2_07nxd")]
 grass_tilemap_layer = NodePath("../GameTileMap/Land")
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
+undergrowth_tilemap_layer = NodePath("../GameTileMap/Undergrowth")
+overgrowth_tilemap_layer = NodePath("../GameTileMap/Overgrowth")
 
 [node name="CropsCursorComponent" parent="." node_paths=PackedStringArray("tilled_soil_tilemap_layer") instance=ExtResource("3_pxqxc")]
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
+
+[node name="ObjectCursorComponent" parent="." node_paths=PackedStringArray("objects_tilemap_layer", "grass_tilemap_layer", "tilled_soil_tilemap_layer", "undergrowth_tilemap_layer", "overgrowth_tilemap_layer") instance=ExtResource("9_4p2v1")]
+objects_tilemap_layer = NodePath("../GameTileMap/Objects")
+grass_tilemap_layer = NodePath("../GameTileMap/Land")
+tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
+undergrowth_tilemap_layer = NodePath("../GameTileMap/Undergrowth")
+overgrowth_tilemap_layer = NodePath("../GameTileMap/Overgrowth")
 
 [node name="Animals" type="Node2D" parent="."]
 y_sort_enabled = true

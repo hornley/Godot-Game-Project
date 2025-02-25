@@ -53,14 +53,9 @@ func craft_item(item_recipe_resource: ItemRecipeResource) -> void:
 	var can_be_crafted: bool = true
 	for key in item_recipe_resource.input.keys():
 		var amount = item_recipe_resource.input[key]
-		if !inventory.has(key):
+		if !inventory.has(key) or inventory[key]["Amount"] < amount:
 			can_be_crafted = false
-		
-		if inventory[key]["Amount"] < amount:
-			can_be_crafted = false
-	
-	if !can_be_crafted:
-		return
+			return
 	
 	for key in item_recipe_resource.input.keys():
 		var amount = item_recipe_resource.input[key]
