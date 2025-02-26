@@ -13,7 +13,7 @@ func update_slot_number(number: int) -> void:
 func update(texture: Texture) -> void:
 	hotbar_item_texture.texture = texture
 
-func change_animted_sprite_frame(frame: int) -> void:
+func change_animated_sprite_frame(frame: int) -> void:
 	animated_sprite.frame = frame
 
 func _on_mouse_entered() -> void:

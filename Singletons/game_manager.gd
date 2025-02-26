@@ -1,24 +1,29 @@
 extends Node
 
 var game_menu_screen = preload("res://scenes/ui/game_menu_screen.tscn")
-var game_data_path: String = "user://game_data"
-var save_game_data: bool = false
+var main_scene_path: String = "res://scenes/main_scene.tscn"
+var main_scene_root_path: String = "/root/MainScene"
+var main_scene_world_root_path: String = "/root/MainScene/GameRoot/Worlds"
+var allow_save_game: bool
+
+var world_scenes: Dictionary = {
+	Util.Worlds.Village : "res://scenes/world/village.tscn",
+	Util.Worlds.Home : "res://scenes/world/home.tscn"
+}
+var current_world: Util.Worlds
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("game_menu"):
 		show_game_menu_screen()
 
-
 func start_game() -> void:
-	SceneManager.load_main_scene_container()
-	SceneManager.load_world(Util.Worlds.Home) 
+	load_main_scene_container()
+	load_world(Util.Worlds.Home) 
 	GameDataManager.load_resources_recursive("res://resources/GameResources/items/")
-	if save_game_data:
-		GameDataManager.save_game_data(game_data_path)
 	
-	SaveGameManager.load_game()
-	SaveGameManager.allow_save_game = true
+	load_game()
+	allow_save_game = true
 
 func exit_game() -> void:
 	get_tree().quit()
@@ -26,3 +31,48 @@ func exit_game() -> void:
 func show_game_menu_screen() -> void:
 	var game_menu_screen_instance = game_menu_screen.instantiate()
 	get_tree().root.add_child(game_menu_screen_instance)
+
+func load_main_scene_container() -> void:
+	if get_tree().root.has_node(main_scene_root_path):
+		return
+	
+	var node: Node = load(main_scene_path).instantiate()
+	
+	if node != null:
+		get_tree().root.add_child(node)
+
+
+func load_world(world: Util.Worlds) -> void:
+	var world_scene_path: String = world_scenes.get(world)
+	
+	if world_scene_path == null:
+		return
+	
+	var world_scene: Node = load(world_scene_path).instantiate()
+	var worlds_root: Node = get_node(main_scene_world_root_path)
+	
+	if worlds_root != null:
+		var nodes = worlds_root.get_children()
+		
+		if nodes != null:
+			for node: Node in nodes:
+				node.visible = false
+		
+		await get_tree().process_frame
+		
+		worlds_root.add_child(world_scene)
+		current_world = world
+
+func save_game() -> void:
+	var save_level_data_component: SaveLevelDataComponent = get_tree().get_first_node_in_group("save_level_data_component")
+	
+	if save_level_data_component != null:
+		save_level_data_component.save_game()
+
+func load_game() -> void:
+	await get_tree().process_frame
+	
+	var save_level_data_component: SaveLevelDataComponent = get_tree().get_first_node_in_group("save_level_data_component")
+	
+	if save_level_data_component != null:
+		save_level_data_component.load_game()

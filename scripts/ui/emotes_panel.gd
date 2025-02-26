@@ -9,7 +9,7 @@ var idle_emotes: Array = ["emote_1_idle", "emote_2_smile", "emote_3_ear_wave", "
 func _ready() -> void:
 	animated_sprite.play("emote_1_idle")
 	
-	InventoryManager.inventory_changed.connect(on_inventory_changed)
+	PlayerManager.inventory_changed.connect(on_inventory_changed)
 	GameDialogueManager.trade_crops.connect(on_trade_crops)
 
 

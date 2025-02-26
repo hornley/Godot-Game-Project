@@ -23,6 +23,9 @@ func update() -> void:
 			var item_resource: ItemResource = HotbarManager.hotbar_array[index]
 			slot.update(item_resource.texture)
 		else:
+			if toggled_slot == slot:
+				toggled_slot.change_animated_sprite_frame(0)
+				toggled_slot = null
 			slot.update(null)
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -54,10 +57,10 @@ func equip_item(index: int) -> void:
 	var slot: Button = slots[index]
 	if HotbarManager.equip_item(index) and toggled_slot != slot:
 		if toggled_slot:
-			toggled_slot.change_animted_sprite_frame(0)
-		slot.change_animted_sprite_frame(2)
+			toggled_slot.change_animated_sprite_frame(0)
+		slot.change_animated_sprite_frame(2)
 		toggled_slot = slot
 	else:
 		HotbarManager.unequip_item()
 		toggled_slot = null
-		slot.change_animted_sprite_frame(0)
+		slot.change_animated_sprite_frame(0)

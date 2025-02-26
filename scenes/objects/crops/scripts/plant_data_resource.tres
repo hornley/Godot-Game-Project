@@ -6,6 +6,9 @@
 script = ExtResource("1_h82gh")
 current_growth_state = 0
 days_until_harvest = 0
+is_watered = false
+starting_day = 0
+current_day = 0
 node_name = ""
 scene_file_path = ""
 global_position = Vector2(0, 0)

@@ -17,11 +17,11 @@ func select_tool(tool: Util.Tools) -> void:
 	equipped_item = tool
 
 func insert_to_hotbar(index: int, item: ItemResource) -> void:
-	hotbar_array.insert(index, item)
+	hotbar_array[index] = item
 	hotbar_changed.emit(index)
 
 func remove_from_hotbar(index: int) -> void:
-	hotbar_array.remove_at(index)
+	hotbar_array[index] = null
 	hotbar_changed.emit(index)
 
 func equip_item(index: int) -> bool:

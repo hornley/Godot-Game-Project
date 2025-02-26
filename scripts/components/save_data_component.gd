@@ -6,7 +6,12 @@ extends Node
 @export var save_data_resource: Resource
 
 func _ready() -> void:
-	add_to_group("save_data_component")
+	if parent_node.name == "Player":
+		if parent_node.get_parent().name == "SaveGameMenuScreenBackground":
+			return
+		add_to_group("player_save_data_component")
+	else:
+		add_to_group("save_data_component")
 
 
 func _save_data() -> Resource:

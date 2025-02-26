@@ -21,8 +21,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 
 func _on_area_2d_mouse_entered() -> void:
 	if is_open:
-		Input.set_custom_mouse_cursor(Cursors.cursors["open"])
+		Input.set_custom_mouse_cursor(Util.cursors["open"])
 
 
 func _on_area_2d_mouse_exited() -> void:
-		Input.set_custom_mouse_cursor(Cursors.cursors["default"])
+		Input.set_custom_mouse_cursor(Util.cursors["default"])

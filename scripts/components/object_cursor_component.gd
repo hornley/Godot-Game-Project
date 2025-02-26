@@ -58,6 +58,6 @@ func add_object() -> void:
 		object_instance = WORKBENCH.instantiate() as Node2D
 	
 	if object_instance:
-		InventoryManager.remove_item(HotbarManager.equipped_item_name)
+		PlayerManager.remove_item(HotbarManager.equipped_item_name)
 		object_instance.global_position = local_cell_position
 		get_parent().find_child("CropFields").add_child(object_instance)

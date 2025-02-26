@@ -31,6 +31,7 @@ tile_map_data = PackedByteArray("AAARAA4ABgABAAEAAAARAA0ABgABAAEAAAARAAwABgABAAE
 tile_set = ExtResource("3_5hhuc")
 
 [node name="TilledSoil" type="TileMapLayer" parent="GameTileMap"]
+tile_map_data = PackedByteArray("AAAlAB4ACAACAAAAAAAkAB4ACAAAAAAAAAAkAB8ACAAAAAIAAAAlAB8ACAACAAIAAAA=")
 tile_set = ExtResource("3_5hhuc")
 
 [node name="Undergrowth" type="TileMapLayer" parent="GameTileMap"]
@@ -61,6 +62,8 @@ grass_tilemap_layer = NodePath("../GameTileMap/Land")
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
 undergrowth_tilemap_layer = NodePath("../GameTileMap/Undergrowth")
 overgrowth_tilemap_layer = NodePath("../GameTileMap/Overgrowth")
+terrain_set = null
+terrain = null
 tilemap = {}
 
 [node name="CropsCursorComponent" parent="." node_paths=PackedStringArray("tilled_soil_tilemap_layer") instance=ExtResource("8_7ka3j")]
@@ -76,7 +79,7 @@ overgrowth_tilemap_layer = NodePath("../GameTileMap/Overgrowth")
 [node name="Player" parent="." instance=ExtResource("10_85u0p")]
 position = Vector2(679, 510)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
 
 [node name="GameScreen" parent="." instance=ExtResource("11_alfcn")]

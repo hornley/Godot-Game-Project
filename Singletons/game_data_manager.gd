@@ -5,12 +5,14 @@ var item_recipes: Dictionary = {}
 var enemies: Dictionary = {}
 var quests: Dictionary = {}
 
+
 func load_resources_recursive(path: String) -> void:
 	var dir = DirAccess.open(path)
-
+	
 	if dir:
 		var file_names = dir.get_files()
 		for file in file_names:
+			#file = file.trim_suffix('.remap') # Refer to https://github.com/godotengine/godot/issues/66014
 			if file.ends_with(".tres"):
 				var resource_path = path + file
 				var res = load(resource_path)
@@ -31,41 +33,10 @@ func load_resources_recursive(path: String) -> void:
 	else:
 		print("Failed to open directory:", path)
 
-# Loading from local_storage
-func load_game_data(directory: String):
-	if !DirAccess.dir_exists_absolute(directory):
-		return
-
-	var dir = DirAccess.open(directory)
-	dir.list_dir_begin()
-
-	var dir_name = dir.get_next()
-	while dir_name != "":
-		var dir_category = DirAccess.open(directory + "/" + dir_name)
-		if dir_category:
-			dir_category.list_dir_begin()
-			var file_name = dir_category.get_next()
-			while file_name != "":
-				print(directory + "/" + dir_name + "/" + file_name)
-				if file_name.ends_with(".tres"):
-					var resource = load(directory + "/" + dir_name + "/" + file_name)
-					if resource is ItemResource:
-						items[resource.name] = resource
-					elif resource is EnemyResource:
-						enemies[resource.name] = resource
-					elif resource is QuestResource:
-						quests[resource.title] = resource
-					elif resource is ItemRecipeResource:
-						item_recipes[resource.name] = resource
-				file_name = dir_category.get_next()
-			dir_category.list_dir_end()
-		dir_name = dir.get_next()
-	
-	dir.list_dir_end()
-
 
 func save_resource(resource: Resource, path: String):
 	var result: int = ResourceSaver.save(resource, path)
+
 
 func save_game_data(directory: String):
 	if !DirAccess.dir_exists_absolute(directory):
@@ -94,6 +65,7 @@ func save_game_data(directory: String):
 		DirAccess.make_dir_absolute(quests_directory)
 	for quest in quests.values():
 		save_resource(quest, quests_directory + quest.name + ".tres")
+
 
 func get_item(name: String) -> ItemResource:
 	return items.get(name, null)

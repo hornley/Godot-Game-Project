@@ -9,7 +9,7 @@ var item_in_hand: InventoryItemStack
 var is_in_hotbar_gui: bool
 
 func _ready() -> void:
-	InventoryManager.inventory_changed.connect(on_inventory_changed)
+	PlayerManager.inventory_changed.connect(on_inventory_changed)
 	connect_slots()
 	update()
 	connect_hotbar()
@@ -33,8 +33,8 @@ func update() -> void:
 	for slot in slots:
 		var item_resource: ItemResource = slot.get_item_resource()
 		if !item_resource:
-			for key in InventoryManager.inventory.keys():
-				var value = InventoryManager.inventory[key]
+			for key in PlayerManager.inventory.keys():
+				var value = PlayerManager.inventory[key]
 				var index = value["Index"]
 				
 				var inventory_item_stack: InventoryItemStack = slots[index].item_stack
@@ -43,8 +43,8 @@ func update() -> void:
 					slots[index].update(inventory_item_stack)
 				
 				inventory_item_stack.update(value["ItemResource"], value["Amount"])
-		elif InventoryManager.inventory.has(item_resource.name):
-			var value = InventoryManager.inventory[item_resource.name]
+		elif PlayerManager.inventory.has(item_resource.name):
+			var value = PlayerManager.inventory[item_resource.name]
 			var index = value["Index"]
 			
 			var inventory_item_stack: InventoryItemStack = slots[index].item_stack
@@ -88,19 +88,19 @@ func insert_item_from_slot(slot):
 	
 	remove_child(item_in_hand)
 	item_in_hand = null
-	InventoryManager.move_item(item.item_resource.name, index)
+	PlayerManager.move_item(item.item_resource.name, index)
 	
 	slot.update(item)
 
 func swap_item_slots(slot):
 	var item = item_in_hand
 	var to_swap_item = slot.take_item()
-	var old_index = InventoryManager.inventory[item.item_resource.name]["Index"]
-	var new_index = InventoryManager.inventory[to_swap_item.item_resource.name]["Index"]
+	var old_index = PlayerManager.inventory[item.item_resource.name]["Index"]
+	var new_index = PlayerManager.inventory[to_swap_item.item_resource.name]["Index"]
 	
 	remove_child(item_in_hand)
 	item_in_hand = null
-	InventoryManager.swap_item(item.item_resource.name, new_index, to_swap_item.item_resource.name, old_index)
+	PlayerManager.swap_item(item.item_resource.name, new_index, to_swap_item.item_resource.name, old_index)
 	
 	slot.update(item)
 	slots[old_index].update(to_swap_item)
@@ -112,7 +112,7 @@ func update_item_in_hand() -> void:
 
 func put_item_back() -> void:
 	var item = item_in_hand
-	var index = InventoryManager.inventory[item.item_resource.name]["Index"]
+	var index = PlayerManager.inventory[item.item_resource.name]["Index"]
 	
 	remove_child(item_in_hand)
 	item_in_hand = null

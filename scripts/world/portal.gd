@@ -6,7 +6,7 @@ var player_is_in_portal: bool
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player_is_in_portal:
-		SceneManager.load_world(world_destination)
+		GameManager.load_world(world_destination)
 
 func _on_static_body_2d_body_entered(body: Node2D) -> void:
 	player_is_in_portal = true

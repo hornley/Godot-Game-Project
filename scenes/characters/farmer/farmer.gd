@@ -48,7 +48,7 @@ func on_trade_crops() -> void:
 		trigger_trade_crops("Tomato", tomato_scene)
 
 func trigger_trade_crops(inventory_item: String, scene: Resource) -> void:
-	var inventory: Dictionary = InventoryManager.inventory
+	var inventory: Dictionary = PlayerManager.inventory
 	
 	if !inventory.has(inventory_item):
 		return
@@ -69,7 +69,7 @@ func trigger_trade_crops(inventory_item: String, scene: Resource) -> void:
 		tween.tween_property(crop_instance, "scale", Vector2(0.5, 0.5), 1.0)
 		tween.tween_callback(crop_instance.queue_free)
 		
-		InventoryManager.remove_item(inventory_item)
+		PlayerManager.remove_item(inventory_item)
 
 func on_crop_received(area: Area2D) -> void:
 	call_deferred("add_reward_scene")

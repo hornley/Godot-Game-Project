@@ -98,6 +98,6 @@ func add_crop() -> void:
 		crop_instance = cucumber_plant_scene.instantiate() as Node2D
 	
 	if crop_instance:
-		InventoryManager.remove_item(HotbarManager.equipped_item_name)
+		PlayerManager.remove_item(HotbarManager.equipped_item_name)
 		crop_instance.global_position = local_cell_position
 		get_parent().find_child("CropFields").add_child(crop_instance)

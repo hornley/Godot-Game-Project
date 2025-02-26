@@ -55,4 +55,4 @@ func close():
 	is_open = false
 
 func on_craft_button_pressed(item_recipe_resource: ItemRecipeResource) -> void:
-	InventoryManager.craft_item(item_recipe_resource)
+	PlayerManager.craft_item(item_recipe_resource)

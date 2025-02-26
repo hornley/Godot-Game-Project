@@ -21,17 +21,14 @@ buses/default_bus_layout="res://audio/game_audio_bus_layout.tres"
 
 [autoload]
 
-Cursors="*res://Singletons/Cursors.gd"
+Util="*res://Singletons/Util.gd"
+GameManager="*res://Singletons/game_manager.gd"
+PlayerManager="*res://Singletons/player_manager.gd"
 HotbarManager="*res://Singletons/hotbar_manager.gd"
-InventoryManager="*res://Singletons/inventory_manager.gd"
+GameDataManager="*res://Singletons/game_data_manager.gd"
 DayAndNightCycleManager="*res://Singletons/day_and_night_cycle_manager.gd"
-SaveGameManager="*res://Singletons/save_game_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GameDialogueManager="*res://Singletons/game_dialogue_manager.gd"
-GameManager="*res://Singletons/game_manager.gd"
-SceneManager="*res://Singletons/scene_manager.gd"
-PlayerManager="*res://Singletons/player_manager.gd"
-GameDataManager="*res://Singletons/game_data_manager.gd"
 
 [display]
 

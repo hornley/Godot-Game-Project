@@ -1,9 +1,4 @@
-class_name Player
-extends CharacterBody2D
-
-# Player Attributes
-var player_name: String
-var coins: int
+class_name Player extends CharacterBody2D
 
 @onready var hit_component: HitComponent = $HitComponent
 @export var animated_sprite: AnimatedSprite2D
@@ -14,7 +9,7 @@ var disable_input_events: bool
 
 func _ready() -> void:
 	animated_sprite = $AnimatedSprite2D
-	PlayerManager.set_player(self)
+	PlayerManager.player = self
 	
 	HotbarManager.tool_selected.connect(on_tool_selected)
 
