@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://o57j8tpop1l0"]
 
 [ext_resource type="Shader" path="res://scenes/objects/collectibles/outline.gdshader" id="1_4i7p3"]
-[ext_resource type="Texture2D" uid="uid://dhhwka5fgdq4l" path="res://assets/Tilesets/new/work station.png" id="1_ogkt5"]
+[ext_resource type="Texture2D" uid="uid://dhhwka5fgdq4l" path="res://assets/textures/structures/work station.png" id="1_ogkt5"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_sdxw2"]
-[ext_resource type="Resource" uid="uid://cu45hgk7slfh" path="res://resources/GameResources/items/objects/workbench.tres" id="3_84aqo"]
+[ext_resource type="Resource" uid="uid://cu45hgk7slfh" path="res://resources/items/objects/workbench.tres" id="3_84aqo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cs4cx"]
 shader = ExtResource("1_4i7p3")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://gy7trqii2skk"]
 
 [ext_resource type="Script" path="res://scripts/ui/coins_panel.gd" id="2_c7b2h"]
-[ext_resource type="Texture2D" uid="uid://bocjwt20tyu2" path="res://assets/objects/coins/GoldCoinSpinning (1).png" id="3_mj4vk"]
+[ext_resource type="Texture2D" uid="uid://bocjwt20tyu2" path="res://assets/textures/objects/currencies/GoldCoinSpinning (1).png" id="3_mj4vk"]
 [ext_resource type="FontFile" uid="uid://bf2c23lb7imb3" path="res://assets/ui/fonts/pixelFont-2-5x5-sproutLands.ttf" id="4_uurrs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31jwc"]

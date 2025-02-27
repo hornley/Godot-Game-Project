@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://myis401g0kua"]
 
-[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/objects/Farming_Plants_v1.5.png" id="1_pvw22"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="1_pvw22"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_wkg48"]
-[ext_resource type="Resource" uid="uid://bxwouamyrc78p" path="res://resources/GameResources/items/seeds/big_flower_seed.tres" id="3_dubl7"]
+[ext_resource type="Resource" uid="uid://bxwouamyrc78p" path="res://resources/items/seeds/big_flower_seed.tres" id="3_dubl7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kgdh"]
 atlas = ExtResource("1_pvw22")

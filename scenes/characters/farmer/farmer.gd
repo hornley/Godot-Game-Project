@@ -35,7 +35,7 @@ func on_interactable_deactivated() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if in_range:
-		if event.is_action_pressed("show_dialogue"):
+		if event.is_action_pressed("interact"):
 			interactable_label_component.hide()
 			
 			var balloon: BaseGameDialogueBalloon = balloon_scene.instantiate()

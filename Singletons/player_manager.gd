@@ -9,7 +9,7 @@ var items_count: int
 var completed_quests: Array[QuestResource]
 var active_quests: Array[QuestResource]
 
-signal inventory_changed
+signal inventory_changed(item: ItemResource)
 signal player_coin_add
 
 func toggle_player_movement() -> void:
@@ -27,7 +27,10 @@ func _player_name_prompt() -> void:
 	await player_name_prompt_instance.player_name_prompt_finished
 
 # PLAYER INVENTORY SYSTEM
-func add_item(item_name: String, item_resource: ItemResource, amount: int) -> void:
+func add_item(item_name: String, item_resource: ItemResource, amount: int) -> bool:
+	if empty_inventory_slot.size() == 0:
+		return false
+	
 	if not inventory.has(item_name):
 		inventory[item_name] = {
 			"ItemResource": item_resource,
@@ -38,7 +41,8 @@ func add_item(item_name: String, item_resource: ItemResource, amount: int) -> vo
 	else:
 		inventory[item_name]["Amount"] += amount
 	
-	inventory_changed.emit()
+	inventory_changed.emit(item_resource)
+	return true
 
 func remove_item(item_name: String) -> void:
 	if not inventory.has(item_name):
@@ -56,20 +60,20 @@ func remove_item(item_name: String) -> void:
 	else:
 		inventory[item_name]["Amount"] -= 1
 	
-	inventory_changed.emit()
+	inventory_changed.emit(null)
 
 func move_item(item_name: String, new_index: int) -> void:
 	empty_inventory_slot.append(inventory[item_name]["Index"])
 	inventory[item_name]["Index"] = new_index
 	empty_inventory_slot.sort()
 	
-	inventory_changed.emit()
+	inventory_changed.emit(null)
 
 func swap_item(item_name_1: String, item_1_new_index: int, item_name_2: String, item_2_new_index: int) -> void:
 	inventory[item_name_1]["Index"] = item_1_new_index
 	inventory[item_name_2]["Index"] = item_2_new_index
 	
-	inventory_changed.emit()
+	inventory_changed.emit(null)
 
 func craft_item(item_recipe_resource: ItemRecipeResource) -> void:
 	var can_be_crafted: bool = true
@@ -84,6 +88,7 @@ func craft_item(item_recipe_resource: ItemRecipeResource) -> void:
 		for i in range(amount):
 			remove_item(key)
 	
-	add_item(item_recipe_resource.output.name, item_recipe_resource.output, 1)
+	var item_resource: ItemResource = item_recipe_resource.output
+	add_item(item_resource.name, item_resource, 1)
 	
-	inventory_changed.emit()
+	inventory_changed.emit(item_resource)

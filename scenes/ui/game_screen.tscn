@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpuxwqdq6h431"]
+[gd_scene load_steps=10 format=3 uid="uid://dpuxwqdq6h431"]
 
 [ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="1_54d8w"]
 [ext_resource type="Script" path="res://scenes/ui/game_screen.gd" id="1_e6rm1"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c64eujjsgypf0" path="res://scenes/ui/day_and_night_panel.tscn" id="4_04qxa"]
 [ext_resource type="PackedScene" uid="uid://c4i3rdqnclvhx" path="res://scenes/ui/inventory/inventory_gui.tscn" id="7_dasxt"]
 [ext_resource type="PackedScene" uid="uid://blo8akvfh8vc1" path="res://scenes/ui/crafting/crafting_gui.tscn" id="8_psj8p"]
+[ext_resource type="PackedScene" uid="uid://bk6sthpmkjcc2" path="res://scenes/ui/auto_save_notification.tscn" id="9_3y2x4"]
 
 [node name="GameScreen" type="CanvasLayer"]
 process_mode = 3
@@ -70,3 +71,6 @@ offset_bottom = 275.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="AutoSaveNotification" parent="." instance=ExtResource("9_3y2x4")]
+visible = false

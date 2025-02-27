@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwvb0mk3cwti7"]
+
+[ext_resource type="Script" path="res://test/procedural_generation_world.gd" id="1_dtoqy"]
+[ext_resource type="TileSet" uid="uid://gj4jww21bicc" path="res://assets/tilesets/World_Tileset.tres" id="2_a4okx"]
+[ext_resource type="PackedScene" uid="uid://07cfy2qe8hvm" path="res://scenes/characters/player/player.tscn" id="3_whlam"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jihyw"]
+frequency = 0.0033
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mo53p"]
+noise = SubResource("FastNoiseLite_jihyw")
+
+[node name="ProceduralGenerationWorld" type="Node2D"]
+script = ExtResource("1_dtoqy")
+width = 100
+height = 100
+noise_height_texture = SubResource("NoiseTexture2D_mo53p")
+
+[node name="Water" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_a4okx")
+
+[node name="Land" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_a4okx")
+
+[node name="Player" parent="." instance=ExtResource("3_whlam")]
+position = Vector2(0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]

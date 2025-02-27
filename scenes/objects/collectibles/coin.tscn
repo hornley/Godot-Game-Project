@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cekw01a1k07ru"]
 
-[ext_resource type="Texture2D" uid="uid://xiwth6nj3cj0" path="res://assets/objects/coins/Silver.png" id="1_wya0v"]
+[ext_resource type="Texture2D" uid="uid://xiwth6nj3cj0" path="res://assets/textures/objects/currencies/Silver.png" id="1_wya0v"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_o7lyq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kpdw5"]

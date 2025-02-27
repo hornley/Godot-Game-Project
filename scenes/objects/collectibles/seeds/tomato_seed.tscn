@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b1vl53d0q2nva"]
 
-[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/objects/items-spritesheet.png" id="1_w5nsd"]
+[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="1_w5nsd"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_3uhuo"]
-[ext_resource type="Resource" uid="uid://dapl5kqkoj5pr" path="res://resources/GameResources/items/seeds/tomato_seed.tres" id="3_s5c6i"]
+[ext_resource type="Resource" uid="uid://dapl5kqkoj5pr" path="res://resources/items/seeds/tomato_seed.tres" id="3_s5c6i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kgdh"]
 atlas = ExtResource("1_w5nsd")

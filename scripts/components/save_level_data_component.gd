@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func save_player_data() -> void:
 	var player_node = get_tree().get_first_node_in_group("player_save_data_component")
-	print(player_node)
+	
 	if player_node != null and player_node is SaveDataComponent:
 		var save_data_resource: NodeDataResource = player_node._save_data()
 		player_data_resource = save_data_resource.duplicate()
@@ -51,16 +51,10 @@ func save_game() -> void:
 func load_game() -> void:
 	var level_save_file_name: String = save_file_name % level_scene_name
 	var save_game_path: String = save_user_data_path + level_save_file_name
-	var player_save_path: String = save_user_data_path + player_save_file_name
 	
 	var root_node: Window = get_tree().root
 	
-	player_data_resource = ResourceLoader.load(player_save_path)
-	
-	if player_data_resource != null:
-		player_data_resource._load_data(root_node)
-	if player_data_resource == null:
-		get_tree().root.get_child(-1).find_child("GameRoot").add_child(new_player())
+	load_player(root_node)
 	
 	if !FileAccess.file_exists(save_game_path):
 		return
@@ -75,8 +69,16 @@ func load_game() -> void:
 			if resource is NodeDataResource:
 				resource._load_data(root_node)
 
-func new_player() -> Player:
-	const PLAYER = preload("res://scenes/characters/player/player.tscn")
-	var player_scene = PLAYER.instantiate()
-	player_scene.global_position = Vector2(600, 500)
-	return player_scene
+# Loads the player data if player save file exists else creates a new instance of player
+func load_player(root_node: Window) -> void:
+	var player_save_path: String = save_user_data_path + player_save_file_name
+	
+	player_data_resource = ResourceLoader.load(player_save_path)
+	
+	if player_data_resource != null:
+		player_data_resource._load_data(root_node)
+	else:
+		const PLAYER = preload("res://scenes/characters/player/player.tscn")
+		var player_scene = PLAYER.instantiate()
+		player_scene.global_position = Vector2(600, 500)
+		root_node.get_child(-1).find_child("GameRoot").add_child(player_scene)

@@ -13,7 +13,13 @@ func _ready() -> void:
 func on_interactable_activated() -> void:
 	interactable_label_component.show()
 	in_range = true
+	process_mode = PROCESS_MODE_ALWAYS
 
 func on_interactable_deactivated() -> void:
 	interactable_label_component.hide()
 	in_range = false
+	process_mode = PROCESS_MODE_INHERIT
+
+func _unhandled_input(event: InputEvent) -> void:
+	if in_range and event.is_action_pressed("interact"):
+		GameManager.game_screen.toggle_crafting()

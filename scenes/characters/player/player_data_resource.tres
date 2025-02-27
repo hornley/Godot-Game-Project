@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://6pptsjokt7d2"]
 
-[ext_resource type="Script" path="res://resources/GameResources/quest_resource.gd" id="1_bom3y"]
+[ext_resource type="Script" path="res://resources/quest_resource.gd" id="1_bom3y"]
 [ext_resource type="Script" path="res://scenes/characters/player/player_data_resource.gd" id="2_77v2u"]
 
 [resource]

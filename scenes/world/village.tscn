@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://c4vohpfebojqf"]
 
-[ext_resource type="TileSet" uid="uid://gj4jww21bicc" path="res://tilesets/World_Tileset.tres" id="1_6ptms"]
+[ext_resource type="TileSet" uid="uid://gj4jww21bicc" path="res://assets/tilesets/World_Tileset.tres" id="1_6ptms"]
 [ext_resource type="Script" path="res://scripts/world/village.gd" id="1_j1h4e"]
 [ext_resource type="PackedScene" uid="uid://cfilcj7icd6up" path="res://audio/music/on_the_farm_music.tscn" id="1_vj3t2"]
 [ext_resource type="PackedScene" uid="uid://d0v0jfxch7yuu" path="res://scenes/components/save_level_data_component.tscn" id="2_r7vne"]

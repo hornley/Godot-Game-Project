@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://brwf7yaxghyos"]
+
+[ext_resource type="Script" path="res://resources/item_resource.gd" id="1_7lcgh"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="2_abjxi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke4ms"]
+atlas = ExtResource("2_abjxi")
+region = Rect2(112, 224, 16, 16)
+
+[resource]
+script = ExtResource("1_7lcgh")
+name = "Cucumber"
+description = "cucumber"
+category = 3
+value = 2.0
+texture = SubResource("AtlasTexture_ke4ms")

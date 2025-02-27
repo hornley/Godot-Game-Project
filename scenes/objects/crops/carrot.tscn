@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/objects/crops/scripts/crop_component.gd" id="1_fl2gi"]
 [ext_resource type="PackedScene" uid="uid://dnk5wlq2ic52" path="res://scenes/objects/collectibles/resources/carrot.tscn" id="2_xvck4"]
-[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/objects/Farming_Plants_v1.5.png" id="3_pbgu1"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="3_pbgu1"]
 [ext_resource type="PackedScene" uid="uid://cjneesawtlqgr" path="res://scenes/objects/crops/scripts/flowering_particles.tscn" id="4_ct8aq"]
 [ext_resource type="PackedScene" uid="uid://dc7lth3lb6qfe" path="res://scenes/objects/crops/scripts/watering_particles.tscn" id="5_5uc7i"]
 [ext_resource type="PackedScene" uid="uid://bqv1xj8no66j" path="res://scenes/objects/crops/scripts/growth_cycle_component.tscn" id="6_sqpej"]

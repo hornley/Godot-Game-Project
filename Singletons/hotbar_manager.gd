@@ -12,6 +12,12 @@ func _ready() -> void:
 	hotbar_array.resize(5)
 	hotbar_array.fill(null)
 
+func get_empty_slot() -> int:
+	for slot in hotbar_array:
+		if slot == null:
+			return hotbar_array.find(slot)
+	return -1
+
 func select_tool(tool: Util.Tools) -> void:
 	tool_selected.emit(tool)
 	equipped_item = tool

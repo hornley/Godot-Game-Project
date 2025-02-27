@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://d08beu6upca04"]
+
+[ext_resource type="Script" path="res://resources/item_resource.gd" id="1_yxduc"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="2_43ioy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y2ih"]
+atlas = ExtResource("2_43ioy")
+region = Rect2(0, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_yxduc")
+name = "Cauliflower Seed"
+description = "cauliflower seed"
+category = 4
+value = 1.0
+texture = SubResource("AtlasTexture_2y2ih")

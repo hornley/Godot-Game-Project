@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://8b1oiirh33h4"]
 
-[ext_resource type="Texture2D" uid="uid://dko68kk50nakh" path="res://assets/Interiors/Doors.png" id="1_ldeki"]
+[ext_resource type="Texture2D" uid="uid://dko68kk50nakh" path="res://assets/textures/interiors/Doors.png" id="1_ldeki"]
 [ext_resource type="Script" path="res://scripts/house/door_player_detect.gd" id="2_irsga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u17l6"]

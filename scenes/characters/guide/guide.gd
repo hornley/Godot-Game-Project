@@ -1,9 +1,9 @@
 extends Node2D
 
 var balloon_scene = preload("res://dialogue/game_dialogue_balloon.tscn")
-var wheat_seed_resource: ItemResource = preload("res://resources/GameResources/items/seeds/wheat_seed.tres")
-var tomato_seed_resource: ItemResource = preload("res://resources/GameResources/items/seeds/tomato_seed.tres")
-var axe_resource = preload("res://resources/GameResources/items/tools/axe.tres")
+var wheat_seed_resource: ItemResource = preload("res://resources/items/seeds/wheat_seed.tres")
+var tomato_seed_resource: ItemResource = preload("res://resources/items/seeds/tomato_seed.tres")
+var axe_resource = preload("res://resources/items/tools/axe.tres")
 @onready var interactable_component: InteractableComponent = $InteractableComponent
 @onready var interactable_label_component: Control = $InteractableLabelComponent
 
@@ -25,7 +25,7 @@ func on_interactable_deactivated() -> void:
 	in_range = false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if in_range and event.is_action_pressed("show_dialogue"):
+	if in_range and event.is_action_pressed("interact"):
 		var balloon: BaseGameDialogueBalloon = balloon_scene.instantiate()
 		get_tree().root.add_child(balloon)
 		balloon.start(load("res://dialogue/conversations/guide.dialogue"), "start")

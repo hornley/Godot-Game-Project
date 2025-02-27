@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://cfi54iingc8s8"]
 
 [ext_resource type="Script" path="res://scripts/ui/game_menu_screen_background.gd" id="1_6k4ep"]
-[ext_resource type="TileSet" uid="uid://gj4jww21bicc" path="res://tilesets/World_Tileset.tres" id="2_a8huy"]
+[ext_resource type="TileSet" uid="uid://gj4jww21bicc" path="res://assets/tilesets/World_Tileset.tres" id="2_a8huy"]
 [ext_resource type="PackedScene" uid="uid://b6yb1frxffcug" path="res://scenes/houses/small_house.tscn" id="3_2lbe8"]
 [ext_resource type="PackedScene" uid="uid://baj74gnng5lr6" path="res://scenes/characters/guide/guide.tscn" id="4_174bx"]
 [ext_resource type="PackedScene" uid="uid://cm1egwoonaa8g" path="res://scenes/characters/chicken/chicken.tscn" id="5_ldv16"]

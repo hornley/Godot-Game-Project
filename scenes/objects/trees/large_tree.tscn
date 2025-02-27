@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cxjh0yvq2rlhb"]
 
-[ext_resource type="Texture2D" uid="uid://wncvdfa6foj8" path="res://assets/Sprites/Basic_Grass_Biom_things.png" id="1_7qdyq"]
+[ext_resource type="Texture2D" uid="uid://wncvdfa6foj8" path="res://assets/textures/tilesets/nature/Basic_Grass_Biom_things.png" id="1_7qdyq"]
 [ext_resource type="Script" path="res://scenes/objects/trees/large_tree.gd" id="2_c2sso"]
 [ext_resource type="PackedScene" uid="uid://b54fl2s7kn1tl" path="res://scenes/components/hurt_component.tscn" id="2_e2icj"]
 [ext_resource type="PackedScene" uid="uid://dmg6ypkmadk4k" path="res://scenes/components/damage_component.tscn" id="4_8ggio"]

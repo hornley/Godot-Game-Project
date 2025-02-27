@@ -1,17 +1,18 @@
 [gd_scene load_steps=6 format=4 uid="uid://b6yb1frxffcug"]
 
 [ext_resource type="Script" path="res://scripts/house/house.gd" id="1_luqsr"]
-[ext_resource type="TileSet" uid="uid://bjwfeio612v48" path="res://tilesets/House_Tileset.tres" id="2_vgpmp"]
+[ext_resource type="TileSet" uid="uid://bjwfeio612v48" path="res://assets/tilesets/House_Tileset.tres" id="2_vgpmp"]
 [ext_resource type="PackedScene" uid="uid://8b1oiirh33h4" path="res://scenes/houses/interactable_objects/door.tscn" id="3_glh5y"]
 [ext_resource type="PackedScene" uid="uid://q13lkcj87vko" path="res://scenes/houses/interactable_objects/chest.tscn" id="4_molc3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv73m"]
 size = Vector2(112, 64)
 
-[node name="House" type="Node2D" node_paths=PackedStringArray("player_detect", "roof")]
+[node name="House" type="Node2D" node_paths=PackedStringArray("player_detect", "door", "roof")]
 y_sort_enabled = true
 script = ExtResource("1_luqsr")
 player_detect = NodePath("PlayerDetect")
+door = NodePath("TileMap/InteractableObjects/Door")
 roof = NodePath("TileMap/Roof")
 
 [node name="PlayerDetect" type="Area2D" parent="."]
@@ -52,7 +53,6 @@ tile_map_data = PackedByteArray("AAACAAIAAQADAAAAAAADAAIAAQAFAAEAAAAEAAIAAQAEAAE
 tile_set = ExtResource("2_vgpmp")
 
 [node name="Roof" type="TileMapLayer" parent="TileMap"]
-visible = false
 z_index = 1
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAAAAIABAABAAMAAAABAAIABAABAAMAAAACAAIABAABAAMAAAADAAIABAABAAMAAAAEAAIABAABAAMAAAAFAAIABAABAAMAAAAGAAIABAABAAMAAAD//wIABAAAAAMAAAAHAAIABAACAAMAAAAAAAMABAABAAMAAAABAAMABAABAAMAAAACAAMABAABAAMAAAADAAMABAABAAMAAAAEAAMABAABAAMAAAAFAAMABAABAAMAAAAGAAMABAABAAMAAAAAAP//BAABAAEAAAAAAAAABAABAAEAAAAAAAEABAABAAIAAAABAP//BAABAAEAAAABAAAABAABAAEAAAABAAEABAABAAIAAAACAP//BAABAAEAAAACAAAABAABAAEAAAACAAEABAABAAIAAAADAP//BAABAAEAAAADAAAABAABAAEAAAADAAEABAABAAIAAAAEAP//BAABAAEAAAAEAAAABAABAAEAAAAEAAEABAABAAIAAAAFAP//BAABAAEAAAAFAAAABAABAAEAAAAFAAEABAABAAIAAAAGAP//BAABAAEAAAAGAAAABAABAAEAAAAGAAEABAABAAIAAAD//wEABAAAAAIAAAAHAAEABAACAAIAAAAHAAMABAACAAMAAAAHAAQABAACAAQAAAD//wQABAAAAAQAAAD//wMABAAAAAMAAAAAAAQABAABAAQAAAABAAQABAABAAQAAAACAAQABAABAAQAAAADAAQABAABAAQAAAAEAAQABAABAAQAAAAFAAQABAABAAQAAAAGAAQABAABAAQAAAD/////BAAAAAEAAAD//wAABAAAAAEAAAAHAP//BAACAAEAAAAHAAAABAACAAEAAAAHAP7/BAACAAAAAAD///7/BAAAAAAAAAAAAP7/BAABAAAAAAABAP7/BAABAAAAAAACAP7/BAABAAAAAAADAP7/BAABAAAAAAAEAP7/BAABAAAAAAAFAP7/BAABAAAAAAAGAP7/BAABAAAAAAA=")

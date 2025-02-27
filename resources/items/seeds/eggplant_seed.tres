@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://dcnkgb53bhy7g"]
+
+[ext_resource type="Script" path="res://resources/item_resource.gd" id="1_617f7"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="2_fry3i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd8u5"]
+atlas = ExtResource("2_fry3i")
+region = Rect2(0, 80, 16, 16)
+
+[resource]
+script = ExtResource("1_617f7")
+name = "Eggplant Seed"
+description = "eggplant seed"
+category = 4
+value = 3.0
+texture = SubResource("AtlasTexture_hd8u5")

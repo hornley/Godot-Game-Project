@@ -9,13 +9,12 @@ var is_open: bool = false
 
 func _ready() -> void:
 	connect_slots()
-	update()
 
 func connect_slots() -> void:
 	for slot in slots:
 		slot.pressed.connect(func(): on_slot_pressed(slot))
 
-func update() -> void:
+func update(crafting_station: Util.CraftingStations) -> void:
 	var index: int = 0
 	for item_recipe_name in GameDataManager.item_recipes.keys():
 		var item_recipe: ItemRecipeResource = GameDataManager.get_item_recipe(item_recipe_name)
@@ -45,8 +44,8 @@ func on_slot_pressed(slot) -> void:
 	craft_button_instance.pressed.connect(func(): on_craft_button_pressed(item_recipe_resource))
 	v_box_container.add_child(craft_button_instance)
 
-func open():
-	update()
+func open(crafting_station: Util.CraftingStations):
+	update(crafting_station)
 	visible = true
 	is_open = true
 

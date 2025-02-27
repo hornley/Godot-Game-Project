@@ -6,18 +6,24 @@ extends Node2D
 @onready var growth_cycle_component: GrowthCycleComponent = $GrowthCycleComponent
 @onready var hurt_component: HurtComponent = $HurtComponent
 
-var start_frame_offset: int
 @export var harvest_scene: PackedScene
-
+var start_frame_offset: int
+var crop_overhead_component: Control
+const CROP_OVERHEAD_COMPONENT = preload("res://scenes/objects/crops/crop_overhead_component.tscn")
+var state_texture: Dictionary = {
+	"Water": preload("res://scenes/objects/crops/water_texture.tres")
+}
 var growth_state: Util.GrowthStates
 
 func _unhandled_input(event: InputEvent) -> void:
-	#if event.is_action_pressed("interact"):
-		#fertilize(3)
 	pass
 
 func _ready() -> void:
 	start_frame_offset = sprite_2d.frame
+	var crop_overhead_instance = CROP_OVERHEAD_COMPONENT.instantiate()
+	add_child(crop_overhead_instance)
+	crop_overhead_instance.change_texture(state_texture["Water"])
+	crop_overhead_component = crop_overhead_instance
 	
 	watering_particles.emitting = false
 	flowering_particles.emitting = false
@@ -32,11 +38,17 @@ func _process(delta: float) -> void:
 	
 	if growth_state == Util.GrowthStates.Flowering:
 		flowering_particles.emitting = true
+	
+	if !growth_cycle_component.is_watered:
+		crop_overhead_component.change_texture(state_texture["Water"])
+		crop_overhead_component.visible = true
 
 func on_hurt(hit_damage: int) -> void:
 	if !growth_cycle_component.is_watered:
 		watering_particles.emitting = true
-		await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(3).timeout
+		crop_overhead_component.change_texture(null)
+		crop_overhead_component.visible = false
 		watering_particles.emitting = false
 		growth_cycle_component.is_watered = true
 

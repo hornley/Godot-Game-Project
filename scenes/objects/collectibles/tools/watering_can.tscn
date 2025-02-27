@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://d0g784flvjxkv"]
 
-[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/objects/items-spritesheet.png" id="1_nltyb"]
+[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="1_nltyb"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_rwqd1"]
-[ext_resource type="Resource" uid="uid://dhtnl7pgtuk0r" path="res://resources/GameResources/items/tools/watering_can.tres" id="3_7idns"]
+[ext_resource type="Resource" uid="uid://dhtnl7pgtuk0r" path="res://resources/items/tools/watering_can.tres" id="3_7idns"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xiq6f"]
 atlas = ExtResource("1_nltyb")

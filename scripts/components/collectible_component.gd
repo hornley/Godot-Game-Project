@@ -15,7 +15,7 @@ func _on_body_entered(body: Node2D) -> void:
 		if item_name == "Coin":
 			var player = body as Player
 			PlayerManager.add_coin(amount)
+			get_parent().queue_free()
 		else:
-			PlayerManager.add_item(item_name, item_resource, amount)
-			print("Collected", item_name)
-		get_parent().queue_free()
+			if PlayerManager.add_item(item_name, item_resource, amount):
+				get_parent().queue_free()

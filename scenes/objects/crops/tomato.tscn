@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b54fl2s7kn1tl" path="res://scenes/components/hurt_component.tscn" id="1_85j84"]
 [ext_resource type="Script" path="res://scenes/objects/crops/scripts/crop_component.gd" id="1_uso15"]
-[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/objects/Farming_Plants_v1.5.png" id="2_g0n31"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="2_g0n31"]
 [ext_resource type="PackedScene" uid="uid://n0lx08kmqa20" path="res://scenes/objects/collectibles/resources/tomato.tscn" id="2_y1nj3"]
 [ext_resource type="PackedScene" uid="uid://cjneesawtlqgr" path="res://scenes/objects/crops/scripts/flowering_particles.tscn" id="3_53nry"]
 [ext_resource type="PackedScene" uid="uid://dc7lth3lb6qfe" path="res://scenes/objects/crops/scripts/watering_particles.tscn" id="4_237yr"]

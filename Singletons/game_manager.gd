@@ -6,6 +6,11 @@ var main_scene_root_path: String = "/root/MainScene"
 var main_scene_world_root_path: String = "/root/MainScene/GameRoot/Worlds"
 var allow_save_game: bool
 
+var auto_save: bool
+var auto_save_interval = 300 # 60 = 1min
+
+var game_screen: GameScreen
+
 var world_scenes: Dictionary = {
 	Util.Worlds.Village : "res://scenes/world/village.tscn",
 	Util.Worlds.Home : "res://scenes/world/home.tscn"
@@ -20,10 +25,17 @@ func _unhandled_input(event: InputEvent) -> void:
 func start_game() -> void:
 	load_main_scene_container()
 	load_world(Util.Worlds.Home) 
-	GameDataManager.load_resources_recursive("res://resources/GameResources/items/")
+	GameDataManager.load_resources_recursive("res://resources/items/")
 	
 	load_game()
 	allow_save_game = true
+	
+	if auto_save:
+		var auto_save_timer = Timer.new()
+		auto_save_timer.wait_time = auto_save_interval
+		auto_save_timer.autostart = true
+		auto_save_timer.timeout.connect(on_auto_save)
+		add_child(auto_save_timer)
 
 func exit_game() -> void:
 	get_tree().quit()
@@ -62,6 +74,10 @@ func load_world(world: Util.Worlds) -> void:
 		
 		worlds_root.add_child(world_scene)
 		current_world = world
+
+func on_auto_save() -> void:
+	save_game()
+	game_screen.toggle_auto_save_notification()
 
 func save_game() -> void:
 	var save_level_data_component: SaveLevelDataComponent = get_tree().get_first_node_in_group("save_level_data_component")

@@ -12,7 +12,6 @@ func _ready() -> void:
 	PlayerManager.inventory_changed.connect(on_inventory_changed)
 	GameDialogueManager.trade_crops.connect(on_trade_crops)
 
-
 func play_emote(animation: String) -> void:
 	animated_sprite.play(animation)
 
@@ -22,7 +21,9 @@ func _on_emote_idle_timer_timeout() -> void:
 	
 	animated_sprite.play(emote)
 
-func on_inventory_changed() -> void:
+func on_inventory_changed(item: ItemResource) -> void:
+	if item == null:
+		return
 	animated_sprite.play("emote_7_excited")
 
 func on_trade_crops() -> void:

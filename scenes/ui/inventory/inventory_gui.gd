@@ -14,8 +14,10 @@ func _ready() -> void:
 	update()
 	connect_hotbar()
 
-func on_inventory_changed() -> void:
+func on_inventory_changed(item: ItemResource) -> void:
 	update()
+	if item:
+		insert_on_hotbar(item)
 
 func connect_hotbar() -> void:
 	for slot in hotbar_gui.slots:
@@ -133,3 +135,11 @@ func equip_on_hotbar(slot) -> void:
 	var index = hotbar_gui.slots.find(slot)
 	put_item_back()
 	HotbarManager.insert_to_hotbar(index, item.item_resource)
+
+func insert_on_hotbar(item: ItemResource) -> void:
+	var hotbar_empty_slot = HotbarManager.get_empty_slot()
+	if hotbar_empty_slot == -1:
+		return
+	
+	if item not in HotbarManager.hotbar_array:
+		HotbarManager.insert_to_hotbar(hotbar_empty_slot, item)
