@@ -16,8 +16,6 @@ func _ready() -> void:
 
 func on_inventory_changed(item: ItemResource) -> void:
 	update()
-	if item:
-		insert_on_hotbar(item)
 
 func connect_hotbar() -> void:
 	for slot in hotbar_gui.slots:
@@ -32,20 +30,20 @@ func connect_slots() -> void:
 		slot.pressed.connect(callable)
 
 func update() -> void:
+	for key in PlayerManager.inventory.keys():
+		var value = PlayerManager.inventory[key]
+		var index = value["Index"]
+		
+		var inventory_item_stack: InventoryItemStack = slots[index].item_stack
+		if !inventory_item_stack:
+			inventory_item_stack = inventory_item_stack_scene.instantiate()
+			slots[index].update(inventory_item_stack)
+		
+		inventory_item_stack.update(value["ItemResource"], value["Amount"])
+	
 	for slot in slots:
 		var item_resource: ItemResource = slot.get_item_resource()
-		if !item_resource:
-			for key in PlayerManager.inventory.keys():
-				var value = PlayerManager.inventory[key]
-				var index = value["Index"]
-				
-				var inventory_item_stack: InventoryItemStack = slots[index].item_stack
-				if !inventory_item_stack:
-					inventory_item_stack = inventory_item_stack_scene.instantiate()
-					slots[index].update(inventory_item_stack)
-				
-				inventory_item_stack.update(value["ItemResource"], value["Amount"])
-		elif PlayerManager.inventory.has(item_resource.name):
+		if item_resource and PlayerManager.inventory.has(item_resource.name):
 			var value = PlayerManager.inventory[item_resource.name]
 			var index = value["Index"]
 			
@@ -80,6 +78,8 @@ func on_slot_pressed(slot) -> void:
 
 func take_item_from_slot(slot):
 	item_in_hand = slot.take_item()
+	if item_in_hand.get_parent():
+		item_in_hand.get_parent().remove_child(item_in_hand)
 	if item_in_hand:
 		add_child(item_in_hand)
 		update_item_in_hand()
@@ -90,8 +90,8 @@ func insert_item_from_slot(slot):
 	
 	remove_child(item_in_hand)
 	item_in_hand = null
-	PlayerManager.move_item(item.item_resource.name, index)
 	
+	PlayerManager.move_item(item.item_resource.name, index)
 	slot.update(item)
 
 func swap_item_slots(slot):
@@ -102,24 +102,25 @@ func swap_item_slots(slot):
 	
 	remove_child(item_in_hand)
 	item_in_hand = null
-	PlayerManager.swap_item(item.item_resource.name, new_index, to_swap_item.item_resource.name, old_index)
 	
 	slot.update(item)
 	slots[old_index].update(to_swap_item)
+	PlayerManager.swap_item(item.item_resource.name, new_index, to_swap_item.item_resource.name, old_index)
 
 func update_item_in_hand() -> void:
 	if !item_in_hand: return
 	
 	item_in_hand.global_position = get_global_mouse_position() - item_in_hand.size / 2
+	item_in_hand.z_index = 2
 
 func put_item_back() -> void:
 	var item = item_in_hand
 	var index = PlayerManager.inventory[item.item_resource.name]["Index"]
 	
+	slots[index].update(item_in_hand)
+	
 	remove_child(item_in_hand)
 	item_in_hand = null
-	
-	slots[index].update(item)
 
 func _input(event: InputEvent) -> void:
 	if item_in_hand and event.is_action_pressed("right_click"):
@@ -135,11 +136,3 @@ func equip_on_hotbar(slot) -> void:
 	var index = hotbar_gui.slots.find(slot)
 	put_item_back()
 	HotbarManager.insert_to_hotbar(index, item.item_resource)
-
-func insert_on_hotbar(item: ItemResource) -> void:
-	var hotbar_empty_slot = HotbarManager.get_empty_slot()
-	if hotbar_empty_slot == -1:
-		return
-	
-	if item not in HotbarManager.hotbar_array:
-		HotbarManager.insert_to_hotbar(hotbar_empty_slot, item)

@@ -55,7 +55,6 @@ func remove_item(item_name: String) -> void:
 		if HotbarManager.hotbar_array.find(inventory[item_name]["ItemResource"]) != -1:
 			HotbarManager.remove_from_hotbar(HotbarManager.hotbar_array.find(inventory[item_name]["ItemResource"]))
 			HotbarManager.unequip_item()
-			print(HotbarManager.equipped_item)
 		inventory.erase(item_name)
 	else:
 		inventory[item_name]["Amount"] -= 1
@@ -65,6 +64,7 @@ func remove_item(item_name: String) -> void:
 func move_item(item_name: String, new_index: int) -> void:
 	empty_inventory_slot.append(inventory[item_name]["Index"])
 	inventory[item_name]["Index"] = new_index
+	empty_inventory_slot.remove_at(new_index)
 	empty_inventory_slot.sort()
 	
 	inventory_changed.emit(null)

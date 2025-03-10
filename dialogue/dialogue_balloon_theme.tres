@@ -1,9 +1,6 @@
-[gd_resource type="Theme" load_steps=18 format=3 uid="uid://cajb1vq6nqo3c"]
-
-[ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="1_thdjs"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://cajb1vq6nqo3c"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_54f32"]
-load_path = "res://.godot/imported/basic_ui_sprites.png-f1365ff47f1f008f610f3c558cf47256.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00c5c"]
 atlas = SubResource("CompressedTexture2D_54f32")
@@ -17,7 +14,6 @@ texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aen17"]
-load_path = "res://.godot/imported/basic_ui_sprites.png-f1365ff47f1f008f610f3c558cf47256.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gt61n"]
 atlas = SubResource("CompressedTexture2D_aen17")
@@ -31,7 +27,6 @@ texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_njuae"]
-load_path = "res://.godot/imported/basic_ui_sprites.png-f1365ff47f1f008f610f3c558cf47256.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24bx1"]
 atlas = SubResource("CompressedTexture2D_njuae")
@@ -45,7 +40,6 @@ texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_io7iy"]
-atlas = ExtResource("1_thdjs")
 region = Rect2(59, 155, 26, 26)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oyvre"]
@@ -56,7 +50,6 @@ texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v5plb"]
-load_path = "res://.godot/imported/basic_ui_sprites.png-f1365ff47f1f008f610f3c558cf47256.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bp2u2"]
 atlas = SubResource("CompressedTexture2D_v5plb")
@@ -70,7 +63,6 @@ texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evqc0"]
-atlas = ExtResource("1_thdjs")
 region = Rect2(259, 180, 90, 25)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gehov"]

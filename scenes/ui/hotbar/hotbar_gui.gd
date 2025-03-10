@@ -7,6 +7,7 @@ var toggled_slot: Node
 
 func _ready() -> void:
 	HotbarManager.hotbar_changed.connect(on_hotbar_changed)
+	PlayerManager.inventory_changed.connect(on_inventory_changed)
 	slots = $NinePatchRect/HBoxContainer.get_children()
 	var index = 1
 	for slot in slots:
@@ -27,6 +28,10 @@ func update() -> void:
 				toggled_slot.change_animated_sprite_frame(0)
 				toggled_slot = null
 			slot.update(null)
+
+func on_inventory_changed(item: ItemResource) -> void:
+	if item:
+		insert_on_hotbar(item)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
@@ -64,3 +69,11 @@ func equip_item(index: int) -> void:
 		HotbarManager.unequip_item()
 		toggled_slot = null
 		slot.change_animated_sprite_frame(0)
+
+func insert_on_hotbar(item: ItemResource) -> void:
+	var hotbar_empty_slot = HotbarManager.get_empty_slot()
+	if hotbar_empty_slot == -1:
+		return
+	
+	if item not in HotbarManager.hotbar_array:
+		HotbarManager.insert_to_hotbar(hotbar_empty_slot, item)

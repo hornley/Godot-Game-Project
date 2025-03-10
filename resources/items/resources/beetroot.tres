@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://bpxxpxwhs4426"]
 
 [ext_resource type="Script" path="res://resources/item_resource.gd" id="1_kl2vw"]
-[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="2_gsdb3"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="2_7oddh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ke4ms"]
-atlas = ExtResource("2_gsdb3")
+atlas = ExtResource("2_7oddh")
 region = Rect2(112, 192, 16, 16)
 
 [resource]

@@ -18,6 +18,7 @@ script = ExtResource("2_pxuim")
 layout_mode = 0
 offset_left = -80.0
 offset_bottom = 26.0
+theme = ExtResource("1_ab0xc")
 theme_type_variation = &"DayAndNightCounterPanel"
 
 [node name="MarginContainer" type="MarginContainer" parent="DayPanel"]
@@ -30,14 +31,16 @@ theme_override_constants/margin_bottom = 3
 [node name="DayLabel" type="Label" parent="DayPanel/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("1_ab0xc")
 theme_type_variation = &"DayAndNightLabel"
 text = "DAY 0"
 
 [node name="TimePanel" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_left = -80.0
-offset_top = 29.0
-offset_bottom = 55.0
+offset_top = 28.0
+offset_bottom = 54.0
+theme = ExtResource("1_ab0xc")
 theme_type_variation = &"DayAndNightCounterPanel"
 
 [node name="MarginContainer" type="MarginContainer" parent="TimePanel"]
@@ -50,14 +53,15 @@ theme_override_constants/margin_bottom = 3
 [node name="TimeLabel" type="Label" parent="TimePanel/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("1_ab0xc")
 theme_type_variation = &"DayAndNightLabel"
 text = "00:00"
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
 offset_left = -80.0
-offset_top = 57.0
-offset_bottom = 75.0
+offset_top = 56.0
+offset_bottom = 74.0
 
 [node name="NormalSpeedButton" type="Button" parent="Control"]
 layout_mode = 0
