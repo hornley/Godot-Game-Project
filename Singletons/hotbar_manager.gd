@@ -34,7 +34,7 @@ func equip_item(index: int) -> bool:
 	if !hotbar_array[index]:
 		return false
 	var item = hotbar_array[index]
-	print(item.name)
+	print("Hotbar: " + item.name)
 	
 	if item.category == Util.ItemCategories.Tool:
 		var tool: Util.Tools

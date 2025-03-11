@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://cm0ox13o6dmms" path="res://assets/tilesets/world_terrain_tileset.tres" id="1_eqgq7"]
 [ext_resource type="TileSet" uid="uid://bnx1xqubv247v" path="res://assets/tilesets/world_vegetation_tileset.tres" id="2_evry8"]
-[ext_resource type="PackedScene" uid="uid://b6yb1frxffcug" path="res://scenes/houses/small_house.tscn" id="2_yusf5"]
+[ext_resource type="PackedScene" uid="uid://s3dbqy84x5iw" path="res://scenes/houses/small_house.tscn" id="2_yusf5"]
 [ext_resource type="TileSet" uid="uid://dpo2y42t3gi6u" path="res://assets/tilesets/world_objects_tileset.tres" id="3_eq82c"]
 [ext_resource type="PackedScene" uid="uid://cfibfkgb5e8xw" path="res://scenes/components/field_cursor_component.tscn" id="3_fbosd"]
 [ext_resource type="PackedScene" uid="uid://mhj4m4mcpj15" path="res://scenes/components/object_cursor_component.tscn" id="4_7lgf0"]

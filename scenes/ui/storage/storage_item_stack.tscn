@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://6fik4kdfbsle"]
+[gd_scene load_steps=3 format=3 uid="uid://cnd3o7ivrc5uh"]
 
-[ext_resource type="Script" path="res://scenes/ui/inventory/inventory_item_stack.gd" id="1_3pnky"]
-[ext_resource type="FontFile" uid="uid://bf2c23lb7imb3" path="res://assets/ui/fonts/pixelFont-2-5x5-sproutLands.ttf" id="1_sheub"]
+[ext_resource type="Script" uid="uid://y8v6sg73awcl" path="res://scenes/ui/storage/storage_item_stack.gd" id="1_7lyif"]
+[ext_resource type="FontFile" uid="uid://bf2c23lb7imb3" path="res://assets/ui/fonts/pixelFont-2-5x5-sproutLands.ttf" id="2_wjauq"]
 
-[node name="InventoryItemStack" type="Panel"]
-script = ExtResource("1_3pnky")
+[node name="StorageItemStack" type="Panel"]
+script = ExtResource("1_7lyif")
 
 [node name="ItemTexture" type="Sprite2D" parent="."]
 scale = Vector2(1.76563, 1.83594)
@@ -23,6 +23,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.506832, 0.752617, 0.705451, 1)
-theme_override_fonts/font = ExtResource("1_sheub")
+theme_override_fonts/font = ExtResource("2_wjauq")
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1

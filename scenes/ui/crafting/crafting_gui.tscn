@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://blo8akvfh8vc1"]
 
 [ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="1_rmg81"]
-[ext_resource type="Script" path="res://scenes/ui/crafting/crafting_gui.gd" id="1_uijch"]
+[ext_resource type="Script" uid="uid://csu7wc6vvvnve" path="res://scenes/ui/crafting/crafting_gui.gd" id="1_uijch"]
 [ext_resource type="PackedScene" uid="uid://c46372durij8l" path="res://scenes/ui/crafting/craftable_item_slot.tscn" id="3_1s0fv"]
 [ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="4_51dyh"]
 

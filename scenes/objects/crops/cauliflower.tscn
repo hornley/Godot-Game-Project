@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bgxm8fmofttt"]
 
-[ext_resource type="Script" path="res://scenes/objects/crops/scripts/crop_component.gd" id="1_bfe00"]
+[ext_resource type="Script" uid="uid://cx7if2c0txeag" path="res://scenes/objects/crops/scripts/crop_component.gd" id="1_bfe00"]
 [ext_resource type="PackedScene" uid="uid://cq663wr32fxga" path="res://scenes/objects/collectibles/resources/cauliflower.tscn" id="2_uto5u"]
 [ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="3_58trt"]
 [ext_resource type="PackedScene" uid="uid://cjneesawtlqgr" path="res://scenes/objects/crops/scripts/flowering_particles.tscn" id="4_mkkf7"]

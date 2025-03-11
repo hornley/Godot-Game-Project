@@ -1,6 +1,7 @@
 class_name SaveLevelDataComponent
 extends Node
 
+@export var spawn_point_marker: Marker2D
 var level_scene_name: String
 var save_user_data_path: String = "user://save_data/"
 var save_file_name: String = "save_%s_game_data.tres"
@@ -73,12 +74,11 @@ func load_game() -> void:
 func load_player(root_node: Window) -> void:
 	var player_save_path: String = save_user_data_path + player_save_file_name
 	
-	player_data_resource = ResourceLoader.load(player_save_path)
-	
-	if player_data_resource != null:
+	if FileAccess.file_exists(player_save_path):
+		player_data_resource = ResourceLoader.load(player_save_path)
 		player_data_resource._load_data(root_node)
 	else:
 		const PLAYER = preload("res://scenes/characters/player/player.tscn")
 		var player_scene = PLAYER.instantiate()
-		player_scene.global_position = Vector2(600, 500)
+		player_scene.global_position = spawn_point_marker.global_position
 		root_node.get_child(-1).find_child("GameRoot").add_child(player_scene)

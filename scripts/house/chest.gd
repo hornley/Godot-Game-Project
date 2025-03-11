@@ -1,28 +1,37 @@
 extends StaticBody2D
 
+@onready var interactable_component: InteractableComponent = $InteractableComponent
+@onready var interactable_label_component: Control = $InteractableLabelComponent
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var storage_component:  = $StorageComponent
 var is_open: bool = false
+var in_range: bool = false
 
+func _ready() -> void:
+	interactable_component.interactable_activated.connect(on_interactable_activated)
+	interactable_component.interactable_deactivated.connect(on_interactable_deactivated)
+	interactable_label_component.hide()
+	
+func on_interactable_activated() -> void:
+	interactable_label_component.show()
+	in_range = true
+	process_mode = PROCESS_MODE_ALWAYS
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	animated_sprite.play("open")
-	is_open = true
-
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	animated_sprite.play("close")
+func on_interactable_deactivated() -> void:
+	interactable_label_component.hide()
+	in_range = false
+	process_mode = PROCESS_MODE_INHERIT
+	if is_open:
+		animated_sprite.play("close")
 	is_open = false
 
-
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		print("Chest Opened!")
-
-
-func _on_area_2d_mouse_entered() -> void:
-	if is_open:
-		Input.set_custom_mouse_cursor(Util.cursors["open"])
-
-
-func _on_area_2d_mouse_exited() -> void:
-		Input.set_custom_mouse_cursor(Util.cursors["default"])
+func _unhandled_input(event: InputEvent) -> void:
+	if in_range and event.is_action_pressed("interact"):
+		if !is_open:
+			animated_sprite.play("open")
+			is_open = true
+		else:
+			animated_sprite.play("close")
+			is_open = false
+		await animated_sprite.animation_finished
+		GameManager.game_screen.toggle_storage(storage_component)

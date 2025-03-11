@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://s1ssx6c7rikx"]
 
-[ext_resource type="Script" path="res://scenes/objects/crops/scripts/crop_component.gd" id="1_xvn1i"]
+[ext_resource type="Script" uid="uid://cx7if2c0txeag" path="res://scenes/objects/crops/scripts/crop_component.gd" id="1_xvn1i"]
 [ext_resource type="PackedScene" uid="uid://w8282283w74r" path="res://scenes/objects/collectibles/resources/eggplant.tscn" id="2_tcmd1"]
 [ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="3_tmpye"]
 [ext_resource type="PackedScene" uid="uid://cjneesawtlqgr" path="res://scenes/objects/crops/scripts/flowering_particles.tscn" id="4_xc4h6"]

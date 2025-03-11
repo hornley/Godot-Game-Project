@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://36nnj7cxvqwd"]
 
-[ext_resource type="Script" path="res://scenes/characters/farmer/farmer.gd" id="1_bogan"]
+[ext_resource type="Script" uid="uid://dk6trofcwfqt3" path="res://scenes/characters/farmer/farmer.gd" id="1_bogan"]
 [ext_resource type="Texture2D" uid="uid://ddka2yph1rrgi" path="res://assets/textures/characters/Green-Cap-Character-16x18.png" id="2_5ajmb"]
 [ext_resource type="PackedScene" uid="uid://8k458glwmmiv" path="res://scenes/components/interactable_component.tscn" id="3_jofri"]
 [ext_resource type="PackedScene" uid="uid://brd432bw8nq0k" path="res://scenes/components/interactable_label_component.tscn" id="4_jwbsk"]

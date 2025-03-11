@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="1_vrq5v"]
 [ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="2_vp7ny"]
-[ext_resource type="Script" path="res://scenes/ui/hotbar/hotbar_gui.gd" id="2_w7q5f"]
+[ext_resource type="Script" uid="uid://ch12bvbeixk3s" path="res://scenes/ui/hotbar/hotbar_gui.gd" id="2_w7q5f"]
 [ext_resource type="PackedScene" uid="uid://c3y3cehn5xhaj" path="res://scenes/ui/hotbar/hotbar_slot.tscn" id="3_bqwcn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bi52q"]

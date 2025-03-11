@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://8b1oiirh33h4"]
 
 [ext_resource type="Texture2D" uid="uid://dko68kk50nakh" path="res://assets/textures/interiors/Doors.png" id="1_ldeki"]
-[ext_resource type="Script" path="res://scripts/house/door_player_detect.gd" id="2_irsga"]
+[ext_resource type="Script" uid="uid://d4epudd7fx5sv" path="res://scripts/house/door_player_detect.gd" id="2_irsga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u17l6"]
 size = Vector2(16, 16)
@@ -83,11 +83,9 @@ collision_mask = 90
 script = ExtResource("2_irsga")
 
 [node name="BlockPlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(8, -8)
 shape = SubResource("RectangleShape2D_u17l6")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(8, -8)
 collision_layer = 2
 collision_mask = 8
 
@@ -95,7 +93,6 @@ collision_mask = 8
 shape = SubResource("RectangleShape2D_l5s8t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(8, -8)
 sprite_frames = SubResource("SpriteFrames_2vg07")
 animation = &"open"
 autoplay = "default"

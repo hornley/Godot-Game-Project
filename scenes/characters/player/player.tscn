@@ -1,17 +1,19 @@
-[gd_scene load_steps=15 format=3 uid="uid://07cfy2qe8hvm"]
+[gd_scene load_steps=17 format=3 uid="uid://07cfy2qe8hvm"]
 
-[ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_y2nvy"]
+[ext_resource type="Script" uid="uid://ditrbh1dj8xak" path="res://scenes/characters/player/player.gd" id="1_y2nvy"]
 [ext_resource type="SpriteFrames" uid="uid://c1v738j6fnukf" path="res://scenes/characters/player/player_animation.tres" id="2_bsjih"]
-[ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="4_n7mtf"]
-[ext_resource type="Script" path="res://scenes/characters/player/idle_state.gd" id="5_2ybnq"]
-[ext_resource type="Script" path="res://scenes/characters/player/move_state.gd" id="6_gg4mv"]
-[ext_resource type="Script" path="res://scenes/characters/player/chopping_state.gd" id="7_l86yb"]
-[ext_resource type="Script" path="res://scenes/characters/player/tilling_state.gd" id="8_qono8"]
-[ext_resource type="Script" path="res://scenes/characters/player/mining_state.gd" id="9_2fqob"]
+[ext_resource type="Script" uid="uid://10t3wkh2uxgn" path="res://scripts/state_machine/node_state_machine.gd" id="4_n7mtf"]
+[ext_resource type="Script" uid="uid://bvcyuhdh421pc" path="res://scenes/characters/player/idle_state.gd" id="5_2ybnq"]
+[ext_resource type="Script" uid="uid://d2vqdqt1e8eg6" path="res://scenes/characters/player/move_state.gd" id="6_gg4mv"]
+[ext_resource type="Script" uid="uid://dcyi5rch36lp8" path="res://scenes/characters/player/chopping_state.gd" id="7_l86yb"]
+[ext_resource type="Script" uid="uid://besdbnyojs747" path="res://scenes/characters/player/tilling_state.gd" id="8_qono8"]
+[ext_resource type="Script" uid="uid://di161dvdr0n6c" path="res://scenes/characters/player/mining_state.gd" id="9_2fqob"]
 [ext_resource type="PackedScene" uid="uid://bo8xlv3im1iga" path="res://scenes/components/hit_component.tscn" id="9_o4kdi"]
-[ext_resource type="Script" path="res://scenes/characters/player/watering_state.gd" id="10_6nw22"]
+[ext_resource type="Script" uid="uid://b570k3pp7j1uj" path="res://scenes/characters/player/watering_state.gd" id="10_6nw22"]
 [ext_resource type="PackedScene" uid="uid://dvpxrqy62tikh" path="res://scenes/components/save_data_component.tscn" id="11_1gmjo"]
 [ext_resource type="Resource" uid="uid://6pptsjokt7d2" path="res://scenes/characters/player/player_data_resource.tres" id="12_0hvyg"]
+[ext_resource type="PackedScene" uid="uid://dpq64johhhuo6" path="res://scenes/components/storage_component.tscn" id="13_blysn"]
+[ext_resource type="Script" uid="uid://d1ujvoy1q7xlb" path="res://scenes/characters/player/camera.gd" id="14_hv5x3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_04k14"]
 radius = 4.0
@@ -28,7 +30,7 @@ script = ExtResource("1_y2nvy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = ExtResource("2_bsjih")
-animation = &"idle_front"
+animation = &"move_right"
 autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -83,5 +85,10 @@ shape = SubResource("CircleShape2D_4ukrm")
 [node name="SaveDataComponent" parent="." instance=ExtResource("11_1gmjo")]
 save_data_resource = ExtResource("12_0hvyg")
 
+[node name="StorageComponent" parent="." instance=ExtResource("13_blysn")]
+size = 25
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+script = ExtResource("14_hv5x3")

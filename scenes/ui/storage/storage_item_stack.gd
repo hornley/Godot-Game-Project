@@ -1,4 +1,4 @@
-class_name InventoryItemStack extends Panel
+class_name StorageItemStack extends Panel
 
 @onready var item_texture: Sprite2D = $ItemTexture
 @onready var item_amount_label: Label = $ItemAmountLabel

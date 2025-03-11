@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://y5xh26x2hxp"]
 
-[ext_resource type="Script" path="res://scenes/characters/cow/cow.gd" id="1_y4i8y"]
+[ext_resource type="Script" uid="uid://vocwnfiucfth" path="res://scenes/characters/cow/cow.gd" id="1_y4i8y"]
 [ext_resource type="Texture2D" uid="uid://cmayxbfmg1gwx" path="res://assets/textures/characters/Free Cow Sprites.png" id="2_7rwgh"]
-[ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="3_abytm"]
-[ext_resource type="Script" path="res://scenes/characters/cow/idle_state.gd" id="4_mn3yh"]
-[ext_resource type="Script" path="res://scenes/characters/cow/move_state.gd" id="5_fefx6"]
+[ext_resource type="Script" uid="uid://10t3wkh2uxgn" path="res://scripts/state_machine/node_state_machine.gd" id="3_abytm"]
+[ext_resource type="Script" uid="uid://68lqy10to40p" path="res://scenes/characters/cow/idle_state.gd" id="4_mn3yh"]
+[ext_resource type="Script" uid="uid://dpbtrgv2cwx2n" path="res://scenes/characters/cow/move_state.gd" id="5_fefx6"]
 [ext_resource type="PackedScene" uid="uid://dkoni4wf6w4vl" path="res://scenes/components/audio_play_time_component.tscn" id="6_e3f6r"]
 [ext_resource type="PackedScene" uid="uid://daadlqurx7406" path="res://audio/sfx/cow_moo_sfx.tscn" id="7_b3fsw"]
 

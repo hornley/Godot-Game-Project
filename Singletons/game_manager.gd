@@ -10,12 +10,14 @@ var auto_save: bool
 var auto_save_interval = 300 # 60 = 1min
 
 var game_screen: GameScreen
+var on_game_menu_screen: bool
 
 var world_scenes: Dictionary = {
 	Util.Worlds.Village : "res://scenes/world/village.tscn",
 	Util.Worlds.Home : "res://scenes/world/home.tscn"
 }
 var current_world: Util.Worlds
+var current_world_scene: Node
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -43,6 +45,7 @@ func exit_game() -> void:
 func show_game_menu_screen() -> void:
 	var game_menu_screen_instance = game_menu_screen.instantiate()
 	get_tree().root.add_child(game_menu_screen_instance)
+	on_game_menu_screen = true
 
 func load_main_scene_container() -> void:
 	if get_tree().root.has_node(main_scene_root_path):
@@ -52,7 +55,6 @@ func load_main_scene_container() -> void:
 	
 	if node != null:
 		get_tree().root.add_child(node)
-
 
 func load_world(world: Util.Worlds) -> void:
 	var world_scene_path: String = world_scenes.get(world)
@@ -74,6 +76,7 @@ func load_world(world: Util.Worlds) -> void:
 		
 		worlds_root.add_child(world_scene)
 		current_world = world
+		current_world_scene = world_scene
 
 func on_auto_save() -> void:
 	save_game()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://mbqmgcw1c4l6"]
 
-[ext_resource type="Script" path="res://scenes/objects/crops/scripts/crop_component.gd" id="1_gxenq"]
+[ext_resource type="Script" uid="uid://cx7if2c0txeag" path="res://scenes/objects/crops/scripts/crop_component.gd" id="1_gxenq"]
 [ext_resource type="PackedScene" uid="uid://c8bcrsma524kw" path="res://scenes/objects/collectibles/resources/cabbage.tscn" id="2_xofg8"]
 [ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="3_5k5hc"]
 [ext_resource type="PackedScene" uid="uid://cjneesawtlqgr" path="res://scenes/objects/crops/scripts/flowering_particles.tscn" id="4_up0cd"]

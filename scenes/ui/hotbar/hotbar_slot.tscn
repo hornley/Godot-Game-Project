@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c3y3cehn5xhaj"]
 
-[ext_resource type="Script" path="res://scenes/ui/hotbar/hotbar_slot.gd" id="1_bl4lb"]
+[ext_resource type="Script" uid="uid://dexooi4yh1ipq" path="res://scenes/ui/hotbar/hotbar_slot.gd" id="1_bl4lb"]
 [ext_resource type="Texture2D" uid="uid://khpre76fro68" path="res://assets/ui/botons.png" id="2_8re16"]
 [ext_resource type="FontFile" uid="uid://bf2c23lb7imb3" path="res://assets/ui/fonts/pixelFont-2-5x5-sproutLands.ttf" id="3_pgbhm"]
 

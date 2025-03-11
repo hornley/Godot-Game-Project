@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://csapf7bs2v5y4"]
 
-[ext_resource type="Script" path="res://scenes/ui/crafting/item_recipe.gd" id="1_88xnj"]
+[ext_resource type="Script" uid="uid://bj8eip55641q2" path="res://scenes/ui/crafting/item_recipe.gd" id="1_88xnj"]
 [ext_resource type="FontFile" uid="uid://bk4cjui4oopjv" path="res://assets/ui/fonts/sprout_lands.ttf" id="2_l7xcp"]
 
 [node name="ItemRecipe" type="Panel"]

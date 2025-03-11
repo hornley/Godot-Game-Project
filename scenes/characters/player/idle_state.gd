@@ -31,12 +31,16 @@ func _on_next_transitions() -> void:
 	
 	if player.current_tool == Util.Tools.Axe && GameInputEvents.use_tool():
 		transition.emit("Chopping")
+		player.z_index = 1
 	elif player.current_tool == Util.Tools.Hoe && GameInputEvents.use_tool():
 		transition.emit("Tilling")
+		player.z_index = 1
 	elif player.current_tool == Util.Tools.Pickaxe && GameInputEvents.use_tool():
 		transition.emit("Mining")
+		player.z_index = 1
 	elif player.current_tool == Util.Tools.WateringCan && GameInputEvents.use_tool():
 		transition.emit("Watering")
+		player.z_index = 1
 
 
 func _on_enter() -> void:

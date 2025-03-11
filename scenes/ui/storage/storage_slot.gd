@@ -1,16 +1,16 @@
-class_name InventorySlot extends Button
+class_name StorageSlot extends Button
 
 @onready var center_container: CenterContainer = $CenterContainer
 
-var item_stack: InventoryItemStack
+var item_stack: StorageItemStack
 
-func update(_item_stack: InventoryItemStack) -> void:
+func update(_item_stack: StorageItemStack) -> void:
 	if _item_stack.get_parent():
 		_item_stack.get_parent().remove_child(_item_stack)
 	item_stack = _item_stack
 	center_container.add_child(item_stack)
 
-func take_item() -> InventoryItemStack:
+func take_item() -> StorageItemStack:
 	if !item_stack:
 		return null
 	

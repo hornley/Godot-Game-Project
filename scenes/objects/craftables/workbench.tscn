@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://crdhft36wp4q7"]
 
-[ext_resource type="Script" path="res://scenes/objects/craftables/workbench.gd" id="1_6lhdk"]
+[ext_resource type="Script" uid="uid://br7xnvt4yn2fh" path="res://scenes/objects/craftables/workbench.gd" id="1_6lhdk"]
 [ext_resource type="Texture2D" uid="uid://dhhwka5fgdq4l" path="res://assets/textures/structures/work station.png" id="1_ulbph"]
 [ext_resource type="PackedScene" uid="uid://8k458glwmmiv" path="res://scenes/components/interactable_component.tscn" id="2_m6mdp"]
 [ext_resource type="PackedScene" uid="uid://brd432bw8nq0k" path="res://scenes/components/interactable_label_component.tscn" id="4_43nlp"]

@@ -1,9 +1,12 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://dpo2y42t3gi6u"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://dpo2y42t3gi6u"]
 
 [ext_resource type="Texture2D" uid="uid://b67dvtdktmg77" path="res://assets/textures/tilesets/nature/Water Objects.png" id="1_xvbjp"]
 [ext_resource type="Texture2D" uid="uid://dt2f5rh72y0kg" path="res://assets/textures/tilesets/others/Fences.png" id="2_58nd7"]
 [ext_resource type="Texture2D" uid="uid://rxed1oo0dwyp" path="res://assets/textures/tilesets/others/Wooden_Bridge_v2.png" id="3_rc7ha"]
 [ext_resource type="Texture2D" uid="uid://beiuw8ev3e8at" path="res://assets/textures/tilesets/others/Wood_Bridge.png" id="4_g5s46"]
+[ext_resource type="PackedScene" uid="uid://cxjh0yvq2rlhb" path="res://scenes/objects/trees/large_tree.tscn" id="5_ex106"]
+[ext_resource type="PackedScene" uid="uid://cwgabmm58wrk7" path="res://scenes/objects/trees/SmallTree.tscn" id="6_1twpf"]
+[ext_resource type="PackedScene" uid="uid://djs7u7lmfgnmj" path="res://scenes/objects/rocks/rock.tscn" id="7_hm2jo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0yhn"]
 texture = ExtResource("1_xvbjp")
@@ -237,6 +240,12 @@ texture = ExtResource("4_g5s46")
 0:2/0 = 0
 1:2/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_d7bye"]
+resource_name = "Objects"
+scenes/1/scene = ExtResource("5_ex106")
+scenes/2/scene = ExtResource("6_1twpf")
+scenes/3/scene = ExtResource("7_hm2jo")
+
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_1/collision_layer = 1
@@ -253,3 +262,4 @@ sources/0 = SubResource("TileSetAtlasSource_k0yhn")
 sources/1 = SubResource("TileSetAtlasSource_l4dn2")
 sources/2 = SubResource("TileSetAtlasSource_k3rrp")
 sources/3 = SubResource("TileSetAtlasSource_8kpqe")
+sources/4 = SubResource("TileSetScenesCollectionSource_d7bye")

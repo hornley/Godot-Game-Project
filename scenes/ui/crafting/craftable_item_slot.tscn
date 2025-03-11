@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c46372durij8l"]
 
-[ext_resource type="Script" path="res://scenes/ui/crafting/craftable_item_slot.gd" id="1_yaxsr"]
+[ext_resource type="Script" uid="uid://csi10570ao8k0" path="res://scenes/ui/crafting/craftable_item_slot.gd" id="1_yaxsr"]
 [ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="2_w8xv1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sjb3l"]

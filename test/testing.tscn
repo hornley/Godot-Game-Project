@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=4 uid="uid://vvnqqmt7r8fa"]
 
 [ext_resource type="TileSet" uid="uid://cm0ox13o6dmms" path="res://assets/tilesets/world_terrain_tileset.tres" id="1_3erc3"]
-[ext_resource type="Script" path="res://test/basta_testing.gd" id="1_exxap"]
+[ext_resource type="Script" uid="uid://dkraamh31ouc4" path="res://test/basta_testing.gd" id="1_exxap"]
 [ext_resource type="TileSet" uid="uid://bnx1xqubv247v" path="res://assets/tilesets/world_vegetation_tileset.tres" id="2_5vva1"]
 [ext_resource type="PackedScene" uid="uid://dpuxwqdq6h431" path="res://scenes/ui/game_screen.tscn" id="2_ganxy"]
 [ext_resource type="TileSet" uid="uid://dpo2y42t3gi6u" path="res://assets/tilesets/world_objects_tileset.tres" id="3_f357k"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c8bcrsma524kw" path="res://scenes/objects/collectibles/resources/cabbage.tscn" id="14_7ha11"]
 [ext_resource type="PackedScene" uid="uid://dnk5wlq2ic52" path="res://scenes/objects/collectibles/resources/carrot.tscn" id="15_gmnbf"]
 [ext_resource type="PackedScene" uid="uid://cq663wr32fxga" path="res://scenes/objects/collectibles/resources/cauliflower.tscn" id="16_p2dhe"]
-[ext_resource type="PackedScene" uid="uid://b6416p1lakelk" path="res://test/sprite_2d.tscn" id="17_g3c8o"]
+[ext_resource type="PackedScene" uid="uid://q13lkcj87vko" path="res://scenes/houses/interactable_objects/chest.tscn" id="17_34vwb"]
 
 [node name="NewBaseWorld" type="Node2D"]
 y_sort_enabled = true
@@ -88,12 +88,8 @@ y_sort_enabled = true
 [node name="Cows" type="Node2D" parent="Animals"]
 y_sort_enabled = true
 
-[node name="Sprite2D" parent="." instance=ExtResource("17_g3c8o")]
-position = Vector2(484, 289)
-scale = Vector2(0.15, 0.15)
-
 [node name="Player" parent="." instance=ExtResource("8_tyulp")]
-position = Vector2(465, 299)
+position = Vector2(464, 280)
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -101,17 +97,23 @@ zoom = Vector2(2, 2)
 [node name="Workbench" parent="." instance=ExtResource("11_pxbr3")]
 position = Vector2(412, 242)
 
+[node name="Workbench2" parent="." instance=ExtResource("11_pxbr3")]
+position = Vector2(432, 256)
+
 [node name="Beetroot" parent="." instance=ExtResource("12_mdlxm")]
-position = Vector2(374, 235)
+position = Vector2(404, 229)
 
 [node name="Big Flower" parent="." instance=ExtResource("13_utm6s")]
-position = Vector2(374, 235)
+position = Vector2(390, 213)
 
 [node name="Cabbage" parent="." instance=ExtResource("14_7ha11")]
-position = Vector2(374, 235)
+position = Vector2(354, 217)
 
 [node name="Carrot" parent="." instance=ExtResource("15_gmnbf")]
-position = Vector2(374, 235)
+position = Vector2(352, 249)
 
 [node name="Cauliflower" parent="." instance=ExtResource("16_p2dhe")]
 position = Vector2(374, 235)
+
+[node name="Chest" parent="." instance=ExtResource("17_34vwb")]
+position = Vector2(376, 272)

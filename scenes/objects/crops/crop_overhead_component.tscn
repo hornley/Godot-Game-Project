@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ciw68ogxclw60"]
 
-[ext_resource type="Script" path="res://scenes/objects/crops/scripts/crop_overhead_component.gd" id="1_7l6qy"]
+[ext_resource type="Script" uid="uid://dkwnqaofgtbkr" path="res://scenes/objects/crops/scripts/crop_overhead_component.gd" id="1_7l6qy"]
 [ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="2_s4fo2"]
 
 [node name="CropOverheadComponent" type="Control"]

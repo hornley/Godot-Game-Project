@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://cjunkqoetwd6l"]
 
-[ext_resource type="Script" path="res://scenes/characters/merchant/merchant.gd" id="1_2kqvm"]
+[ext_resource type="Script" uid="uid://dg6yjsmsudvyu" path="res://scenes/characters/merchant/merchant.gd" id="1_2kqvm"]
 [ext_resource type="Texture2D" uid="uid://cm8iw8nhacrm" path="res://assets/textures/interiors/Chest.png" id="1_lxlwn"]
 [ext_resource type="PackedScene" uid="uid://8k458glwmmiv" path="res://scenes/components/interactable_component.tscn" id="2_133od"]
 [ext_resource type="PackedScene" uid="uid://brd432bw8nq0k" path="res://scenes/components/interactable_label_component.tscn" id="3_do24k"]
