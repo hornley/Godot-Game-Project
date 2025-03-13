@@ -29,6 +29,7 @@ GameDataManager="*res://Singletons/game_data_manager.gd"
 DayAndNightCycleManager="*res://Singletons/day_and_night_cycle_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GameDialogueManager="*res://Singletons/game_dialogue_manager.gd"
+RuntimeDebugTools="*res://addons/runtime_debug_tools/scenes/remote_inspector.tscn"
 
 [display]
 
@@ -166,7 +167,7 @@ locale/translations_pot_files=PackedStringArray("res://dialogue/conversations/gu
 2d_physics/layer_1="Water"
 2d_navigation/layer_1="Chicken Navigation"
 2d_physics/layer_2="Ground"
-2d_navigation/layer_2="Cow"
+2d_navigation/layer_2="Cow Navigation"
 2d_physics/layer_3="Walls"
 2d_physics/layer_4="Player"
 2d_physics/layer_5="Enemies"

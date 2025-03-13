@@ -12,7 +12,7 @@ var player_save_file_name: String = "player_save.tres"
 
 func _ready() -> void:
 	add_to_group("save_level_data_component")
-	level_scene_name = get_parent().name
+	level_scene_name = get_parent().get_parent().name
 
 
 func save_player_data() -> void:
@@ -32,8 +32,9 @@ func save_nodes_data() -> void:
 		for node: SaveDataComponent in nodes:
 			if node is SaveDataComponent:
 				var save_data_resource: NodeDataResource = node._save_data()
-				var save_final_resource = save_data_resource.duplicate()
-				game_data_resource.save_data_nodes.append(save_final_resource)
+				if !save_data_resource.parent_node_path.get_name(2).contains("GameMenuScreenBackground"):
+					var save_final_resource = save_data_resource.duplicate()
+					game_data_resource.save_data_nodes.append(save_final_resource)
 
 
 func save_game() -> void:

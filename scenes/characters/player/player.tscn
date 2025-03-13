@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://di161dvdr0n6c" path="res://scenes/characters/player/mining_state.gd" id="9_2fqob"]
 [ext_resource type="PackedScene" uid="uid://bo8xlv3im1iga" path="res://scenes/components/hit_component.tscn" id="9_o4kdi"]
 [ext_resource type="Script" uid="uid://b570k3pp7j1uj" path="res://scenes/characters/player/watering_state.gd" id="10_6nw22"]
-[ext_resource type="PackedScene" uid="uid://dvpxrqy62tikh" path="res://scenes/components/save_data_component.tscn" id="11_1gmjo"]
+[ext_resource type="PackedScene" uid="uid://bijn4nnp152pf" path="res://scenes/components/save_data_component.tscn" id="11_1gmjo"]
 [ext_resource type="Resource" uid="uid://6pptsjokt7d2" path="res://scenes/characters/player/player_data_resource.tres" id="12_0hvyg"]
 [ext_resource type="PackedScene" uid="uid://dpq64johhhuo6" path="res://scenes/components/storage_component.tscn" id="13_blysn"]
 [ext_resource type="Script" uid="uid://d1ujvoy1q7xlb" path="res://scenes/characters/player/camera.gd" id="14_hv5x3"]

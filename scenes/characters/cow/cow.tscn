@@ -94,6 +94,7 @@ navigation_agent = NodePath("../../NavigationAgent2D")
 navigation_layers = 2
 avoidance_enabled = true
 radius = 5.0
+debug_enabled = true
 
 [node name="AudioPlayTimeComponent" parent="." node_paths=PackedStringArray("audio_stream_player_2D") instance=ExtResource("6_e3f6r")]
 wait_time = 20.0

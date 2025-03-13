@@ -2,7 +2,7 @@ class_name CropsCursorComponent
 extends Node
 
 @export var tilled_soil_tilemap_layer: TileMapLayer
-#@export var field_cursor_component: FieldCursorComponent
+@export var cropfields: Node2D
 
 @onready var player: Player
 
@@ -100,4 +100,4 @@ func add_crop() -> void:
 	if crop_instance:
 		PlayerManager.remove_item(HotbarManager.equipped_item_name, 1)
 		crop_instance.global_position = local_cell_position
-		get_parent().find_child("CropFields").add_child(crop_instance)
+		cropfields.add_child(crop_instance)

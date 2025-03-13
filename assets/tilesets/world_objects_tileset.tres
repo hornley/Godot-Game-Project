@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dt2f5rh72y0kg" path="res://assets/textures/tilesets/others/Fences.png" id="2_58nd7"]
 [ext_resource type="Texture2D" uid="uid://rxed1oo0dwyp" path="res://assets/textures/tilesets/others/Wooden_Bridge_v2.png" id="3_rc7ha"]
 [ext_resource type="Texture2D" uid="uid://beiuw8ev3e8at" path="res://assets/textures/tilesets/others/Wood_Bridge.png" id="4_g5s46"]
-[ext_resource type="PackedScene" uid="uid://cxjh0yvq2rlhb" path="res://scenes/objects/trees/large_tree.tscn" id="5_ex106"]
-[ext_resource type="PackedScene" uid="uid://cwgabmm58wrk7" path="res://scenes/objects/trees/SmallTree.tscn" id="6_1twpf"]
-[ext_resource type="PackedScene" uid="uid://djs7u7lmfgnmj" path="res://scenes/objects/rocks/rock.tscn" id="7_hm2jo"]
+[ext_resource type="PackedScene" uid="uid://cxjh0yvq2rlhb" path="res://scenes/objects/destroyable/trees/large_tree.tscn" id="5_ex106"]
+[ext_resource type="PackedScene" uid="uid://cwgabmm58wrk7" path="res://scenes/objects/destroyable/trees/SmallTree.tscn" id="6_1twpf"]
+[ext_resource type="PackedScene" uid="uid://djs7u7lmfgnmj" path="res://scenes/objects/destroyable/rocks/rock.tscn" id="7_hm2jo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0yhn"]
 texture = ExtResource("1_xvbjp")

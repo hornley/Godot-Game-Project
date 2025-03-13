@@ -1,9 +1,11 @@
+class_name Chest
 extends StaticBody2D
 
 @onready var interactable_component: InteractableComponent = $InteractableComponent
 @onready var interactable_label_component: Control = $InteractableLabelComponent
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var storage_component:  = $StorageComponent
+@onready var save_data_component: SaveDataComponent = $SaveDataComponent
 var is_open: bool = false
 var in_range: bool = false
 
@@ -11,6 +13,7 @@ func _ready() -> void:
 	interactable_component.interactable_activated.connect(on_interactable_activated)
 	interactable_component.interactable_deactivated.connect(on_interactable_deactivated)
 	interactable_label_component.hide()
+	save_data_component.save_data_resource = StorageDataResource.new()
 	
 func on_interactable_activated() -> void:
 	interactable_label_component.show()

@@ -81,11 +81,15 @@ func transfer_item(item: ItemResource, amount: int, new_index: int, other_storag
 		remove_item(item_name, amount)
 	
 	# TO other
-	other_storage_component.items[item_name] = {
-			"ItemResource": item,
-			"Amount": amount,
-			"Index": new_index
-		}
+	if other_storage_component.items.has(item_name):
+		other_storage_component.items[item_name]["Amount"] += amount
+	else:
+		other_storage_component.items[item_name] = {
+				"ItemResource": item,
+				"Amount": amount,
+				"Index": new_index
+			}
+		other_storage_component.items_count += 1
 	other_storage_component.empty_slots.remove_at(new_index)
 	other_storage_component.empty_slots.sort()
 	

@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://q13lkcj87vko"]
+[gd_scene load_steps=19 format=3 uid="uid://q13lkcj87vko"]
 
 [ext_resource type="Script" uid="uid://87o6xfjs7u62" path="res://scripts/house/chest.gd" id="1_kjrge"]
 [ext_resource type="Texture2D" uid="uid://cm8iw8nhacrm" path="res://assets/textures/interiors/Chest.png" id="2_n77w7"]
 [ext_resource type="PackedScene" uid="uid://8k458glwmmiv" path="res://scenes/components/interactable_component.tscn" id="3_enolj"]
 [ext_resource type="PackedScene" uid="uid://brd432bw8nq0k" path="res://scenes/components/interactable_label_component.tscn" id="4_3hgm1"]
 [ext_resource type="PackedScene" uid="uid://dpq64johhhuo6" path="res://scenes/components/storage_component.tscn" id="5_3hgm1"]
+[ext_resource type="PackedScene" uid="uid://bijn4nnp152pf" path="res://scenes/components/save_data_component.tscn" id="6_52h1i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hlja"]
 size = Vector2(14, 13)
@@ -122,3 +123,5 @@ shape = SubResource("RectangleShape2D_52h1i")
 
 [node name="StorageComponent" parent="." instance=ExtResource("5_3hgm1")]
 size = 15
+
+[node name="SaveDataComponent" parent="." instance=ExtResource("6_52h1i")]

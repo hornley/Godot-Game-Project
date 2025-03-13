@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnakcpieqjhxf"]
+
+[ext_resource type="Texture2D" uid="uid://cv17tng8fdu7j" path="res://assets/textures/portal.png" id="1_h7v6f"]
+[ext_resource type="PackedScene" uid="uid://suvitjjl00a2" path="res://scenes/structures/portal/portal.tscn" id="2_7jqf1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jqf1"]
+atlas = ExtResource("1_h7v6f")
+
+[node name="PortalBase" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-28, 6)
+scale = Vector2(0.2, 0.2)
+texture = SubResource("AtlasTexture_7jqf1")
+centered = false
+
+[node name="Portal" parent="." instance=ExtResource("2_7jqf1")]
+position = Vector2(0, 10)
+frame_progress = 0.0
+flip_h = true

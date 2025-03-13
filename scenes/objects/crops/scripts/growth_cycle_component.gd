@@ -28,6 +28,11 @@ func _ready() -> void:
 	DayAndNightCycleManager.time_tick_day.connect(on_time_tick_day)
 
 func on_time_tick_day(day: int) -> void:
+	is_watered = false
+	current_day = day
+
+func update() -> void:
+	var day = current_day
 	if is_watered:
 		if starting_day == 0:
 			starting_day = day

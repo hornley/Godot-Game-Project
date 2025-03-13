@@ -100,6 +100,7 @@ navigation_agent = NodePath("../../NavigationAgent2D")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 radius = 5.0
+debug_enabled = true
 
 [node name="ChickenCluckMultipleSFX" parent="." instance=ExtResource("6_bep76")]
 

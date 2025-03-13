@@ -25,6 +25,7 @@ func _ready() -> void:
 	crop_overhead_instance.change_texture(state_texture["Water"])
 	crop_overhead_component = crop_overhead_instance
 	
+	crop_overhead_component.visible = false
 	watering_particles.emitting = false
 	flowering_particles.emitting = false
 	
@@ -51,6 +52,7 @@ func on_hurt(hit_damage: int) -> void:
 		crop_overhead_component.visible = false
 		watering_particles.emitting = false
 		growth_cycle_component.is_watered = true
+		growth_cycle_component.update()
 
 func on_crop_maturity() -> void:
 	flowering_particles.emitting = true
