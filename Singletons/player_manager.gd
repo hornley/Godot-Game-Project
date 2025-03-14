@@ -41,6 +41,8 @@ func remove_item(item_name: String, amount: int) -> void:
 	if !inventory.items.has(item_name) and HotbarManager.hotbar_array.find(item) != -1:
 		HotbarManager.remove_from_hotbar(HotbarManager.hotbar_array.find(item))
 		HotbarManager.unequip_item()
+	
+	inventory_changed.emit(null)
 
 func move_item(item_name: String, new_index: int) -> void:
 	inventory.move_item(item_name, new_index)
@@ -64,3 +66,6 @@ func craft_item(item_recipe_resource: ItemRecipeResource) -> void:
 	inventory.add_item(item_resource.name, item_resource, 1)
 	
 	inventory_changed.emit(item_resource)
+
+func has_item(item_name: String) -> bool:
+	return inventory.items.has(item_name)

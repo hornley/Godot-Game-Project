@@ -11,6 +11,7 @@ var auto_save_interval = 300 # 60 = 1min
 
 var game_screen: GameScreen
 var on_game_menu_screen: bool
+var is_game_loaded: bool = false
 
 var world_scenes: Dictionary = {
 	Util.Worlds.Village : "res://scenes/world/village.tscn",
@@ -25,12 +26,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		show_game_menu_screen()
 
 func start_game() -> void:
+	allow_save_game = true
+	
+	if is_game_loaded:
+		return
+	
 	load_main_scene_container()
-	load_world(Util.Worlds.Home) 
+	load_world(Util.Worlds.Home)
 	GameDataManager.load_resources_recursive("res://resources/items/")
 	
 	load_game()
-	allow_save_game = true
+	is_game_loaded = true
 	
 	if auto_save:
 		var auto_save_timer = Timer.new()

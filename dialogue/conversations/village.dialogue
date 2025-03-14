@@ -11,14 +11,20 @@ Merchant: [[Hi|Hello]], care for a trade?
 
 ~ start_farmer
 
+do PlayerManager.toggle_player_movement()
+
 Farmer: [[Howdy!|Hey There|Hiya]], what's up?
 - Sell
 	{{PlayerManager.player_name}}: I would like to sell my crops.
 	Farmer: Whatcha got there, partner?
-	# open farmer shop shit
+	do GameDialogueManager.action_farmer_shop_gui("Sell")
+	Farmer: Pleasure doing business with you!
 - Buy
 	{{PlayerManager.player_name}}: I would like to buy something, what do you have?
 	Farmer: Sure thing partner!
-	# open farmer shop shit
+	do GameDialogueManager.action_farmer_shop_gui("Buy")
+	Farmer: Pleasure doing business with you!
+
+do PlayerManager.toggle_player_movement()
 
 => END

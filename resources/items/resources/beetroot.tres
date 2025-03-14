@@ -12,5 +12,5 @@ script = ExtResource("1_kl2vw")
 name = "Beetroot"
 description = "beetroot"
 category = 3
-value = 2.0
+value = 18.0
 texture = SubResource("AtlasTexture_ke4ms")

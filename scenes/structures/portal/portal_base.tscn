@@ -9,6 +9,7 @@ atlas = ExtResource("1_h7v6f")
 [node name="PortalBase" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.67451, 0.870588, 0.776471, 1)
 position = Vector2(-28, 6)
 scale = Vector2(0.2, 0.2)
 texture = SubResource("AtlasTexture_7jqf1")

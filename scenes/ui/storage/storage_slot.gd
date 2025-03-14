@@ -5,6 +5,8 @@ class_name StorageSlot extends Button
 var item_stack: StorageItemStack
 
 func update(_item_stack: StorageItemStack) -> void:
+	if center_container.get_child_count() > 0:
+		center_container.remove_child(center_container.get_child(0))
 	if _item_stack.get_parent():
 		_item_stack.get_parent().remove_child(_item_stack)
 	item_stack = _item_stack

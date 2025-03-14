@@ -1,7 +1,7 @@
 class_name StorageComponent extends Node
 
 @export var size: int
-var items: Dictionary = Dictionary()
+@export var items: Dictionary = Dictionary()
 var items_count: int = 0
 var empty_slots: Array
 
@@ -58,13 +58,13 @@ func remove_item(item_name: String, amount: int) -> ItemResource:
 	
 	var item = items[item_name]["ItemResource"]
 	
-	if items[item_name]["Amount"] == 1:
+	if items[item_name]["Amount"] <= amount:
 		empty_slots.append(items[item_name]["Index"])
 		empty_slots.sort()
 		items_count -= 1
 		items.erase(item_name)
 	else:
-		items[item_name]["Amount"] -= 1
+		items[item_name]["Amount"] -= amount
 	
 	storage_changed.emit(null)
 	return item
@@ -72,9 +72,6 @@ func remove_item(item_name: String, amount: int) -> ItemResource:
 func transfer_item(item: ItemResource, amount: int, new_index: int, other_storage_component: StorageComponent) -> void:
 	var item_name = item.name
 	# FROM current
-	empty_slots.append(items[item_name]["Index"])
-	empty_slots.remove_at(new_index)
-	empty_slots.sort()
 	if self.get_parent() is Player:
 		PlayerManager.remove_item(item_name, amount)
 	else:
@@ -90,8 +87,8 @@ func transfer_item(item: ItemResource, amount: int, new_index: int, other_storag
 				"Index": new_index
 			}
 		other_storage_component.items_count += 1
-	other_storage_component.empty_slots.remove_at(new_index)
-	other_storage_component.empty_slots.sort()
+		other_storage_component.empty_slots.remove_at(other_storage_component.empty_slots.find(new_index))
+		other_storage_component.empty_slots.sort()
 	
 	storage_changed.emit(null)
 	other_storage_component.storage_changed.emit(item)
@@ -99,7 +96,7 @@ func transfer_item(item: ItemResource, amount: int, new_index: int, other_storag
 func move_item(item_name: String, new_index: int) -> void:
 	empty_slots.append(items[item_name]["Index"])
 	items[item_name]["Index"] = new_index
-	empty_slots.remove_at(new_index)
+	empty_slots.remove_at(empty_slots.find(new_index))
 	empty_slots.sort()
 	
 	storage_changed.emit(null)

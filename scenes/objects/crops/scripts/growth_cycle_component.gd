@@ -28,6 +28,8 @@ func _ready() -> void:
 	DayAndNightCycleManager.time_tick_day.connect(on_time_tick_day)
 
 func on_time_tick_day(day: int) -> void:
+	if current_growth_state == Util.GrowthStates.Harvesting:
+		return
 	is_watered = false
 	current_day = day
 
@@ -63,7 +65,7 @@ func harvest_state(starting_day: int, current_day: int):
 	
 	if days_passed == days_until_harvest - 1 - fertilizer_power:
 		current_growth_state = Util.GrowthStates.Harvesting
-		crop_harvesting.emit()
+		#crop_harvesting.emit()
 
 func get_current_growth_state() -> Util.GrowthStates:
 	return current_growth_state

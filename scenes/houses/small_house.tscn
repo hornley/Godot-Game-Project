@@ -8,12 +8,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv73m"]
 size = Vector2(112, 80)
 
-[node name="Base" type="Node2D" node_paths=PackedStringArray("player_detect", "door", "roof")]
+[node name="Base" type="Node2D" node_paths=PackedStringArray("player_detect", "door", "roof", "wall")]
 y_sort_enabled = true
 script = ExtResource("1_e85kx")
 player_detect = NodePath("PlayerDetect")
 door = NodePath("TileMap/InteractableObjects/Door")
 roof = NodePath("TileMap/Roof")
+wall = NodePath("TileMap/Wall")
 
 [node name="PlayerDetect" type="Area2D" parent="."]
 collision_layer = 2

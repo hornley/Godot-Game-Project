@@ -43,8 +43,9 @@ func _load_data(window) -> void:
 	
 	if parent_node != null and scene_node != null:
 		var storage_component: StorageComponent = scene_node.find_child("StorageComponent") as StorageComponent
+		
 		PlayerManager.name = player_name
-		PlayerManager.coins = coins
+		PlayerManager.add_coin(coins)
 		storage_component.items = inventory
 		storage_component.empty_slots = empty_inventory_slot
 		storage_component.items_count = items_count

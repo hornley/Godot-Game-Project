@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=67 format=3 uid="uid://0ak8mcpyacj3"]
+[gd_resource type="Theme" load_steps=71 format=3 uid="uid://0ak8mcpyacj3"]
 
 [ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="1_q65q4"]
 [ext_resource type="FontFile" uid="uid://bf2c23lb7imb3" path="res://assets/ui/fonts/pixelFont-2-5x5-sproutLands.ttf" id="2_bt0h2"]
@@ -115,6 +115,28 @@ texture_margin_top = 2.0
 texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 region_rect = Rect2(0, 0, 35, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtjyl"]
+atlas = ExtResource("1_q65q4")
+region = Rect2(773, 132, 22, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqa1q"]
+texture = SubResource("AtlasTexture_mtjyl")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hvfw"]
+atlas = ExtResource("1_q65q4")
+region = Rect2(107, 107, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r32iy"]
+texture = SubResource("AtlasTexture_1hvfw")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p308n"]
 atlas = ExtResource("1_q65q4")
@@ -377,6 +399,10 @@ DayAndNightLabel/constants/shadow_offset_y = 0
 DayAndNightLabel/constants/shadow_outline_size = 0
 DayAndNightLabel/font_sizes/font_size = 18
 DayAndNightLabel/fonts/font = ExtResource("2_x2kuv")
+FarmerShopSellButton/base_type = &"Button"
+FarmerShopSellButton/styles/normal = SubResource("StyleBoxTexture_cqa1q")
+FarmerShopSellGUI/base_type = &"Panel"
+FarmerShopSellGUI/styles/panel = SubResource("StyleBoxTexture_r32iy")
 GameMenuButton/base_type = &"Button"
 GameMenuButton/colors/font_disabled_color = Color(0.237539, 0.237539, 0.237539, 1)
 GameMenuButton/font_sizes/font_size = 18
@@ -402,13 +428,14 @@ MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
+Panel/styles/panel = null
 PlayerNamePrompt/base_type = &"LineEdit"
 PlayerNamePrompt/font_sizes/font_size = 18
 PlayerNamePrompt/fonts/font = null
 PlayerNamePrompt/styles/normal = SubResource("StyleBoxTexture_y4hmh")
 PlayerNamePromptButton/base_type = &"Button"
 PlayerNamePromptButton/font_sizes/font_size = 18
-PlayerNamePromptButton/fonts/font = null
+PlayerNamePromptButton/fonts/font = ExtResource("2_x2kuv")
 PlayerNamePromptButton/styles/disabled = SubResource("StyleBoxTexture_wbkhc")
 PlayerNamePromptButton/styles/focus = SubResource("StyleBoxTexture_h884f")
 PlayerNamePromptButton/styles/hover = SubResource("StyleBoxTexture_skmu3")

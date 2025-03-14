@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://p74afih4xkpf"]
+
+[ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="1_4l5ip"]
+[ext_resource type="Script" uid="uid://caixqv6qw363v" path="res://scenes/ui/farmer/farmer_shop_item_gui.gd" id="2_pk2lj"]
+[ext_resource type="FontFile" uid="uid://bf2c23lb7imb3" path="res://assets/ui/fonts/pixelFont-2-5x5-sproutLands.ttf" id="3_1ftnd"]
+[ext_resource type="Texture2D" uid="uid://bocjwt20tyu2" path="res://assets/textures/objects/currencies/GoldCoinSpinning (1).png" id="4_5m1qf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qemd"]
+atlas = ExtResource("4_5m1qf")
+region = Rect2(5, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dofs"]
+atlas = ExtResource("4_5m1qf")
+region = Rect2(21, 0, 6, 8)
+
+[node name="FarmerShopGUI" type="Panel"]
+anchors_preset = -1
+anchor_right = 0.151562
+anchor_bottom = 0.144444
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4l5ip")
+theme_type_variation = &"FarmerShopSellGUI"
+script = ExtResource("2_pk2lj")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.5
+offset_top = -20.5
+offset_right = 21.5
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemNameLabel" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1ftnd")
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("1_4l5ip")
+theme_type_variation = &"FarmerShopSellButton"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_3qemd")
+
+[node name="SilverCoinLabel" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+theme_override_fonts/font = ExtResource("3_1ftnd")
+theme_override_font_sizes/font_size = 8
+text = "0"
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_4dofs")
+
+[node name="GoldCoinLabel" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"InventoryLabel"
+theme_override_fonts/font = ExtResource("3_1ftnd")
+theme_override_font_sizes/font_size = 8
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="item_rect_changed" from="VBoxContainer/ItemNameLabel" to="." method="_on_item_name_label_item_rect_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

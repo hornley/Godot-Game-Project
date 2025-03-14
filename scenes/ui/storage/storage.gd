@@ -14,8 +14,7 @@ func on_inventory_changed(item: ItemResource) -> void:
 	update()
 
 func load_slots() -> void:
-	slots = grid_container.get_children()
-	if slots.size() != storage_component.size:
+	if grid_container.get_children().size() != storage_component.size:
 		create_slots()
 	connect_slots()
 	update()
@@ -23,7 +22,7 @@ func load_slots() -> void:
 
 func create_slots() -> void:
 	for i in range(storage_component.size):
-		var storage_slot_scene = preload("res://scenes/ui/storage/storage_slot.tscn").instantiate()
+		var storage_slot_scene: StorageSlot = preload("res://scenes/ui/storage/storage_slot.tscn").instantiate() as StorageSlot
 		grid_container.add_child(storage_slot_scene)
 	slots = grid_container.get_children()
 
@@ -80,18 +79,21 @@ func close():
 	visible = false
 	is_open = false
 
-func on_slot_pressed(slot) -> void:
+func on_slot_pressed(slot: StorageSlot) -> void:
 	if slot.is_empty() && storage_controller.item_in_hand: # Inserting
 		insert_item_from_slot(slot)
 		return
-	elif !slot.is_empty() && storage_controller.item_in_hand: # Swapping
-		swap_item_slots(slot)
+	elif !slot.is_empty() && storage_controller.item_in_hand: # Swapping/Stacking
+		if storage_controller.item_in_hand.item_resource.name != slot.get_item_resource().name:
+			swap_item_slots(slot)
+		else:
+			stack_item(slot)
 		return
 	
 	if !storage_controller.item_in_hand: # Taking
 		take_item_from_slot(slot)
 
-func take_item_from_slot(slot):
+func take_item_from_slot(slot: StorageSlot):
 	storage_controller.item_in_hand = slot.take_item()
 	if storage_controller.item_in_hand:
 		if storage_controller.item_in_hand.get_parent():
@@ -99,36 +101,70 @@ func take_item_from_slot(slot):
 		add_child(storage_controller.item_in_hand)
 		update_item_in_hand()
 
-func insert_item_from_slot(slot):
+func insert_item_from_slot(slot: StorageSlot):
 	var item = storage_controller.item_in_hand
-	var index = slots.find(slot)
-	var item_parent = item.get_parent()
-	if storage_controller.item_in_hand.get_parent() != self:
-		storage_controller.item_in_hand.get_parent().remove_child(storage_controller.item_in_hand)
-	else:
-		remove_child(storage_controller.item_in_hand)
-	storage_controller.item_in_hand = null
+	var update_slot: bool = true
 	
-	var other_storage_component = slot.get_parent().get_parent().get_parent()
-	if item_parent != null and item_parent != other_storage_component:
-		var amount: int = item_parent.storage_component.items[item.item_resource.name]["Amount"]
-		item_parent.storage_component.transfer_item(item.item_resource, amount, index, other_storage_component.storage_component)
+	var item_parent = item.get_parent()
+	var slot_parent = slot.get_parent().get_parent().get_parent()
+	remove_item_in_hand()
+	
+	if item_parent != slot_parent:
+		var item_storage_component = item_parent.storage_component
+		var other_storage_component = slot_parent.storage_component
+		var amount: int = item_storage_component.items[item.item_resource.name]["Amount"]
+		if other_storage_component.items.has(item.item_resource.name):
+			update_slot = false
+		item_storage_component.transfer_item(item.item_resource, amount, slot_parent.slots.find(slot), other_storage_component)
 	else:
-		storage_component.move_item(item.item_resource.name, index)
-	slot.update(item)
+		storage_component.move_item(item.item_resource.name, slots.find(slot))
+	
+	if update_slot:
+		slot.update(item)
 
-func swap_item_slots(slot):
+func swap_item_slots(slot: StorageSlot):
 	var item = storage_controller.item_in_hand
 	var to_swap_item = slot.take_item()
-	var old_index = storage_component.items[item.item_resource.name]["Index"]
-	var new_index = storage_component.items[to_swap_item.item_resource.name]["Index"]
 	
-	remove_child(storage_controller.item_in_hand)
-	storage_controller.item_in_hand = null
+	var item_parent = item.get_parent()
+	var slot_parent = slot.get_parent().get_parent().get_parent()
+	remove_item_in_hand()
 	
-	slot.update(item)
-	slots[old_index].update(to_swap_item)
-	storage_component.swap_item(item.item_resource.name, new_index, to_swap_item.item_resource.name, old_index)
+	if item_parent != slot_parent:
+		var item_storage_component = item_parent.storage_component
+		var other_storage_component = slot_parent.storage_component
+		
+		var item_index = item_storage_component.items[item.item_resource.name]["Index"]
+		var to_swap_item_index = storage_component.items[to_swap_item.item_resource.name]["Index"]
+		
+		var item_amount: int = item_storage_component.items[item.item_resource.name]["Amount"]
+		var to_swap_item_amount: int = other_storage_component.items[to_swap_item.item_resource.name]["Amount"]
+		
+		item_storage_component.transfer_item(item.item_resource, item_amount, to_swap_item_index, other_storage_component)
+		other_storage_component.transfer_item(to_swap_item.item_resource, to_swap_item_amount, item_index, item_storage_component)
+		
+		item_parent.slots[item_index].update(to_swap_item)
+		slot_parent.slots[to_swap_item_index].update(item)
+	else:
+		var item_index = storage_component.items[item.item_resource.name]["Index"]
+		var new_index = storage_component.items[to_swap_item.item_resource.name]["Index"]
+		slot.update(item)
+		slots[item_index].update(to_swap_item)
+		storage_component.swap_item(item.item_resource.name, new_index, to_swap_item.item_resource.name, item_index)
+
+func stack_item(slot: StorageSlot):
+	var item = storage_controller.item_in_hand
+	var other_item = slot.take_item()
+	
+	var item_parent = item.get_parent()
+	var slot_parent = slot.get_parent().get_parent().get_parent()
+	remove_item_in_hand()
+	
+	if item_parent != slot_parent:
+		var item_storage_component = item_parent.storage_component
+		var other_storage_component = slot_parent.storage_component
+		var amount: int = item_storage_component.items[item.item_resource.name]["Amount"]
+		item_storage_component.transfer_item(item.item_resource, amount, slot_parent.slots.find(slot), other_storage_component)
 
 func update_item_in_hand() -> void:
 	if !storage_controller.item_in_hand: return
@@ -145,6 +181,9 @@ func put_item_back() -> void:
 	storage_controller.item_in_hand = null
 
 func _input(event: InputEvent) -> void:
+	if !storage_controller:
+		return
+	
 	if storage_controller.item_in_hand and event.is_action_pressed("right_click"):
 		put_item_back()
 	
@@ -158,3 +197,10 @@ func equip_on_hotbar(slot) -> void:
 	var index = hotbar_gui.slots.find(slot)
 	put_item_back()
 	HotbarManager.insert_to_hotbar(index, item.item_resource)
+
+func remove_item_in_hand():
+	if storage_controller.item_in_hand.get_parent() != self:
+		storage_controller.item_in_hand.get_parent().remove_child(storage_controller.item_in_hand)
+	else:
+		remove_child(storage_controller.item_in_hand)
+	storage_controller.item_in_hand = null

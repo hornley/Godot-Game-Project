@@ -12,5 +12,5 @@ script = ExtResource("1_2nevv")
 name = "Cabbage"
 description = "cabbage"
 category = 3
-value = 2.0
+value = 30.0
 texture = SubResource("AtlasTexture_ke4ms")

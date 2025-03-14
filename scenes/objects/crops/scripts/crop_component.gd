@@ -11,7 +11,8 @@ var start_frame_offset: int
 var crop_overhead_component: Control
 const CROP_OVERHEAD_COMPONENT = preload("res://scenes/objects/crops/crop_overhead_component.tscn")
 var state_texture: Dictionary = {
-	"Water": preload("res://scenes/objects/crops/water_texture.tres")
+	"Water": preload("res://scenes/objects/crops/water_texture.tres"),
+	"Harvest": preload("res://scenes/objects/crops/harvest_texture.tres")
 }
 var growth_state: Util.GrowthStates
 
@@ -35,19 +36,29 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	growth_state = growth_cycle_component.get_current_growth_state()
-	sprite_2d.frame = growth_state + start_frame_offset
 	
 	if growth_state == Util.GrowthStates.Flowering:
 		flowering_particles.emitting = true
+	
+	if growth_state == Util.GrowthStates.Harvesting:
+		hurt_component.tool = Util.Tools.Hoe
+		crop_overhead_component.change_texture(state_texture["Harvest"])
+		crop_overhead_component.visible = true
+	else:
+		sprite_2d.frame = growth_state + start_frame_offset
 	
 	if !growth_cycle_component.is_watered:
 		crop_overhead_component.change_texture(state_texture["Water"])
 		crop_overhead_component.visible = true
 
 func on_hurt(hit_damage: int) -> void:
+	if growth_state == Util.GrowthStates.Harvesting:
+		await PlayerManager.player.animated_sprite.animation_finished
+		on_crop_harvesting()
+	
 	if !growth_cycle_component.is_watered:
 		watering_particles.emitting = true
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(1).timeout
 		crop_overhead_component.change_texture(null)
 		crop_overhead_component.visible = false
 		watering_particles.emitting = false

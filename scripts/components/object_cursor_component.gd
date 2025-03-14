@@ -26,7 +26,6 @@ func _ready() -> void:
 func on_tool_selected(tool: Util.Tools) -> void:
 	if HotbarManager.equipped_item_category == Util.ItemCategories.Objects:
 		set_object_instance()
-		objects_tilemap_layer.add_child(object_instance)
 
 func _input(event: InputEvent) -> void:
 	if object_instance and HotbarManager.equipped_item_category == Util.ItemCategories.Objects:
@@ -39,7 +38,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			object_instance.is_placed = true
 			object_instance.modulate.a = 1
 			PlayerManager.remove_item(HotbarManager.equipped_item_name, 1)
-			object_instance = null
+			if !HotbarManager.equipped_item_name or !PlayerManager.has_item(HotbarManager.equipped_item_name):
+				object_instance = null
+			else:
+				set_object_instance()
 
 func get_cell_under_mouse() -> bool:
 	# Undergrowth Tilemap
@@ -82,3 +84,5 @@ func set_object_instance() -> void:
 	
 	if object_instance:
 		object_instance.modulate.a = 0.5
+	
+	objects_tilemap_layer.add_child(object_instance)

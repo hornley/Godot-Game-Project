@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://byk7dvtvsaxad"]
+
+[ext_resource type="Script" uid="uid://c7g6m63ssgfki" path="res://scripts/components/wild_growth_component.gd" id="1_0ww0p"]
+
+[node name="WildGrowthComponent" type="Node" node_paths=PackedStringArray("houses", "undergrowth", "land")]
+script = ExtResource("1_0ww0p")
+houses = NodePath("")
+undergrowth = NodePath("")
+land = NodePath("")

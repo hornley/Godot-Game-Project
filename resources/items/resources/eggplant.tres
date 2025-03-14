@@ -12,5 +12,5 @@ script = ExtResource("1_h3yvr")
 name = "Eggplant"
 description = "eggplant"
 category = 3
-value = 2.0
+value = 20.0
 texture = SubResource("AtlasTexture_ke4ms")

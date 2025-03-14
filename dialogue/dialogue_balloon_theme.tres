@@ -1,9 +1,9 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://cajb1vq6nqo3c"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://cajb1vq6nqo3c"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_54f32"]
+[ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="1_tge16"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00c5c"]
-atlas = SubResource("CompressedTexture2D_54f32")
+atlas = ExtResource("1_tge16")
 region = Rect2(59, 59, 26, 26)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mju2g"]
@@ -13,10 +13,8 @@ texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aen17"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_gt61n"]
-atlas = SubResource("CompressedTexture2D_aen17")
+atlas = ExtResource("1_tge16")
 region = Rect2(59, 11, 26, 26)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y63af"]
@@ -26,10 +24,8 @@ texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_njuae"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_24bx1"]
-atlas = SubResource("CompressedTexture2D_njuae")
+atlas = ExtResource("1_tge16")
 region = Rect2(59, 59, 26, 26)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_msfkd"]
@@ -40,6 +36,7 @@ texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_io7iy"]
+atlas = ExtResource("1_tge16")
 region = Rect2(59, 155, 26, 26)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oyvre"]
@@ -49,10 +46,8 @@ texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v5plb"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_bp2u2"]
-atlas = SubResource("CompressedTexture2D_v5plb")
+atlas = ExtResource("1_tge16")
 region = Rect2(59, 107, 26, 26)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2dsh7"]
@@ -63,6 +58,7 @@ texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evqc0"]
+atlas = ExtResource("1_tge16")
 region = Rect2(259, 180, 90, 25)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gehov"]

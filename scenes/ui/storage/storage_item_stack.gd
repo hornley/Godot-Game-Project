@@ -7,11 +7,11 @@ var scaled: bool = false
 
 func update(item: ItemResource, amount: int) -> void:
 	if item:
-		var region: Rect2 = item.texture.region
-		var scale: Vector2 = Vector2(16/region.size.x, 16/region.size.y)
 		item_resource = item
-		item_texture.texture = item.texture
+		var region: Rect2 = item_resource.texture.region
+		var scale: Vector2 = Vector2(16/region.size.x, 16/region.size.y)
+		item_texture.texture = item_resource.texture
 		if !scaled:
-			item_texture.scale = scale * item_texture.scale
+			item_texture.scale *= scale
 			scaled = true
 		item_amount_label.text = str(amount)
