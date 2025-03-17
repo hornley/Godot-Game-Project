@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="1_o2wyx"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_n46p0"]
-[ext_resource type="Resource" uid="uid://daaxb6lq5ron6" path="res://resources/items/resources/cabbage.tres" id="3_sesky"]
+[ext_resource type="Resource" uid="uid://daaxb6lq5ron6" path="res://resources/items/resources/crops/cabbage.tres" id="3_sesky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fp7hw"]
 atlas = ExtResource("1_o2wyx")

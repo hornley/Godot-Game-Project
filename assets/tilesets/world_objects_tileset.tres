@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://dpo2y42t3gi6u"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://dpo2y42t3gi6u"]
 
 [ext_resource type="Texture2D" uid="uid://b67dvtdktmg77" path="res://assets/textures/tilesets/nature/Water Objects.png" id="1_xvbjp"]
 [ext_resource type="Texture2D" uid="uid://dt2f5rh72y0kg" path="res://assets/textures/tilesets/others/Fences.png" id="2_58nd7"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cxjh0yvq2rlhb" path="res://scenes/objects/destroyable/trees/large_tree.tscn" id="5_ex106"]
 [ext_resource type="PackedScene" uid="uid://cwgabmm58wrk7" path="res://scenes/objects/destroyable/trees/SmallTree.tscn" id="6_1twpf"]
 [ext_resource type="PackedScene" uid="uid://djs7u7lmfgnmj" path="res://scenes/objects/destroyable/rocks/rock.tscn" id="7_hm2jo"]
+[ext_resource type="Texture2D" uid="uid://bis1mpkslext6" path="res://assets/textures/Broken_Wooden_Bridge.png" id="8_1twpf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0yhn"]
 texture = ExtResource("1_xvbjp")
@@ -270,6 +271,21 @@ scenes/1/scene = ExtResource("5_ex106")
 scenes/2/scene = ExtResource("6_1twpf")
 scenes/3/scene = ExtResource("7_hm2jo")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hm2jo"]
+texture = ExtResource("8_1twpf")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 3.5, -8, 3.5)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_1/collision_layer = 1
@@ -289,3 +305,4 @@ sources/1 = SubResource("TileSetAtlasSource_l4dn2")
 sources/2 = SubResource("TileSetAtlasSource_k3rrp")
 sources/3 = SubResource("TileSetAtlasSource_8kpqe")
 sources/4 = SubResource("TileSetScenesCollectionSource_d7bye")
+sources/5 = SubResource("TileSetAtlasSource_hm2jo")

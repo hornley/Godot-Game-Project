@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnakcpieqjhxf"]
+[gd_scene load_steps=5 format=3 uid="uid://bnakcpieqjhxf"]
 
 [ext_resource type="Texture2D" uid="uid://7fmbaoo1s31y" path="res://assets/textures/FIX_AND_BROKE.png" id="1_guema"]
+[ext_resource type="Script" uid="uid://lleo1u78eafb" path="res://scenes/structures/portal/portal_base.gd" id="1_l6pqw"]
 [ext_resource type="PackedScene" uid="uid://suvitjjl00a2" path="res://scenes/structures/portal/portal.tscn" id="2_7jqf1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7jqf1"]
@@ -8,6 +9,7 @@ atlas = ExtResource("1_guema")
 region = Rect2(145, 0, 107, 106)
 
 [node name="PortalBase" type="Node2D"]
+script = ExtResource("1_l6pqw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-30, 3)

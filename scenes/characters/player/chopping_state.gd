@@ -46,4 +46,3 @@ func _on_enter() -> void:
 func _on_exit() -> void:
 	animated_sprite.stop()
 	hit_component_collision_shape.disabled = true
-	player.z_index = 0

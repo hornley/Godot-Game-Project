@@ -52,3 +52,4 @@ shape = SubResource("RectangleShape2D_k63p3")
 
 [node name="DamageComponent" parent="." instance=ExtResource("4_8ggio")]
 position = Vector2(0, -14)
+max_damage = 6

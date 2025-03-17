@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="1_ndkhq"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_dcdw3"]
-[ext_resource type="Resource" uid="uid://ceesur51r4d7y" path="res://resources/items/resources/unprocessed_milk.tres" id="3_jephs"]
+[ext_resource type="Resource" uid="uid://ceesur51r4d7y" path="res://resources/items/resources/animal_products/unprocessed_milk.tres" id="3_jephs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v75dr"]
 atlas = ExtResource("1_ndkhq")

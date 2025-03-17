@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="1_8copk"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_utwso"]
-[ext_resource type="Resource" uid="uid://bpka45040cd3o" path="res://resources/items/resources/cauliflower.tres" id="3_07lpe"]
+[ext_resource type="Resource" uid="uid://bpka45040cd3o" path="res://resources/items/resources/crops/cauliflower.tres" id="3_07lpe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fp7hw"]
 atlas = ExtResource("1_8copk")

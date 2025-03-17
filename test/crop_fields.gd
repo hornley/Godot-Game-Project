@@ -4,6 +4,9 @@ var crops: Array[Crop] = []
 
 
 func _process(delta: float) -> void:
+	if !OS.has_feature("editor") or !OS.has_feature("debug"):
+		return
+	
 	if crops.size() == 0:
 		return
 	

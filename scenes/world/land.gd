@@ -3,6 +3,7 @@ extends TileMapLayer
 @onready var bridges: TileMapLayer = $"../Bridges"
 @onready var tilled_soil: TileMapLayer = $"../TilledSoil"
 @export var houses: Node2D
+@export var npcs: Node2D
 
 const RIGHT_CLICK_ANIMATION = preload("res://test/right_click_animation.tscn")
 
@@ -28,7 +29,10 @@ func _ready() -> void:
 		var house_offset: Vector2i = local_to_map(to_local(Vector2i(house.get_global_pos())))
 		for cell in house.get_used_cells():
 			solid_cells.append(cell + house_offset)
-
+	
+	for npc in npcs.get_children():
+		var npc_cell_position: Vector2i = local_to_map(to_local(Vector2i(npc.global_position)))
+		solid_cells.append(npc_cell_position)
 	
 	astargrid2d = AStarGrid2D.new()
 	astargrid2d.region = region

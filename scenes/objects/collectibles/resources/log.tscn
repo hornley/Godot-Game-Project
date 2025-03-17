@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c4m828jnlj408" path="res://assets/textures/objects/Basic_tools_and_meterials.png" id="1_fog5o"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_dnxty"]
-[ext_resource type="Resource" uid="uid://c7pgtokqhs541" path="res://resources/items/resources/log.tres" id="3_gf8hx"]
+[ext_resource type="Resource" uid="uid://c7pgtokqhs541" path="res://resources/items/resources/materials/log.tres" id="3_gf8hx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bqgyr"]
 radius = 7.0

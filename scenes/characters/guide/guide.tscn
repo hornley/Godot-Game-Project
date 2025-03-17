@@ -47,24 +47,25 @@ script = ExtResource("1_yqbav")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_6myqs")
-position = Vector2(0, -8)
+position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_6nv50")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="InteractableComponent" parent="." instance=ExtResource("3_vbwu6")]
-position = Vector2(0, -8)
+position = Vector2(8, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
 shape = SubResource("CircleShape2D_vldsc")
 
 [node name="InteractableLabelComponent" parent="." instance=ExtResource("4_sfjuw")]
-offset_left = -25.0
-offset_top = -34.0
-offset_right = -7.0
-offset_bottom = -16.0
+offset_left = -17.0
+offset_top = -18.0
+offset_right = 1.0
+offset_bottom = 0.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(8, 16)
 collision_layer = 1024
 collision_mask = 14
 

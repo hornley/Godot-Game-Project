@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bvh7rkjeto7rg" path="res://assets/textures/Sprites/Egg_item.png" id="1_hh4f5"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_pk7og"]
-[ext_resource type="Resource" uid="uid://yigkev01k725" path="res://resources/items/resources/egg.tres" id="3_0iy6u"]
+[ext_resource type="Resource" uid="uid://yigkev01k725" path="res://resources/items/resources/crops/egg.tres" id="3_0iy6u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wnmp4"]
 atlas = ExtResource("1_hh4f5")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="1_v3no0"]
 [ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_wpl3s"]
-[ext_resource type="Resource" uid="uid://i25efnoy6hci" path="res://resources/items/resources/wheat.tres" id="3_p0ehi"]
+[ext_resource type="Resource" uid="uid://i25efnoy6hci" path="res://resources/items/resources/crops/wheat.tres" id="3_p0ehi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kgdh"]
 atlas = ExtResource("1_v3no0")

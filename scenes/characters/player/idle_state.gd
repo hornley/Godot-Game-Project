@@ -40,16 +40,12 @@ func _on_next_transitions() -> void:
 	if GameInputEvents.use_tool() or GameInputEvents.tool_to_transition_into != Util.Tools.None or Input.is_action_just_pressed("use_item"):
 		if player.current_tool == Util.Tools.Axe:
 			transition.emit("Chopping")
-			player.z_index = 1
 		elif player.current_tool == Util.Tools.Hoe:
 			transition.emit("Tilling")
-			player.z_index = 1
 		elif player.current_tool == Util.Tools.Pickaxe:
 			transition.emit("Mining")
-			player.z_index = 1
 		elif player.current_tool == Util.Tools.WateringCan:
 			transition.emit("Watering")
-			player.z_index = 1
 
 
 func _on_enter() -> void:
