@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://c3y3cehn5xhaj"]
+
+[ext_resource type="Script" uid="uid://dexooi4yh1ipq" path="res://scenes/ui/hotbar/hotbar_slot.gd" id="1_bl4lb"]
+[ext_resource type="Texture2D" uid="uid://khpre76fro68" path="res://assets/ui/botons.png" id="2_8re16"]
+[ext_resource type="FontFile" uid="uid://bf2c23lb7imb3" path="res://assets/ui/fonts/pixelFont-2-5x5-sproutLands.ttf" id="3_pgbhm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m38rv"]
+atlas = ExtResource("2_8re16")
+region = Rect2(78, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6afb"]
+atlas = ExtResource("2_8re16")
+region = Rect2(52, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npmd6"]
+atlas = ExtResource("2_8re16")
+region = Rect2(26, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaap5"]
+atlas = ExtResource("2_8re16")
+region = Rect2(0, 0, 26, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_djvcs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m38rv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6afb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npmd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaap5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HotbarSlot" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(26, 26)
+offset_right = 26.0
+offset_bottom = 26.0
+icon_alignment = 1
+script = ExtResource("1_bl4lb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(13, 13)
+sprite_frames = SubResource("SpriteFrames_djvcs")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 0
+offset_right = 26.0
+offset_bottom = 26.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="HotbarItemTexture" type="Sprite2D" parent="CenterContainer/Panel"]
+
+[node name="HotbarNumberLabel" type="Label" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 12.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.506832, 0.752617, 0.705451, 1)
+theme_override_fonts/font = ExtResource("3_pgbhm")
+theme_override_font_sizes/font_size = 8
+text = "1"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

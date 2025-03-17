@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://csms0ejiwcpd"]
+
+[ext_resource type="Script" uid="uid://cb07gv7m864gc" path="res://scripts/components/watering_cursor_component.gd" id="1_lhdbw"]
+
+[node name="WateringCursorComponent" type="Node"]
+script = ExtResource("1_lhdbw")

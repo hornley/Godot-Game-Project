@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=4 uid="uid://s3dbqy84x5iw"]
+
+[ext_resource type="Script" uid="uid://cfacy4q5gkjum" path="res://scripts/house/house.gd" id="1_e85kx"]
+[ext_resource type="TileSet" uid="uid://bjwfeio612v48" path="res://assets/tilesets/House_Tileset.tres" id="2_shsfr"]
+[ext_resource type="PackedScene" uid="uid://8b1oiirh33h4" path="res://scenes/houses/interactable_objects/door.tscn" id="3_glh5y"]
+[ext_resource type="PackedScene" uid="uid://q13lkcj87vko" path="res://scenes/houses/interactable_objects/chest.tscn" id="4_molc3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv73m"]
+size = Vector2(112, 80)
+
+[node name="Base" type="Node2D" node_paths=PackedStringArray("player_detect", "door", "roof", "wall")]
+visibility_layer = 2
+y_sort_enabled = true
+script = ExtResource("1_e85kx")
+player_detect = NodePath("PlayerDetect")
+door = NodePath("TileMap/InteractableObjects/Door")
+roof = NodePath("TileMap/Roof")
+wall = NodePath("TileMap/Wall")
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 8
+
+[node name="PlayerDetectShape" type="CollisionShape2D" parent="PlayerDetect"]
+position = Vector2(56, 40)
+shape = SubResource("RectangleShape2D_xv73m")
+
+[node name="TileMap" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Floor" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray("AAAAAAAAAQABAAEAAAABAAAAAQABAAEAAAABAAEAAQABAAEAAAACAAEAAQABAAEAAAADAAEAAQABAAEAAAAEAAEAAQABAAEAAAAFAAEAAQABAAEAAAAFAAIAAQABAAEAAAAFAAMAAQABAAEAAAAGAAMAAQABAAEAAAAEAAMAAQABAAEAAAADAAMAAQABAAEAAAACAAMAAQABAAEAAAABAAMAAQABAAEAAAABAAIAAQABAAEAAAAAAAIAAQABAAEAAAAAAAEAAQABAAEAAAAAAAMAAQABAAEAAAACAAIAAQABAAEAAAADAAIAAQABAAEAAAAEAAIAAQABAAEAAAAGAAIAAQABAAEAAAAGAAEAAQABAAEAAAAFAAAAAQABAAEAAAAGAAAAAQABAAEAAAAEAAAAAQABAAEAAAADAAAAAQABAAEAAAACAAAAAQABAAEAAAADAAQAAQABAAEAAAAAAAQAAQABAAEAAAABAAQAAQABAAEAAAACAAQAAQABAAEAAAAEAAQAAQABAAEAAAAFAAQAAQABAAEAAAAGAAQAAQABAAEAAAA=")
+tile_set = ExtResource("2_shsfr")
+
+[node name="Wall" type="TileMapLayer" parent="TileMap"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD//wAAAQAAAAEAAAD//wEAAQAAAAEAAAD//wIAAQAAAAEAAAD//wMAAQAAAAEAAAD//wQAAQAAAAIAAAAHAAQAAQACAAIAAAAHAP//AQACAAAAAAD/////AQAAAAAAAAAAAP//AQABAAAAAAABAP//AQABAAAAAAACAP//AQABAAAAAAADAP//AQABAAAAAAAEAP//AQABAAAAAAAFAP//AQABAAAAAAAGAP//AQABAAAAAAAHAAAAAQACAAEAAAAHAAEAAQACAAEAAAAHAAIAAQACAAEAAAAHAAMAAQACAAEAAAAGAAQAAQABAAIAAAAFAAQAAQADAAIAAAAEAAQAAQABAAIAAAAAAAQAAQABAAIAAAABAAQAAQADAAIAAAACAAQAAQABAAIAAAA=")
+tile_set = ExtResource("2_shsfr")
+
+[node name="BottomFurniture" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray("AAADAAMAAwADAAUAAAA=")
+tile_set = ExtResource("2_shsfr")
+
+[node name="InteractableObjects" type="Node2D" parent="TileMap"]
+y_sort_enabled = true
+
+[node name="Chest" parent="TileMap/InteractableObjects" instance=ExtResource("4_molc3")]
+position = Vector2(104, 8)
+
+[node name="Door" parent="TileMap/InteractableObjects" instance=ExtResource("3_glh5y")]
+position = Vector2(56, 72)
+
+[node name="TopFurniture" type="TileMapLayer" parent="TileMap"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAABAAAAAwADAAIAAAAAAAAAAwAAAAEAAAABAP//AwAHAAMAAAA=")
+tile_set = ExtResource("2_shsfr")
+
+[node name="Roof" type="TileMapLayer" parent="TileMap"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAHAAQAAAACAAQAAAD//wQAAAAAAAQAAAD///7/AAAAAAAAAAAHAP7/AAACAAAAAAAAAP7/AAABAAAAAAABAP7/AAABAAAAAAACAP7/AAABAAAAAAADAP7/AAABAAAAAAAEAP7/AAABAAAAAAAFAP7/AAABAAAAAAAGAP7/AAABAAAAAAAGAP//AAABAAEAAAAFAP//AAABAAEAAAAEAP//AAABAAEAAAADAP//AAABAAEAAAACAP//AAABAAEAAAABAP//AAABAAEAAAAAAP//AAABAAEAAAAAAAQAAAABAAQAAAABAAQAAAABAAQAAAACAAQAAAABAAQAAAADAAQAAAABAAQAAAAEAAQAAAABAAQAAAAFAAQAAAABAAQAAAAGAAQAAAABAAQAAAAHAAMAAAACAAMAAAAHAAIAAAACAAMAAAAHAP//AAACAAEAAAAHAAAAAAACAAEAAAAHAAEAAAACAAIAAAAGAAEAAAABAAIAAAAFAAEAAAABAAIAAAAEAAEAAAABAAIAAAADAAEAAAABAAIAAAACAAEAAAABAAIAAAABAAEAAAABAAIAAAAAAAEAAAABAAIAAAD//wEAAAAAAAIAAAD//wAAAAAAAAEAAAD/////AAAAAAEAAAD//wIAAAAAAAMAAAD//wMAAAAAAAMAAAAAAAAAAAABAAEAAAABAAAAAAABAAEAAAACAAAAAAABAAEAAAADAAAAAAABAAEAAAAEAAAAAAABAAEAAAAFAAAAAAABAAEAAAAGAAAAAAABAAEAAAAGAAIAAAABAAMAAAAGAAMAAAABAAMAAAAFAAMAAAABAAMAAAAFAAIAAAABAAMAAAAEAAMAAAABAAMAAAADAAMAAAABAAMAAAACAAMAAAABAAMAAAACAAIAAAABAAMAAAABAAIAAAABAAMAAAABAAMAAAABAAMAAAAAAAMAAAABAAMAAAAAAAIAAAABAAMAAAADAAIAAAABAAMAAAAEAAIAAAABAAMAAAA=")
+tile_set = ExtResource("2_shsfr")
+
+[connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]
+[connection signal="body_exited" from="PlayerDetect" to="." method="_on_player_detect_body_exited"]

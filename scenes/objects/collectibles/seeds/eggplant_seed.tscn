@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8wij0sxiq3tn"]
+
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="1_qk8tn"]
+[ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_nv2h7"]
+[ext_resource type="Resource" uid="uid://dcnkgb53bhy7g" path="res://resources/items/seeds/eggplant_seed.tres" id="3_uhr4b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kgdh"]
+atlas = ExtResource("1_qk8tn")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y61w7"]
+radius = 9.0
+
+[node name="Eggplant Seed" type="Sprite2D"]
+texture = SubResource("AtlasTexture_8kgdh")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_nv2h7")]
+item_name = "Eggplant Seed"
+item_resource = ExtResource("3_uhr4b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+shape = SubResource("CircleShape2D_y61w7")

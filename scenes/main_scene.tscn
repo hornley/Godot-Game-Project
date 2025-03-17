@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvxoev3hgrlcp"]
+
+[ext_resource type="PackedScene" uid="uid://bvyl6hx00ulv6" path="res://scenes/components/day_night_cycle_component.tscn" id="1_esq0k"]
+[ext_resource type="PackedScene" uid="uid://dpuxwqdq6h431" path="res://scenes/ui/game_screen.tscn" id="4_wlnht"]
+
+[node name="MainScene" type="Node2D"]
+y_sort_enabled = true
+
+[node name="DayNightCycleComponent" parent="." instance=ExtResource("1_esq0k")]
+
+[node name="GameRoot" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Worlds" type="Node2D" parent="GameRoot"]
+y_sort_enabled = true
+
+[node name="GameScreen" parent="." instance=ExtResource("4_wlnht")]

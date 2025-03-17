@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://crwesw1wygy8a"]
+
+[ext_resource type="Script" uid="uid://b5vn2hytugp7a" path="res://resources/item_resource.gd" id="1_24g0w"]
+[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="2_g7tog"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojm6s"]
+atlas = ExtResource("2_g7tog")
+region = Rect2(48, 80, 16, 16)
+
+[resource]
+script = ExtResource("1_24g0w")
+name = "Stone"
+description = "stone"
+category = 3
+value = 2.0
+texture = SubResource("AtlasTexture_ojm6s")

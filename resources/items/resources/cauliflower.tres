@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://bpka45040cd3o"]
+
+[ext_resource type="Script" uid="uid://b5vn2hytugp7a" path="res://resources/item_resource.gd" id="1_tjw6n"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="2_lcmva"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke4ms"]
+atlas = ExtResource("2_lcmva")
+region = Rect2(112, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_tjw6n")
+name = "Cauliflower"
+description = "cauliflower"
+category = 3
+value = 35.0
+texture = SubResource("AtlasTexture_ke4ms")

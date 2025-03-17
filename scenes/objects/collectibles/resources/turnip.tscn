@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbl50s0egia6t"]
+
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="1_lqck8"]
+[ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_moufp"]
+[ext_resource type="Resource" uid="uid://bipfdjyt83s62" path="res://resources/items/resources/turnip.tres" id="3_2l2di"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp7hw"]
+atlas = ExtResource("1_lqck8")
+region = Rect2(112, 160, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqni2"]
+radius = 7.0
+
+[node name="Turnip" type="Sprite2D"]
+texture = SubResource("AtlasTexture_fp7hw")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_moufp")]
+item_name = "Turnip"
+item_resource = ExtResource("3_2l2di")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_dqni2")

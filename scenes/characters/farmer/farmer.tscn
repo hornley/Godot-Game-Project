@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://36nnj7cxvqwd"]
+
+[ext_resource type="Script" uid="uid://dk6trofcwfqt3" path="res://scenes/characters/farmer/farmer.gd" id="1_bogan"]
+[ext_resource type="Texture2D" uid="uid://ddka2yph1rrgi" path="res://assets/textures/characters/Green-Cap-Character-16x18.png" id="2_5ajmb"]
+[ext_resource type="PackedScene" uid="uid://8k458glwmmiv" path="res://scenes/components/interactable_component.tscn" id="3_jofri"]
+[ext_resource type="PackedScene" uid="uid://brd432bw8nq0k" path="res://scenes/components/interactable_label_component.tscn" id="4_jwbsk"]
+[ext_resource type="PackedScene" uid="uid://rpl3e3w5mmh0" path="res://scenes/components/feed_component.tscn" id="5_ldv7m"]
+[ext_resource type="PackedScene" uid="uid://dpq64johhhuo6" path="res://scenes/components/storage_component.tscn" id="6_o3gyd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ku7g"]
+atlas = ExtResource("2_5ajmb")
+region = Rect2(0, 0, 16, 18)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y6m45"]
+radius = 23.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ahsvu"]
+
+[node name="Farmer" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_bogan")
+dialogue_start_command = "start_farmer"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_8ku7g")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_jofri")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+shape = SubResource("CircleShape2D_y6m45")
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_jwbsk")]
+offset_left = -28.0
+offset_top = -31.0
+offset_right = -10.0
+offset_bottom = -13.0
+
+[node name="RewardMarker" type="Marker2D" parent="."]
+position = Vector2(17, 17)
+
+[node name="FeedComponent" parent="." instance=ExtResource("5_ldv7m")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FeedComponent"]
+shape = SubResource("CircleShape2D_ahsvu")
+debug_color = Color(0.791029, 0.423934, 0.165658, 0.42)
+
+[node name="StorageComponent" parent="." instance=ExtResource("6_o3gyd")]
+size = 25
+items = {}

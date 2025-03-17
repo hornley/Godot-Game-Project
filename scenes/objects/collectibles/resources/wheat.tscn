@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://c31a3ttvdjnol"]
+
+[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="1_v3no0"]
+[ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_wpl3s"]
+[ext_resource type="Resource" uid="uid://i25efnoy6hci" path="res://resources/items/resources/wheat.tres" id="3_p0ehi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kgdh"]
+atlas = ExtResource("1_v3no0")
+region = Rect2(16, 128, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y61w7"]
+radius = 9.0
+
+[node name="Wheat" type="Sprite2D"]
+texture = SubResource("AtlasTexture_8kgdh")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_wpl3s")]
+item_name = "Wheat"
+item_resource = ExtResource("3_p0ehi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+shape = SubResource("CircleShape2D_y61w7")

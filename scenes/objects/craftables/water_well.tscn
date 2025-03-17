@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://byi53i4fcovye"]
+
+[ext_resource type="Texture2D" uid="uid://cpiej776ifpyh" path="res://assets/textures/structures/Water well.png" id="1_s2pfo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvffo"]
+atlas = ExtResource("1_s2pfo")
+
+[node name="WaterWell" type="Sprite2D"]
+texture = SubResource("AtlasTexture_yvffo")

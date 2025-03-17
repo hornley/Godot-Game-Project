@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://gy7trqii2skk"]
+
+[ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="1_1hoxv"]
+[ext_resource type="Script" uid="uid://ceb1ciu36temg" path="res://scripts/ui/coins_panel.gd" id="2_c7b2h"]
+[ext_resource type="Texture2D" uid="uid://bocjwt20tyu2" path="res://assets/textures/objects/currencies/GoldCoinSpinning (1).png" id="3_mj4vk"]
+[ext_resource type="FontFile" uid="uid://bf2c23lb7imb3" path="res://assets/ui/fonts/pixelFont-2-5x5-sproutLands.ttf" id="4_uurrs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t8nvi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yywil"]
+atlas = ExtResource("3_mj4vk")
+region = Rect2(5, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu4tm"]
+atlas = ExtResource("3_mj4vk")
+region = Rect2(21, 0, 6, 8)
+
+[node name="CoinsPanel" type="PanelContainer"]
+offset_right = 36.0
+offset_bottom = 24.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_1hoxv")
+theme_type_variation = &"DarkWoodPanel"
+theme_override_styles/panel = SubResource("StyleBoxTexture_t8nvi")
+script = ExtResource("2_c7b2h")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_yywil")
+
+[node name="SilverCoinLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+theme_override_fonts/font = ExtResource("4_uurrs")
+theme_override_font_sizes/font_size = 8
+text = "0"
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_vu4tm")
+
+[node name="GoldCoinLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"InventoryLabel"
+theme_override_fonts/font = ExtResource("4_uurrs")
+theme_override_font_sizes/font_size = 8
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

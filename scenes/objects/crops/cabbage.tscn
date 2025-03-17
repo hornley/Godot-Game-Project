@@ -1,0 +1,41 @@
+[gd_scene load_steps=11 format=3 uid="uid://mbqmgcw1c4l6"]
+
+[ext_resource type="Script" uid="uid://cx7if2c0txeag" path="res://scenes/objects/crops/scripts/crop_component.gd" id="1_gxenq"]
+[ext_resource type="PackedScene" uid="uid://c8bcrsma524kw" path="res://scenes/objects/collectibles/resources/cabbage.tscn" id="2_xofg8"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="3_5k5hc"]
+[ext_resource type="PackedScene" uid="uid://cjneesawtlqgr" path="res://scenes/objects/crops/scripts/flowering_particles.tscn" id="4_up0cd"]
+[ext_resource type="PackedScene" uid="uid://dc7lth3lb6qfe" path="res://scenes/objects/crops/scripts/watering_particles.tscn" id="5_1gb1p"]
+[ext_resource type="PackedScene" uid="uid://bqv1xj8no66j" path="res://scenes/objects/crops/scripts/growth_cycle_component.tscn" id="6_2gg7n"]
+[ext_resource type="PackedScene" uid="uid://b54fl2s7kn1tl" path="res://scenes/components/hurt_component.tscn" id="7_kythj"]
+[ext_resource type="PackedScene" uid="uid://dvpxrqy62tikh" path="res://scenes/components/save_data_component.tscn" id="8_iib4g"]
+[ext_resource type="Resource" uid="uid://bgph5laycsqqm" path="res://scenes/objects/crops/scripts/plant_data_resource.tres" id="9_xokmk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1vaq"]
+size = Vector2(11, 5.5)
+
+[node name="Cabbage" type="Node2D"]
+script = ExtResource("1_gxenq")
+harvest_scene = ExtResource("2_xofg8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = ExtResource("3_5k5hc")
+hframes = 8
+vframes = 15
+frame = 57
+
+[node name="FloweringParticles" parent="." instance=ExtResource("4_up0cd")]
+
+[node name="WateringParticles" parent="." instance=ExtResource("5_1gb1p")]
+
+[node name="GrowthCycleComponent" parent="." instance=ExtResource("6_2gg7n")]
+
+[node name="HurtComponent" parent="." instance=ExtResource("7_kythj")]
+tool = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, -1.25)
+shape = SubResource("RectangleShape2D_n1vaq")
+
+[node name="SaveDataComponent" parent="." instance=ExtResource("8_iib4g")]
+save_data_resource = ExtResource("9_xokmk")

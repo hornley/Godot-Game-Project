@@ -1,0 +1,21 @@
+~ start
+
+do PlayerManager.toggle_player_movement()
+
+Marlow: [[Hi|Hello|Howdy]], nice to meet you.
+Marlow: What's your name?
+do PlayerManager._player_name_prompt()
+Marlow: Welcome to your new farm, {{PlayerManager.player_name}}.
+Marlow: As you can see the cows and chickens are hungry.
+Marlow: You need to grow some crops to feed them.
+Marlow: Here are some seeds to grow some crops.
+- Take crop seeds
+	Teemo: Yeah I can grow some crops.
+	do GameDialogueManager.action_give_crop_seeds()
+	Marlow: Goodluck!
+- No, I don't want them
+	Teemo: I'm not ready to grow my farm yet.
+
+do PlayerManager.toggle_player_movement()
+
+=> END

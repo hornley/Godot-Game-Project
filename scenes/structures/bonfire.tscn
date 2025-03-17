@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://beywc1wbj5r6n"]
+
+[ext_resource type="Texture2D" uid="uid://cnsosqh1bq1qk" path="res://assets/textures/Bonfire_1.png" id="1_e2dyc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0jgw"]
+atlas = ExtResource("1_e2dyc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruvoa"]
+atlas = ExtResource("1_e2dyc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xu1h"]
+atlas = ExtResource("1_e2dyc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcvri"]
+atlas = ExtResource("1_e2dyc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8nybx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0jgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruvoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xu1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcvri")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ocdo"]
+radius = 3.0
+height = 18.0
+
+[sub_resource type="Gradient" id="Gradient_e2dyc"]
+offsets = PackedFloat32Array(0, 0.157068, 0.492147, 0.691099)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.581281, 1, 1, 1, 0.222254, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s0jgw"]
+gradient = SubResource("Gradient_e2dyc")
+width = 150
+height = 150
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Bonfire" type="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 32
+collision_mask = 1114
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_8nybx")
+autoplay = "default"
+frame_progress = 0.56983
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8ocdo")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -5)
+color = Color(0.996078, 0.898039, 0.286275, 1)
+blend_mode = 2
+texture = SubResource("GradientTexture2D_s0jgw")
+texture_scale = 2.0

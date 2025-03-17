@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="SeedItemResource" load_steps=8 format=3 uid="uid://d08beu6upca04"]
+
+[ext_resource type="Script" uid="uid://du0sj6g4113h2" path="res://resources/seed_item_resource.gd" id="1_iebci"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="2_43ioy"]
+[ext_resource type="Script" uid="uid://c8p1ltw4cajn0" path="res://scripts/custom_classes/time.gd" id="3_gm84u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdgch"]
+atlas = ExtResource("2_43ioy")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="Resource" id="Resource_8tqjh"]
+script = ExtResource("3_gm84u")
+day = 6
+hour = 0
+minute = 0
+metadata/_custom_type_script = "uid://c8p1ltw4cajn0"
+
+[sub_resource type="Resource" id="Resource_v2iqd"]
+script = ExtResource("3_gm84u")
+day = 10
+hour = 20
+minute = 50
+metadata/_custom_type_script = "uid://c8p1ltw4cajn0"
+
+[sub_resource type="Resource" id="Resource_2dyvg"]
+script = ExtResource("3_gm84u")
+day = 2
+hour = 0
+minute = 0
+metadata/_custom_type_script = "uid://c8p1ltw4cajn0"
+
+[resource]
+script = ExtResource("1_iebci")
+time_of_full_growth = SubResource("Resource_v2iqd")
+water_interval = SubResource("Resource_2dyvg")
+time_before_rot = SubResource("Resource_8tqjh")
+name = "Cauliflower Seed"
+description = "cauliflower seed"
+category = 4
+value = 0
+texture = SubResource("AtlasTexture_fdgch")

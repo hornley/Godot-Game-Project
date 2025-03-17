@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmlmm3t3cy2ry"]
+
+[ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="1_pvp34"]
+[ext_resource type="Script" uid="uid://dti7wntv6ubb" path="res://test/build_mode_component.gd" id="1_ty7su"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5ajh"]
+atlas = ExtResource("1_pvp34")
+region = Rect2(144, 144, 32, 32)
+
+[node name="BuildModeComponent" type="Node2D"]
+script = ExtResource("1_ty7su")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_o5ajh")

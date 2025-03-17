@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnakcpieqjhxf"]
+
+[ext_resource type="Texture2D" uid="uid://7fmbaoo1s31y" path="res://assets/textures/FIX_AND_BROKE.png" id="1_guema"]
+[ext_resource type="PackedScene" uid="uid://suvitjjl00a2" path="res://scenes/structures/portal/portal.tscn" id="2_7jqf1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jqf1"]
+atlas = ExtResource("1_guema")
+region = Rect2(145, 0, 107, 106)
+
+[node name="PortalBase" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-30, 3)
+scale = Vector2(0.560748, 0.54717)
+texture = SubResource("AtlasTexture_7jqf1")
+centered = false
+
+[node name="Portal" parent="." instance=ExtResource("2_7jqf1")]
+position = Vector2(0, 10)
+frame_progress = 0.0
+flip_h = true

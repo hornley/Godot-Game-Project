@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c46372durij8l"]
+
+[ext_resource type="Script" uid="uid://csi10570ao8k0" path="res://scenes/ui/crafting/craftable_item_slot.gd" id="1_yaxsr"]
+[ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="2_w8xv1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjb3l"]
+atlas = ExtResource("2_w8xv1")
+region = Rect2(59, 107, 26, 26)
+
+[node name="CraftableItemSlot" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(40, 42)
+anchors_preset = -1
+anchor_right = 0.062
+anchor_bottom = 0.117
+offset_right = 0.32
+offset_bottom = -0.119999
+script = ExtResource("1_yaxsr")
+
+[node name="SlotTexture" type="Sprite2D" parent="."]
+scale = Vector2(1.53846, 1.61538)
+texture = SubResource("AtlasTexture_sjb3l")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 42.0
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,135 @@
+[gd_scene load_steps=6 format=3 uid="uid://blo8akvfh8vc1"]
+
+[ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="1_rmg81"]
+[ext_resource type="Script" uid="uid://csu7wc6vvvnve" path="res://scenes/ui/crafting/crafting_gui.gd" id="1_uijch"]
+[ext_resource type="PackedScene" uid="uid://c46372durij8l" path="res://scenes/ui/crafting/craftable_item_slot.tscn" id="3_1s0fv"]
+[ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="4_51dyh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhih2"]
+atlas = ExtResource("1_rmg81")
+region = Rect2(201, 105, 30, 30)
+
+[node name="CraftingGUI" type="Control"]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 3
+anchor_right = 0.625
+anchor_bottom = 0.694
+offset_right = -400.0
+offset_bottom = -249.84
+script = ExtResource("1_uijch")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 250.0
+texture = SubResource("AtlasTexture_uhih2")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -113.0
+offset_right = 110.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 5
+
+[node name="CraftableItemSlot" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot2" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot3" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot4" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot5" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot6" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot7" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot8" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot9" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot10" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot11" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot12" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot13" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot14" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot15" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot16" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot17" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot18" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot19" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot20" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot21" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot22" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot23" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot24" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="CraftableItemSlot25" parent="NinePatchRect/HBoxContainer/GridContainer" instance=ExtResource("3_1s0fv")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="NinePatchRect/HBoxContainer"]
+custom_minimum_size = Vector2(150, 226)
+layout_mode = 2
+theme = ExtResource("4_51dyh")
+theme_type_variation = &"CraftingPanelContainer"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/HBoxContainer/PanelContainer"]
+layout_mode = 2

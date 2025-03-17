@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://xu5k52qcki7a"]
+
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="1_2eo4y"]
+[ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_wsv4h"]
+[ext_resource type="Resource" uid="uid://bvavlcg20he4r" path="res://resources/items/seeds/startfruit_seed.tres" id="3_go2kl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kgdh"]
+atlas = ExtResource("1_2eo4y")
+region = Rect2(0, 208, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y61w7"]
+radius = 9.0
+
+[node name="Starfruit Seed" type="Sprite2D"]
+texture = SubResource("AtlasTexture_8kgdh")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_wsv4h")]
+item_name = "Starfruit Seed"
+item_resource = ExtResource("3_go2kl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+shape = SubResource("CircleShape2D_y61w7")

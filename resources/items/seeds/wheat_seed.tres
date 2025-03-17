@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="SeedItemResource" load_steps=8 format=3 uid="uid://60nw5inn5263"]
+
+[ext_resource type="Script" uid="uid://du0sj6g4113h2" path="res://resources/seed_item_resource.gd" id="1_pn608"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="2_t41au"]
+[ext_resource type="Script" uid="uid://c8p1ltw4cajn0" path="res://scripts/custom_classes/time.gd" id="3_sg7wa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg7bm"]
+atlas = ExtResource("2_t41au")
+region = Rect2(0, 128, 16, 16)
+
+[sub_resource type="Resource" id="Resource_d13ta"]
+script = ExtResource("3_sg7wa")
+day = 4
+hour = 0
+minute = 0
+metadata/_custom_type_script = "uid://c8p1ltw4cajn0"
+
+[sub_resource type="Resource" id="Resource_u4snh"]
+script = ExtResource("3_sg7wa")
+day = 5
+hour = 18
+minute = 30
+metadata/_custom_type_script = "uid://c8p1ltw4cajn0"
+
+[sub_resource type="Resource" id="Resource_dqwx5"]
+script = ExtResource("3_sg7wa")
+day = 3
+hour = 0
+minute = 0
+metadata/_custom_type_script = "uid://c8p1ltw4cajn0"
+
+[resource]
+script = ExtResource("1_pn608")
+time_of_full_growth = SubResource("Resource_u4snh")
+water_interval = SubResource("Resource_dqwx5")
+time_before_rot = SubResource("Resource_d13ta")
+name = "Wheat Seed"
+description = "wheat seed"
+category = 4
+value = 0
+texture = SubResource("AtlasTexture_xg7bm")

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://ceesur51r4d7y"]
+
+[ext_resource type="Script" uid="uid://b5vn2hytugp7a" path="res://resources/item_resource.gd" id="1_eqsbl"]
+[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="2_hcae2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4jx5"]
+atlas = ExtResource("2_hcae2")
+region = Rect2(64, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_eqsbl")
+name = "Unprocessed Milk"
+description = "Unprocessed Milk"
+category = 3
+value = 5.0
+texture = SubResource("AtlasTexture_v4jx5")

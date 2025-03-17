@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://cwgabmm58wrk7"]
+
+[ext_resource type="Texture2D" uid="uid://wncvdfa6foj8" path="res://assets/textures/tilesets/nature/Basic_Grass_Biom_things.png" id="1_6tp7i"]
+[ext_resource type="Shader" uid="uid://l47ckgc7u4ro" path="res://scenes/objects/destroyable/trees/tree_shake.gdshader" id="1_enaje"]
+[ext_resource type="PackedScene" uid="uid://b54fl2s7kn1tl" path="res://scenes/components/hurt_component.tscn" id="2_nn8ry"]
+[ext_resource type="Script" uid="uid://1e46mourhb28" path="res://scenes/objects/destroyable/trees/small_tree.gd" id="2_th114"]
+[ext_resource type="PackedScene" uid="uid://dmg6ypkmadk4k" path="res://scenes/components/damage_component.tscn" id="3_01esh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbwg6"]
+resource_local_to_scene = true
+shader = ExtResource("1_enaje")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0byas"]
+atlas = ExtResource("1_6tp7i")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8js20"]
+radius = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lty2k"]
+size = Vector2(10, 22)
+
+[node name="SmallTree" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 1278
+script = ExtResource("2_th114")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_jbwg6")
+position = Vector2(0, -11)
+texture = SubResource("AtlasTexture_0byas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_8js20")
+
+[node name="HurtComponent" parent="." instance=ExtResource("2_nn8ry")]
+position = Vector2(0, -11)
+tool = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+shape = SubResource("RectangleShape2D_lty2k")
+
+[node name="DamageComponent" parent="." instance=ExtResource("3_01esh")]
+position = Vector2(0, -11)
+max_damage = 3

@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnrxjx3d8vves"]
+
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="1_sk4hs"]
+[ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_2lfyf"]
+[ext_resource type="Resource" uid="uid://cw84ebjdp1wxy" path="res://resources/items/seeds/tulip_seed.tres" id="3_x2iv7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kgdh"]
+atlas = ExtResource("1_sk4hs")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y61w7"]
+radius = 9.0
+
+[node name="Tulip Seed" type="Sprite2D"]
+texture = SubResource("AtlasTexture_8kgdh")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_2lfyf")]
+item_name = "Tulip Seed"
+item_resource = ExtResource("3_x2iv7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+shape = SubResource("CircleShape2D_y61w7")

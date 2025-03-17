@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://bl8bmpcdi2gd5"]
+
+[ext_resource type="Script" uid="uid://b5vn2hytugp7a" path="res://resources/item_resource.gd" id="1_us3wv"]
+[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="2_swvfq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucf73"]
+atlas = ExtResource("2_swvfq")
+region = Rect2(32, 80, 16, 16)
+
+[resource]
+script = ExtResource("1_us3wv")
+name = "Small Stone"
+description = "smol stone"
+category = 3
+value = 1.0
+texture = SubResource("AtlasTexture_ucf73")

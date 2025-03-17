@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="SeedItemResource" load_steps=8 format=3 uid="uid://bxwouamyrc78p"]
+
+[ext_resource type="Script" uid="uid://du0sj6g4113h2" path="res://resources/seed_item_resource.gd" id="1_gru6n"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="2_h56se"]
+[ext_resource type="Script" uid="uid://c8p1ltw4cajn0" path="res://scripts/custom_classes/time.gd" id="3_gru6n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7en4"]
+atlas = ExtResource("2_h56se")
+region = Rect2(0, 176, 16, 16)
+
+[sub_resource type="Resource" id="Resource_twobe"]
+script = ExtResource("3_gru6n")
+day = 3
+hour = 0
+minute = 0
+metadata/_custom_type_script = "uid://c8p1ltw4cajn0"
+
+[sub_resource type="Resource" id="Resource_rqf3t"]
+script = ExtResource("3_gru6n")
+day = 14
+hour = 8
+minute = 40
+metadata/_custom_type_script = "uid://c8p1ltw4cajn0"
+
+[sub_resource type="Resource" id="Resource_u3a3y"]
+script = ExtResource("3_gru6n")
+day = 2
+hour = 0
+minute = 0
+metadata/_custom_type_script = "uid://c8p1ltw4cajn0"
+
+[resource]
+script = ExtResource("1_gru6n")
+time_of_full_growth = SubResource("Resource_rqf3t")
+water_interval = SubResource("Resource_u3a3y")
+time_before_rot = SubResource("Resource_twobe")
+name = "Big Flower Seed"
+description = "big flower seed"
+category = 4
+value = 0
+texture = SubResource("AtlasTexture_g7en4")

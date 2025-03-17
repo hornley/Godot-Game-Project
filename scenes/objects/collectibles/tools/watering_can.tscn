@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0g784flvjxkv"]
+
+[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="1_nltyb"]
+[ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_rwqd1"]
+[ext_resource type="Resource" uid="uid://dhtnl7pgtuk0r" path="res://resources/items/tools/watering_can.tres" id="3_7idns"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiq6f"]
+atlas = ExtResource("1_nltyb")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y61w7"]
+radius = 9.0
+
+[node name="Watering Can" type="Sprite2D"]
+texture = SubResource("AtlasTexture_xiq6f")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_rwqd1")]
+item_name = "Watering Can"
+item_resource = ExtResource("3_7idns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+shape = SubResource("CircleShape2D_y61w7")

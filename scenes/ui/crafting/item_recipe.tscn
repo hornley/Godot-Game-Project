@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://csapf7bs2v5y4"]
+
+[ext_resource type="Script" uid="uid://bj8eip55641q2" path="res://scenes/ui/crafting/item_recipe.gd" id="1_88xnj"]
+[ext_resource type="FontFile" uid="uid://bk4cjui4oopjv" path="res://assets/ui/fonts/sprout_lands.ttf" id="2_l7xcp"]
+
+[node name="ItemRecipe" type="Panel"]
+custom_minimum_size = Vector2(135, 24)
+offset_right = 140.0
+offset_bottom = 24.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_88xnj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(12, 12)
+scale = Vector2(1.25, 1.25)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+anchor_right = 1.002
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 6.0
+offset_right = 33.75
+offset_bottom = -3.0
+scale = Vector2(0.75, 0.75)
+theme_override_fonts/font = ExtResource("2_l7xcp")
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1

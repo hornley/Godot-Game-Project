@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://m4lir7d0in12"]
+
+[ext_resource type="Texture2D" uid="uid://car7y7jmyinu4" path="res://assets/textures/New Piskel (5).png" id="2_uuqg3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvpav"]
+atlas = ExtResource("2_uuqg3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnrek"]
+atlas = ExtResource("2_uuqg3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xhe0i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvpav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnrek")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="RightClickAnimation" type="Node2D"]
+z_index = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xhe0i")
+autoplay = "default"
+frame_progress = 0.604564

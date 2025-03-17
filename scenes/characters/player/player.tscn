@@ -1,0 +1,112 @@
+[gd_scene load_steps=19 format=3 uid="uid://07cfy2qe8hvm"]
+
+[ext_resource type="Script" uid="uid://ditrbh1dj8xak" path="res://scenes/characters/player/player.gd" id="1_y2nvy"]
+[ext_resource type="SpriteFrames" uid="uid://c1v738j6fnukf" path="res://scenes/characters/player/player_animation.tres" id="2_bsjih"]
+[ext_resource type="Script" uid="uid://10t3wkh2uxgn" path="res://scripts/state_machine/node_state_machine.gd" id="4_n7mtf"]
+[ext_resource type="Script" uid="uid://bvcyuhdh421pc" path="res://scenes/characters/player/idle_state.gd" id="5_2ybnq"]
+[ext_resource type="Script" uid="uid://d2vqdqt1e8eg6" path="res://scenes/characters/player/move_state.gd" id="6_gg4mv"]
+[ext_resource type="Script" uid="uid://dcyi5rch36lp8" path="res://scenes/characters/player/chopping_state.gd" id="7_l86yb"]
+[ext_resource type="Script" uid="uid://besdbnyojs747" path="res://scenes/characters/player/tilling_state.gd" id="8_qono8"]
+[ext_resource type="Script" uid="uid://di161dvdr0n6c" path="res://scenes/characters/player/mining_state.gd" id="9_2fqob"]
+[ext_resource type="PackedScene" uid="uid://bo8xlv3im1iga" path="res://scenes/components/hit_component.tscn" id="9_o4kdi"]
+[ext_resource type="Script" uid="uid://b570k3pp7j1uj" path="res://scenes/characters/player/watering_state.gd" id="10_6nw22"]
+[ext_resource type="PackedScene" uid="uid://bijn4nnp152pf" path="res://scenes/components/save_data_component.tscn" id="11_1gmjo"]
+[ext_resource type="Resource" uid="uid://6pptsjokt7d2" path="res://scenes/characters/player/player_data_resource.tres" id="12_0hvyg"]
+[ext_resource type="PackedScene" uid="uid://dpq64johhhuo6" path="res://scenes/components/storage_component.tscn" id="13_blysn"]
+[ext_resource type="Script" uid="uid://d1ujvoy1q7xlb" path="res://scenes/characters/player/camera.gd" id="14_hv5x3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_04k14"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ukrm"]
+radius = 3.0
+
+[sub_resource type="Gradient" id="Gradient_3kre7"]
+offsets = PackedFloat32Array(0, 0.0680628, 0.382199, 0.712042)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.819062, 1, 1, 1, 0.319672, 1, 1, 1, 0)
+metadata/_snap_count = 5
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hv5x3"]
+gradient = SubResource("Gradient_3kre7")
+width = 150
+height = 150
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+y_sort_enabled = true
+collision_layer = 8
+collision_mask = 4087
+script = ExtResource("1_y2nvy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = ExtResource("2_bsjih")
+animation = &"move_back"
+autoplay = "idle_front"
+frame_progress = 0.79491
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_04k14")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("4_n7mtf")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite")]
+script = ExtResource("5_2ybnq")
+player = NodePath("../..")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite")]
+script = ExtResource("6_gg4mv")
+player = NodePath("../..")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Chopping" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite", "hit_component_collision_shape")]
+script = ExtResource("7_l86yb")
+player = NodePath("../..")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+hit_component_collision_shape = NodePath("../../HitComponent/HitComponentCollisionShape")
+
+[node name="Tilling" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite", "hit_component_collision_shape")]
+script = ExtResource("8_qono8")
+player = NodePath("../..")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+hit_component_collision_shape = NodePath("../../HitComponent/HitComponentCollisionShape")
+
+[node name="Mining" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite", "hit_component_collision_shape")]
+script = ExtResource("9_2fqob")
+player = NodePath("../..")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+hit_component_collision_shape = NodePath("../../HitComponent/HitComponentCollisionShape")
+
+[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite", "hit_component_collision_shape")]
+script = ExtResource("10_6nw22")
+player = NodePath("../..")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+hit_component_collision_shape = NodePath("../../HitComponent/HitComponentCollisionShape")
+
+[node name="HitComponent" parent="." instance=ExtResource("9_o4kdi")]
+position = Vector2(0, 4)
+
+[node name="HitComponentCollisionShape" type="CollisionShape2D" parent="HitComponent"]
+shape = SubResource("CircleShape2D_4ukrm")
+
+[node name="SaveDataComponent" parent="." instance=ExtResource("11_1gmjo")]
+save_data_resource = ExtResource("12_0hvyg")
+
+[node name="StorageComponent" parent="." instance=ExtResource("13_blysn")]
+size = 25
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 4)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+script = ExtResource("14_hv5x3")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 4)
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_hv5x3")

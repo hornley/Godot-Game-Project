@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="SeedItemResource" load_steps=8 format=3 uid="uid://b38tc16clb3kn"]
+
+[ext_resource type="Script" uid="uid://du0sj6g4113h2" path="res://resources/seed_item_resource.gd" id="1_8sffq"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="2_hecwv"]
+[ext_resource type="Script" uid="uid://c8p1ltw4cajn0" path="res://scripts/custom_classes/time.gd" id="3_bek7u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fq16"]
+atlas = ExtResource("2_hecwv")
+region = Rect2(0, 160, 16, 16)
+
+[sub_resource type="Resource" id="Resource_j7mv2"]
+script = ExtResource("3_bek7u")
+day = 3
+hour = 0
+minute = 0
+metadata/_custom_type_script = "uid://c8p1ltw4cajn0"
+
+[sub_resource type="Resource" id="Resource_ukve4"]
+script = ExtResource("3_bek7u")
+day = 5
+hour = 4
+minute = 20
+metadata/_custom_type_script = "uid://c8p1ltw4cajn0"
+
+[sub_resource type="Resource" id="Resource_g05gs"]
+script = ExtResource("3_bek7u")
+day = 1
+hour = 0
+minute = 0
+metadata/_custom_type_script = "uid://c8p1ltw4cajn0"
+
+[resource]
+script = ExtResource("1_8sffq")
+time_of_full_growth = SubResource("Resource_ukve4")
+water_interval = SubResource("Resource_g05gs")
+time_before_rot = SubResource("Resource_j7mv2")
+name = "Turnip Seed"
+description = "turnip seed"
+category = 4
+value = 0
+texture = SubResource("AtlasTexture_8fq16")

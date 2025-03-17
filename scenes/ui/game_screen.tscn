@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://dpuxwqdq6h431"]
+
+[ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="1_54d8w"]
+[ext_resource type="Script" uid="uid://dylo5ffv7ldre" path="res://scenes/ui/game_screen.gd" id="1_e6rm1"]
+[ext_resource type="PackedScene" uid="uid://dtbufv4ox6gi0" path="res://scenes/ui/hotbar/hotbar_gui.tscn" id="2_0vlv1"]
+[ext_resource type="PackedScene" uid="uid://du03v3f32eowb" path="res://scenes/ui/emotes_panel.tscn" id="2_km4oe"]
+[ext_resource type="PackedScene" uid="uid://gy7trqii2skk" path="res://scenes/ui/coins_panel.tscn" id="3_2r70c"]
+[ext_resource type="PackedScene" uid="uid://c64eujjsgypf0" path="res://scenes/ui/day_and_night_panel.tscn" id="4_04qxa"]
+[ext_resource type="PackedScene" uid="uid://c4i3rdqnclvhx" path="res://scenes/ui/inventory_gui.tscn" id="7_dasxt"]
+[ext_resource type="Script" uid="uid://b3264cs88tkp2" path="res://scenes/ui/storage/storage_controller.gd" id="7_nktmq"]
+[ext_resource type="PackedScene" uid="uid://irn4do2fusnu" path="res://scenes/ui/storage/storage_gui.tscn" id="8_c0p0g"]
+[ext_resource type="PackedScene" uid="uid://blo8akvfh8vc1" path="res://scenes/ui/crafting/crafting_gui.tscn" id="8_psj8p"]
+[ext_resource type="PackedScene" uid="uid://bk6sthpmkjcc2" path="res://scenes/ui/auto_save_notification.tscn" id="9_3y2x4"]
+
+[node name="GameScreen" type="CanvasLayer"]
+process_mode = 3
+follow_viewport_scale = 2.0
+script = ExtResource("1_e6rm1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme = ExtResource("1_54d8w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="EmotesPanel" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_km4oe")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CoinsPanel" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_2r70c")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="DayAndNightPanel" parent="MarginContainer" instance=ExtResource("4_04qxa")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="HotbarGUI" parent="MarginContainer" instance=ExtResource("2_0vlv1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -125.0
+offset_right = 125.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StorageController" type="Node" parent="HBoxContainer"]
+script = ExtResource("7_nktmq")
+
+[node name="InventoryGUI" parent="HBoxContainer" node_paths=PackedStringArray("hotbar_gui", "storage_controller") instance=ExtResource("7_dasxt")]
+visible = false
+layout_mode = 2
+hotbar_gui = NodePath("../../MarginContainer/HotbarGUI")
+storage_controller = NodePath("../StorageController")
+
+[node name="StorageGUI" parent="HBoxContainer" node_paths=PackedStringArray("hotbar_gui", "storage_controller") instance=ExtResource("8_c0p0g")]
+visible = false
+layout_mode = 2
+hotbar_gui = NodePath("../../MarginContainer/HotbarGUI")
+storage_controller = NodePath("../StorageController")
+
+[node name="CraftingGUI" parent="." instance=ExtResource("8_psj8p")]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -125.0
+offset_top = 25.0
+offset_right = 125.0
+offset_bottom = 275.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AutoSaveNotification" parent="." instance=ExtResource("9_3y2x4")]
+visible = false

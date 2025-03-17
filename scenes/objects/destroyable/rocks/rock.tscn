@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://djs7u7lmfgnmj"]
+
+[ext_resource type="Texture2D" uid="uid://wncvdfa6foj8" path="res://assets/textures/tilesets/nature/Basic_Grass_Biom_things.png" id="1_ally6"]
+[ext_resource type="Script" uid="uid://cv4cibx3vqgsq" path="res://scenes/objects/destroyable/rocks/rock.gd" id="2_yjju1"]
+[ext_resource type="PackedScene" uid="uid://b54fl2s7kn1tl" path="res://scenes/components/hurt_component.tscn" id="3_ya4q1"]
+[ext_resource type="PackedScene" uid="uid://dmg6ypkmadk4k" path="res://scenes/components/damage_component.tscn" id="4_f5rov"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1cr6p"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdiso"]
+radius = 5.0
+
+[node name="Rock" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 1278
+script = ExtResource("2_yjju1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("1_ally6")
+region_enabled = true
+region_rect = Rect2(128, 16, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1cr6p")
+
+[node name="HurtComponent" parent="." instance=ExtResource("3_ya4q1")]
+tool = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+shape = SubResource("CircleShape2D_qdiso")
+
+[node name="DamageComponent" parent="." instance=ExtResource("4_f5rov")]
+max_damage = 5

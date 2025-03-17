@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0mvuhg8374lv"]
+
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="1_hrnk7"]
+[ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_3kkdk"]
+[ext_resource type="Resource" uid="uid://dotnk3blbq58f" path="res://resources/items/seeds/pumpkin_seed.tres" id="3_y353g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kgdh"]
+atlas = ExtResource("1_hrnk7")
+region = Rect2(0, 144, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y61w7"]
+radius = 9.0
+
+[node name="Pumpkin Seed" type="Sprite2D"]
+texture = SubResource("AtlasTexture_8kgdh")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_3kkdk")]
+item_name = "Pumpkin Seed"
+item_resource = ExtResource("3_y353g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+shape = SubResource("CircleShape2D_y61w7")

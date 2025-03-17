@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbrng3gywga74"]
+
+[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="1_piov3"]
+[ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_2myb0"]
+[ext_resource type="Resource" uid="uid://cy5li00n8dw7l" path="res://resources/items/tools/axe.tres" id="3_frcgr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiq6f"]
+atlas = ExtResource("1_piov3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y61w7"]
+radius = 9.0
+
+[node name="Axe" type="Sprite2D"]
+texture = SubResource("AtlasTexture_xiq6f")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_2myb0")]
+item_name = "Axe"
+item_resource = ExtResource("3_frcgr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+shape = SubResource("CircleShape2D_y61w7")

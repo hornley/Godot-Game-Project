@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemRecipeResource" load_steps=5 format=3 uid="uid://xj43lg84tdww"]
+
+[ext_resource type="Resource" uid="uid://cy5li00n8dw7l" path="res://resources/items/tools/axe.tres" id="1_1tgy5"]
+[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="2_lyo4d"]
+[ext_resource type="Script" uid="uid://dhiheiaoxr0ch" path="res://resources/item_recipe_resource.gd" id="3_xf1fp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80shx"]
+atlas = ExtResource("2_lyo4d")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("3_xf1fp")
+name = "Axe"
+input = {
+"Log": 3
+}
+output = ExtResource("1_1tgy5")
+crafting_station = 0
+output_texture = SubResource("AtlasTexture_80shx")

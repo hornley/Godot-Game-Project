@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtbufv4ox6gi0"]
+
+[ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="1_vrq5v"]
+[ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="2_vp7ny"]
+[ext_resource type="Script" uid="uid://ch12bvbeixk3s" path="res://scenes/ui/hotbar/hotbar_gui.gd" id="2_w7q5f"]
+[ext_resource type="PackedScene" uid="uid://c3y3cehn5xhaj" path="res://scenes/ui/hotbar/hotbar_slot.tscn" id="3_bqwcn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi52q"]
+atlas = ExtResource("2_vp7ny")
+region = Rect2(201, 105, 30, 30)
+
+[node name="HotbarGUI" type="Control"]
+custom_minimum_size = Vector2(175, 45)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 175.0
+offset_bottom = 45.0
+theme = ExtResource("1_vrq5v")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("2_w7q5f")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(175, 45)
+layout_mode = 2
+offset_right = 175.0
+offset_bottom = 45.0
+texture = SubResource("AtlasTexture_bi52q")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -13.0
+offset_right = 73.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hotbar1" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_bqwcn")]
+layout_mode = 2
+
+[node name="Hotbar2" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_bqwcn")]
+layout_mode = 2
+
+[node name="Hotbar3" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_bqwcn")]
+layout_mode = 2
+
+[node name="Hotbar4" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_bqwcn")]
+layout_mode = 2
+
+[node name="Hotbar5" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_bqwcn")]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

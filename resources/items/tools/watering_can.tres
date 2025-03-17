@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://dhtnl7pgtuk0r"]
+
+[ext_resource type="Script" uid="uid://b5vn2hytugp7a" path="res://resources/item_resource.gd" id="1_avaki"]
+[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="2_xsroj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xjpo"]
+atlas = ExtResource("2_xsroj")
+region = Rect2(32, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_avaki")
+name = "Watering Can"
+description = "watering can"
+category = 0
+value = 15.0
+texture = SubResource("AtlasTexture_7xjpo")

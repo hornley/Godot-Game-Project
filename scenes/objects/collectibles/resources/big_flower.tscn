@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv2efymplrfcj"]
+
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="1_i36xe"]
+[ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_t2yf4"]
+[ext_resource type="Resource" uid="uid://c5foqoiujlhfg" path="res://resources/items/resources/big_flower.tres" id="3_c5oai"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp7hw"]
+atlas = ExtResource("1_i36xe")
+region = Rect2(112, 176, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqni2"]
+radius = 7.0
+
+[node name="Big Flower" type="Sprite2D"]
+texture = SubResource("AtlasTexture_fp7hw")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_t2yf4")]
+item_name = "Big Flower"
+item_resource = ExtResource("3_c5oai")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_dqni2")

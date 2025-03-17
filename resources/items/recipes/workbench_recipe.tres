@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemRecipeResource" load_steps=5 format=3 uid="uid://6fs1uug0qqle"]
+
+[ext_resource type="Resource" uid="uid://cu45hgk7slfh" path="res://resources/items/objects/workbench.tres" id="3_nveqa"]
+[ext_resource type="Texture2D" uid="uid://dhhwka5fgdq4l" path="res://assets/textures/structures/work station.png" id="4_0qvmg"]
+[ext_resource type="Script" uid="uid://dhiheiaoxr0ch" path="res://resources/item_recipe_resource.gd" id="4_klew5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjupb"]
+atlas = ExtResource("4_0qvmg")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("4_klew5")
+name = "Workbench"
+input = {
+"Log": 5
+}
+output = ExtResource("3_nveqa")
+crafting_station = 0
+output_texture = SubResource("AtlasTexture_bjupb")

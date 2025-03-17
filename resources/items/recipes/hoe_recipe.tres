@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemRecipeResource" load_steps=5 format=3 uid="uid://dhtn1ealkepdf"]
+
+[ext_resource type="Resource" uid="uid://fqhrx4ftdnn5" path="res://resources/items/tools/hoe.tres" id="1_56o72"]
+[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="2_y6ghy"]
+[ext_resource type="Script" uid="uid://dhiheiaoxr0ch" path="res://resources/item_recipe_resource.gd" id="3_7anno"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mji1g"]
+atlas = ExtResource("2_y6ghy")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+script = ExtResource("3_7anno")
+name = "Hoe"
+input = {
+"Log": 2
+}
+output = ExtResource("1_56o72")
+crafting_station = 0
+output_texture = SubResource("AtlasTexture_mji1g")

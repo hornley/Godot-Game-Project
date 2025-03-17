@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://c5foqoiujlhfg"]
+
+[ext_resource type="Script" uid="uid://b5vn2hytugp7a" path="res://resources/item_resource.gd" id="1_py12v"]
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="2_p0cuq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke4ms"]
+atlas = ExtResource("2_p0cuq")
+region = Rect2(112, 176, 16, 16)
+
+[resource]
+script = ExtResource("1_py12v")
+name = "Big Flower"
+description = "big flower"
+category = 3
+value = 80.0
+texture = SubResource("AtlasTexture_ke4ms")

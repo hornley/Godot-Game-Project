@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkf2yfj1u7b86"]
+
+[ext_resource type="Script" uid="uid://yilx53d74byd" path="res://scenes/ui/crafting/craftable_item_stack.gd" id="1_vxvjb"]
+
+[node name="CraftableItemStack" type="Panel"]
+script = ExtResource("1_vxvjb")
+
+[node name="ItemTexture" type="Sprite2D" parent="."]
+scale = Vector2(1.76563, 1.83594)

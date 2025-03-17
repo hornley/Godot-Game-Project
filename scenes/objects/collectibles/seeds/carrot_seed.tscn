@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb2ru4hd1qbvj"]
+
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="1_l4b6k"]
+[ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_ttlxd"]
+[ext_resource type="Resource" uid="uid://c43jv2habpp7a" path="res://resources/items/seeds/carrot_seed.tres" id="3_rjs6u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kgdh"]
+atlas = ExtResource("1_l4b6k")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y61w7"]
+radius = 9.0
+
+[node name="Carrot Seed" type="Sprite2D"]
+texture = SubResource("AtlasTexture_8kgdh")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_ttlxd")]
+item_name = "Carrot Seed"
+item_resource = ExtResource("3_rjs6u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+shape = SubResource("CircleShape2D_y61w7")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://o57j8tpop1l0"]
+
+[ext_resource type="Shader" uid="uid://dhpo0uu5ji1h4" path="res://scenes/objects/collectibles/outline.gdshader" id="1_4i7p3"]
+[ext_resource type="Texture2D" uid="uid://dhhwka5fgdq4l" path="res://assets/textures/structures/work station.png" id="1_ogkt5"]
+[ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_sdxw2"]
+[ext_resource type="Resource" uid="uid://cu45hgk7slfh" path="res://resources/items/objects/workbench.tres" id="3_84aqo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cs4cx"]
+shader = ExtResource("1_4i7p3")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nng30"]
+radius = 17.0
+
+[node name="Workbench" type="Sprite2D"]
+material = SubResource("ShaderMaterial_cs4cx")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ogkt5")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_sdxw2")]
+item_name = "Workbench"
+item_resource = ExtResource("3_84aqo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_nng30")

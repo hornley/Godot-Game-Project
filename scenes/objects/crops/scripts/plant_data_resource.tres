@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlantDataResource" load_steps=2 format=3 uid="uid://bgph5laycsqqm"]
+
+[ext_resource type="Script" uid="uid://7sn5yknxbnjr" path="res://scenes/objects/crops/scripts/plant_data_resource.gd" id="1_h82gh"]
+
+[resource]
+script = ExtResource("1_h82gh")
+current_growth_state = 0
+days_until_harvest = 0
+is_watered = false
+starting_day = 0
+current_day = 0
+node_name = ""
+scene_file_path = ""
+global_position = Vector2(0, 0)
+node_path = NodePath("")
+parent_node_path = NodePath("")

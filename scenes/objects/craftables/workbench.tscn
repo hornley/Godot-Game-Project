@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://crdhft36wp4q7"]
+
+[ext_resource type="Script" uid="uid://br7xnvt4yn2fh" path="res://scenes/objects/craftables/workbench.gd" id="1_6lhdk"]
+[ext_resource type="Texture2D" uid="uid://dhhwka5fgdq4l" path="res://assets/textures/structures/work station.png" id="1_ulbph"]
+[ext_resource type="PackedScene" uid="uid://8k458glwmmiv" path="res://scenes/components/interactable_component.tscn" id="2_m6mdp"]
+[ext_resource type="PackedScene" uid="uid://brd432bw8nq0k" path="res://scenes/components/interactable_label_component.tscn" id="4_43nlp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cy4q"]
+atlas = ExtResource("1_ulbph")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slk5a"]
+size = Vector2(30, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tv1h"]
+size = Vector2(37, 26)
+
+[node name="Workbench" type="StaticBody2D"]
+y_sort_enabled = true
+collision_layer = 32
+collision_mask = 90
+script = ExtResource("1_6lhdk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = SubResource("AtlasTexture_4cy4q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_slk5a")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("2_m6mdp")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+shape = SubResource("RectangleShape2D_5tv1h")
+debug_color = Color(0.700821, 0.490355, 0.0913999, 0.42)
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_43nlp")]
+offset_left = -30.0
+offset_top = -28.0
+offset_right = -12.0
+offset_bottom = -10.0

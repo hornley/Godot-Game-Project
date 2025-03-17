@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://db5t17mgnuqn7"]
+
+[ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="1_wnh20"]
+[ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_dqql1"]
+[ext_resource type="Resource" uid="uid://66bpe0mdevmh" path="res://resources/items/seeds/beetroot_seed.tres" id="3_wof1w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kgdh"]
+atlas = ExtResource("1_wnh20")
+region = Rect2(0, 192, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y61w7"]
+radius = 9.0
+
+[node name="Beetroot Seed" type="Sprite2D"]
+texture = SubResource("AtlasTexture_8kgdh")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_dqql1")]
+item_name = "Beetroot Seed"
+item_resource = ExtResource("3_wof1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+shape = SubResource("CircleShape2D_y61w7")

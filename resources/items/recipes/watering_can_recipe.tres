@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemRecipeResource" load_steps=5 format=3 uid="uid://byidldi7q64r0"]
+
+[ext_resource type="Resource" uid="uid://dhtnl7pgtuk0r" path="res://resources/items/tools/watering_can.tres" id="1_la7l3"]
+[ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="2_xisa7"]
+[ext_resource type="Script" uid="uid://dhiheiaoxr0ch" path="res://resources/item_recipe_resource.gd" id="3_5sq5o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fqas"]
+atlas = ExtResource("2_xisa7")
+region = Rect2(32, 16, 16, 16)
+
+[resource]
+script = ExtResource("3_5sq5o")
+name = "Watering Can"
+input = {
+"Stone": 3
+}
+output = ExtResource("1_la7l3")
+crafting_station = 1
+output_texture = SubResource("AtlasTexture_2fqas")

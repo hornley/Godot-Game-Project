@@ -1,0 +1,105 @@
+[gd_scene load_steps=15 format=3 uid="uid://y5xh26x2hxp"]
+
+[ext_resource type="Script" uid="uid://vocwnfiucfth" path="res://scenes/characters/cow/cow.gd" id="1_y4i8y"]
+[ext_resource type="Texture2D" uid="uid://cmayxbfmg1gwx" path="res://assets/textures/characters/Free Cow Sprites.png" id="2_7rwgh"]
+[ext_resource type="Script" uid="uid://10t3wkh2uxgn" path="res://scripts/state_machine/node_state_machine.gd" id="3_abytm"]
+[ext_resource type="Script" uid="uid://68lqy10to40p" path="res://scenes/characters/cow/idle_state.gd" id="4_mn3yh"]
+[ext_resource type="Script" uid="uid://dpbtrgv2cwx2n" path="res://scenes/characters/cow/move_state.gd" id="5_fefx6"]
+[ext_resource type="PackedScene" uid="uid://dkoni4wf6w4vl" path="res://scenes/components/audio_play_time_component.tscn" id="6_e3f6r"]
+[ext_resource type="PackedScene" uid="uid://daadlqurx7406" path="res://audio/sfx/cow_moo_sfx.tscn" id="7_b3fsw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7of7g"]
+atlas = ExtResource("2_7rwgh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdjob"]
+atlas = ExtResource("2_7rwgh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxk78"]
+atlas = ExtResource("2_7rwgh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohveh"]
+atlas = ExtResource("2_7rwgh")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_borip"]
+atlas = ExtResource("2_7rwgh")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0d1lv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7of7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdjob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxk78")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohveh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_borip")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gft8q"]
+radius = 7.0
+
+[node name="Cow" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 1024
+collision_mask = 2207
+script = ExtResource("1_y4i8y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -13)
+sprite_frames = SubResource("SpriteFrames_0d1lv")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -7)
+shape = SubResource("CircleShape2D_gft8q")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("3_abytm")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animated_sprite")]
+script = ExtResource("4_mn3yh")
+character = NodePath("../..")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animated_sprite", "navigation_agent")]
+script = ExtResource("5_fefx6")
+character = NodePath("../..")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+navigation_agent = NodePath("../../NavigationAgent2D")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+navigation_layers = 2
+avoidance_enabled = true
+radius = 5.0
+debug_enabled = true
+
+[node name="AudioPlayTimeComponent" parent="." node_paths=PackedStringArray("audio_stream_player_2D") instance=ExtResource("6_e3f6r")]
+wait_time = 20.0
+autostart = true
+audio_stream_player_2D = NodePath("../CowMooSFX")
+
+[node name="CowMooSFX" parent="." instance=ExtResource("7_b3fsw")]
+stream = null
