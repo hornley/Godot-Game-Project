@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://cm0ox13o6dmms" path="res://assets/tilesets/world_terrain_tileset.tres" id="1_yegmf"]
 [ext_resource type="TileSet" uid="uid://bnx1xqubv247v" path="res://assets/tilesets/world_vegetation_tileset.tres" id="2_xekg7"]
 [ext_resource type="TileSet" uid="uid://dpo2y42t3gi6u" path="res://assets/tilesets/world_objects_tileset.tres" id="3_p7tci"]
-[ext_resource type="Script" uid="uid://v3gx2fb8b2pf" path="res://scenes/world/land.gd" id="4_ur2ni"]
+[ext_resource type="Script" uid="uid://ce66rty02dhiq" path="res://scenes/world/land.gd" id="4_ur2ni"]
 [ext_resource type="PackedScene" uid="uid://bijn4nnp152pf" path="res://scenes/components/save_data_component.tscn" id="4_vyouv"]
 [ext_resource type="PackedScene" uid="uid://s3dbqy84x5iw" path="res://scenes/houses/small_house.tscn" id="4_yk1kh"]
 [ext_resource type="Resource" uid="uid://c6etwb18k75et" path="res://resources/world/tilled_tilemap_layer_data_resource.tres" id="5_mjwci"]
@@ -17,7 +17,7 @@
 [ext_resource type="Resource" uid="uid://qiwagq27awd7" path="res://resources/world/objects_terrain_tilemap_layer_data_resource.tres" id="10_volsg"]
 [ext_resource type="PackedScene" uid="uid://bnakcpieqjhxf" path="res://scenes/structures/portal/portal_base.tscn" id="12_mmry4"]
 [ext_resource type="PackedScene" uid="uid://csms0ejiwcpd" path="res://scenes/components/watering_cursor_component.tscn" id="14_66dyq"]
-[ext_resource type="Script" uid="uid://c4s3yapvpdac3" path="res://test/crop_fields.gd" id="14_i6tii"]
+[ext_resource type="Script" uid="uid://v7tllrvx1c5d" path="res://test/crop_fields.gd" id="14_i6tii"]
 [ext_resource type="PackedScene" uid="uid://baj74gnng5lr6" path="res://scenes/characters/guide/guide.tscn" id="17_volsg"]
 [ext_resource type="PackedScene" uid="uid://36nnj7cxvqwd" path="res://scenes/characters/farmer/farmer.tscn" id="20_m0hjm"]
 

@@ -50,18 +50,14 @@ position = Vector2(184, 184)
 
 [node name="CursorComponents" type="Node" parent="."]
 
-[node name="FieldCursorComponent" parent="CursorComponents" node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer", "undergrowth_tilemap_layer", "overgrowth_tilemap_layer") instance=ExtResource("3_fbosd")]
-grass_tilemap_layer = NodePath("../../GameTileMap/Land")
-tilled_soil_tilemap_layer = NodePath("../../GameTileMap/TilledSoil")
-undergrowth_tilemap_layer = NodePath("../../GameTileMap/Undergrowth")
-overgrowth_tilemap_layer = NodePath("../../GameTileMap/Overgrowth")
+[node name="FieldCursorComponent" parent="CursorComponents" instance=ExtResource("3_fbosd")]
+script = null
 
-[node name="CropsCursorComponent" parent="CursorComponents" node_paths=PackedStringArray("tilled_soil_tilemap_layer") instance=ExtResource("4_rphhk")]
-tilled_soil_tilemap_layer = NodePath("../../GameTileMap/TilledSoil")
+[node name="CropsCursorComponent" parent="CursorComponents" instance=ExtResource("4_rphhk")]
+script = null
 
-[node name="ObjectCursorComponent" parent="CursorComponents" node_paths=PackedStringArray("objects_tilemap_layer", "grass_tilemap_layer", "tilled_soil_tilemap_layer", "undergrowth_tilemap_layer", "overgrowth_tilemap_layer") instance=ExtResource("4_7lgf0")]
+[node name="ObjectCursorComponent" parent="CursorComponents" node_paths=PackedStringArray("objects_tilemap_layer", "tilled_soil_tilemap_layer", "undergrowth_tilemap_layer", "overgrowth_tilemap_layer") instance=ExtResource("4_7lgf0")]
 objects_tilemap_layer = NodePath("../../GameTileMap/Objects")
-grass_tilemap_layer = NodePath("../../GameTileMap/Land")
 tilled_soil_tilemap_layer = NodePath("../../GameTileMap/TilledSoil")
 undergrowth_tilemap_layer = NodePath("../../GameTileMap/Undergrowth")
 overgrowth_tilemap_layer = NodePath("../../GameTileMap/Overgrowth")

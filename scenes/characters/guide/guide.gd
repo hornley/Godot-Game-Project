@@ -33,4 +33,4 @@ func _unhandled_input(event: InputEvent) -> void:
 func on_give_crop_seeds() -> void:
 	PlayerManager.add_item("Axe", axe_resource, 1)
 	PlayerManager.add_item("Wheat Seed", wheat_seed_resource, 1)
-	PlayerManager.add_item("Carrot Seed", tomato_seed_resource, 1)
+	PlayerManager.add_item("Tomato Seed", tomato_seed_resource, 1)

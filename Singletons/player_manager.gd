@@ -73,7 +73,7 @@ func craft_item(item_recipe_resource: ItemRecipeResource) -> void:
 	
 	for key in item_recipe_resource.input.keys():
 		var amount = item_recipe_resource.input[key]
-		inventory.remove_item(key, amount)
+		remove_item(key, amount)
 	
 	var item_resource: ItemResource = item_recipe_resource.output
 	inventory.add_item(item_resource.name, item_resource, 1)
