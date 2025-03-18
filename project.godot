@@ -29,13 +29,14 @@ GameDataManager="*res://Singletons/game_data_manager.gd"
 DayAndNightCycleManager="*res://Singletons/day_and_night_cycle_manager.gd"
 GameDialogueManager="*res://Singletons/game_dialogue_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+QuestManager="*res://Singletons/quest_manager.gd"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/window_width_override=2560
-window/size/window_height_override=1440
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 

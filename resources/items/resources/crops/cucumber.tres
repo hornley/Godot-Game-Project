@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://brwf7yaxghyos"]
 
-[ext_resource type="Script" uid="uid://b5vn2hytugp7a" path="res://resources/item_resource.gd" id="1_7lcgh"]
+[ext_resource type="Script" uid="uid://b5vn2hytugp7a" path="res://resources/scripts/item_resource.gd" id="1_7lcgh"]
 [ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="2_oa262"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ke4ms"]

@@ -13,7 +13,8 @@ func load_resources_recursive(path: String) -> void:
 	if dir:
 		var file_names = dir.get_files()
 		for file in file_names:
-			file = file.trim_suffix('.remap') # Refer to https://github.com/godotengine/godot/issues/66014
+			# Refer to https://github.com/godotengine/godot/issues/66014
+			file = file.trim_suffix('.remap')
 			if file.ends_with(".tres"):
 				var resource_path = path + file
 				var res = load(resource_path)
@@ -32,6 +33,8 @@ func load_resources_recursive(path: String) -> void:
 					item_recipes[res.name] = res
 		var subdirs = dir.get_directories()
 		for subdir in subdirs:
+			if subdir == "scripts":
+				continue
 			load_resources_recursive(path + subdir + "/")
 	else:
 		print("Failed to open directory:", path)
@@ -71,8 +74,11 @@ func save_game_data(directory: String):
 
 
 func get_item(name: String) -> ItemResource:
-	return items.get(name, null)
+	if name.contains("Seed"):
+		return seeds.get(name, null)
 	
+	return items.get(name, null)
+
 func get_seed_item(name: String) -> SeedItemResource:
 	return seeds.get(name, null)
 

@@ -24,7 +24,7 @@ func _on_button_pressed() -> void:
 		PlayerManager.remove_item(item.name, 1)
 		PlayerManager.add_coin(item.value)
 	if option == "Buy":
-		PlayerManager.add_item(item.name, item, 1)
+		PlayerManager.add_item(item.name, 1)
 		PlayerManager.add_coin(-item.value)
 
 func _process(delta: float) -> void:

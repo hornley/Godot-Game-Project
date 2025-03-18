@@ -23,7 +23,7 @@ func load_items() -> void:
 		var item_resource: ItemResource = GameDataManager.items[item_name.left(item_name.length() - 5)]
 		var item_seed_resource: SeedItemResource = GameDataManager.seeds[item_name]
 		item_seed_resource.value = item_resource.value * 0.8
-		storage_component.add_item(item_name, item_seed_resource, 1)
+		storage_component.add_item(item_name, 1)
 
 func on_interactable_activated() -> void:
 	interactable_label_component.show()

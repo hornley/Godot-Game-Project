@@ -42,8 +42,8 @@ func _player_name_prompt() -> void:
 func on_player_inventory_changed(item: ItemResource) -> void:
 	inventory_changed.emit(item)
 
-func add_item(item_name: String, item_resource: ItemResource, amount: int) -> bool:
-	return inventory.add_item(item_name, item_resource, amount)
+func add_item(item_name: String, amount: int) -> bool:
+	return inventory.add_item(item_name, amount)
 
 func get_item(item_name: String) -> ItemResource:
 	return inventory.get_item(item_name)
@@ -54,8 +54,6 @@ func remove_item(item_name: String, amount: int) -> void:
 	if !inventory.items.has(item_name) and HotbarManager.hotbar_array.find(item) != -1:
 		HotbarManager.remove_from_hotbar(HotbarManager.hotbar_array.find(item))
 		HotbarManager.unequip_item()
-	
-	inventory_changed.emit(null)
 
 func move_item(item_name: String, new_index: int) -> void:
 	inventory.move_item(item_name, new_index)
@@ -75,10 +73,13 @@ func craft_item(item_recipe_resource: ItemRecipeResource) -> void:
 		var amount = item_recipe_resource.input[key]
 		remove_item(key, amount)
 	
-	var item_resource: ItemResource = item_recipe_resource.output
-	inventory.add_item(item_resource.name, item_resource, 1)
-	
-	inventory_changed.emit(item_resource)
+	inventory.add_item(item_recipe_resource.name, 1)
 
 func has_item(item_name: String) -> bool:
 	return inventory.items.has(item_name)
+
+func is_quest_completed(quest_title: String) -> bool:
+	for completed_quest in completed_quests:
+		if completed_quest.title == quest_title:
+			return true
+	return false

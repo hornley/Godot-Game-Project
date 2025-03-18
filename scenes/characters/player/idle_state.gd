@@ -37,7 +37,17 @@ func _on_next_transitions() -> void:
 	if GameInputEvents.is_movement_input():
 		transition.emit("Move")
 	
-	if GameInputEvents.use_tool() or GameInputEvents.tool_to_transition_into != Util.Tools.None or Input.is_action_just_pressed("use_item"):
+	var tool_to_transition_into = GameInputEvents.tool_to_transition_into
+	if tool_to_transition_into != Util.Tools.None:
+		if tool_to_transition_into == Util.Tools.Axe:
+			transition.emit("Chopping")
+		elif tool_to_transition_into == Util.Tools.Hoe:
+			transition.emit("Tilling")
+		elif tool_to_transition_into == Util.Tools.Pickaxe:
+			transition.emit("Mining")
+		elif tool_to_transition_into == Util.Tools.WateringCan:
+			transition.emit("Watering")
+	elif GameInputEvents.use_tool() or Input.is_action_just_pressed("use_item"):
 		if player.current_tool == Util.Tools.Axe:
 			transition.emit("Chopping")
 		elif player.current_tool == Util.Tools.Hoe:

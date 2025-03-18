@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="QuestResource" load_steps=5 format=3 uid="uid://bvnprk2vl05ye"]
+
+[ext_resource type="Script" uid="uid://x7n4uicbgxjr" path="res://resources/scripts/quest_resource.gd" id="1_tonha"]
+[ext_resource type="Resource" uid="uid://cy5li00n8dw7l" path="res://resources/items/tools/axe.tres" id="1_vj08y"]
+[ext_resource type="Resource" uid="uid://60nw5inn5263" path="res://resources/items/seeds/wheat_seed.tres" id="2_jcdvw"]
+[ext_resource type="Resource" uid="uid://dapl5kqkoj5pr" path="res://resources/items/seeds/tomato_seed.tres" id="3_ef3by"]
+
+[resource]
+script = ExtResource("1_tonha")
+title = "Get Started"
+description = "Tutorial"
+completed = false
+rewards = [ExtResource("1_vj08y"), ExtResource("2_jcdvw"), ExtResource("2_jcdvw"), ExtResource("3_ef3by"), ExtResource("3_ef3by")]
+quest_source = "Guide"
+quest_dialogue_name = "get_started"
+metadata/_custom_type_script = "uid://x7n4uicbgxjr"

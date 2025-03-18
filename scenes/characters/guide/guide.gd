@@ -1,9 +1,6 @@
 extends Node2D
 
 var balloon_scene = preload("res://dialogue/game_dialogue_balloon.tscn")
-var wheat_seed_resource: ItemResource = preload("res://resources/items/seeds/wheat_seed.tres")
-var tomato_seed_resource: ItemResource = preload("res://resources/items/seeds/tomato_seed.tres")
-var axe_resource = preload("res://resources/items/tools/axe.tres")
 @onready var interactable_component: InteractableComponent = $InteractableComponent
 @onready var interactable_label_component: Control = $InteractableLabelComponent
 
@@ -31,6 +28,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		balloon.start(load("res://dialogue/conversations/guide.dialogue"), "start")
 
 func on_give_crop_seeds() -> void:
-	PlayerManager.add_item("Axe", axe_resource, 1)
-	PlayerManager.add_item("Wheat Seed", wheat_seed_resource, 1)
-	PlayerManager.add_item("Tomato Seed", tomato_seed_resource, 1)
+	PlayerManager.add_item("Axe", 1)
+	PlayerManager.add_item("Wheat Seed", 1)
+	PlayerManager.add_item("Tomato Seed", 1)

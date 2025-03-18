@@ -17,5 +17,5 @@ func _on_body_entered(body: Node2D) -> void:
 			PlayerManager.add_coin(amount)
 			get_parent().queue_free()
 		else:
-			if PlayerManager.add_item(item_name, item_resource, amount):
+			if PlayerManager.add_item(item_name, amount):
 				get_parent().queue_free()

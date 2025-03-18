@@ -181,7 +181,7 @@ func put_item_back() -> void:
 	storage_controller.item_in_hand = null
 
 func _input(event: InputEvent) -> void:
-	if !storage_controller:
+	if !storage_controller or !storage_component:
 		return
 	
 	if storage_controller.item_in_hand and event.is_action_pressed("right_click"):
