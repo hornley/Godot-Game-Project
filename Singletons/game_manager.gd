@@ -1,5 +1,7 @@
 extends Node
 
+var game_version: String = "v0.3.1-alpha"
+
 var game_menu_screen = preload("res://scenes/ui/game_menu_screen.tscn")
 var main_scene_path: String = "res://scenes/main_scene.tscn"
 var main_scene_root_path: String = "/root/MainScene"

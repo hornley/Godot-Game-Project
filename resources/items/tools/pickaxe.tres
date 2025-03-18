@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://d1jkq4mhf5k8s"]
+
+[ext_resource type="Script" uid="uid://b5vn2hytugp7a" path="res://resources/item_resource.gd" id="1_usv6m"]
+[ext_resource type="Texture2D" uid="uid://b6k5pnanesdqd" path="res://assets/textures/objects/pickaxe.png" id="2_5y14r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jqta"]
+atlas = ExtResource("2_5y14r")
+
+[resource]
+script = ExtResource("1_usv6m")
+name = "Pickaxe"
+description = "pickaxe"
+category = 0
+value = 2
+texture = SubResource("AtlasTexture_1jqta")
+metadata/_custom_type_script = "uid://b5vn2hytugp7a"

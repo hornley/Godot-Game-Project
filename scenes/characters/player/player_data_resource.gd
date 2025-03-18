@@ -10,6 +10,8 @@ extends SceneDataResource
 @export var completed_quests: Array[QuestResource]
 @export var active_quests: Array[QuestResource]
 
+@export var save_version: String
+
 #@export var experience: int = 0
 #@export var level: int = 1
 #@export var last_position: Vector3 = Vector3(0, 0, 0)
@@ -29,6 +31,8 @@ func _save_data(node: Node2D) -> void:
 	hotbar_array = HotbarManager.hotbar_array
 	completed_quests = PlayerManager.completed_quests
 	active_quests = PlayerManager.active_quests
+	
+	save_version = GameManager.game_version
 
 func _load_data(window) -> void:
 	var parent_node: Node2D

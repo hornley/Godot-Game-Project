@@ -42,9 +42,8 @@ script = ExtResource("1_y2nvy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
 sprite_frames = ExtResource("2_bsjih")
-animation = &"move_back"
+animation = &"mining_right"
 autoplay = "idle_front"
-frame_progress = 0.79491
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_04k14")

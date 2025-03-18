@@ -45,6 +45,8 @@ func equip_item(index: int) -> bool:
 				tool = Util.Tools.Axe
 			"Watering Can":
 				tool = Util.Tools.WateringCan
+			"Pickaxe":
+				tool = Util.Tools.Pickaxe
 		equipped_item = tool
 		equipped_item_name = item.name
 		equipped_item_category = Util.ItemCategories.Tool

@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxdkvhhh7pb41"]
+
+[ext_resource type="Texture2D" uid="uid://b6k5pnanesdqd" path="res://assets/textures/objects/pickaxe.png" id="1_olelu"]
+[ext_resource type="PackedScene" uid="uid://bupc5j63dgssj" path="res://scenes/components/collectible_component.tscn" id="2_dk2sm"]
+[ext_resource type="Resource" uid="uid://d1jkq4mhf5k8s" path="res://resources/items/tools/pickaxe.tres" id="3_olelu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiq6f"]
+atlas = ExtResource("1_olelu")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y61w7"]
+radius = 9.0
+
+[node name="Pickaxe" type="Sprite2D"]
+texture = SubResource("AtlasTexture_xiq6f")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_dk2sm")]
+item_name = "Pickaxe"
+item_resource = ExtResource("3_olelu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+shape = SubResource("CircleShape2D_y61w7")

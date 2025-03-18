@@ -27,6 +27,7 @@ func save_nodes_data() -> void:
 	var nodes = get_tree().get_nodes_in_group("save_data_component")
 	
 	game_data_resource = SaveGameDataResource.new()
+	game_data_resource.save_version = GameManager.game_version
 	
 	if nodes != null:
 		for node: SaveDataComponent in nodes:
@@ -66,6 +67,9 @@ func load_game() -> void:
 	if game_data_resource == null:
 		return
 	
+	if game_data_resource.save_version != GameManager.game_version:
+		return
+	
 	for resource in game_data_resource.save_data_nodes:
 		if resource is Resource:
 			if resource is NodeDataResource:
@@ -77,9 +81,12 @@ func load_player(root_node: Window) -> void:
 	
 	if FileAccess.file_exists(player_save_path):
 		player_data_resource = ResourceLoader.load(player_save_path)
-		player_data_resource._load_data(root_node)
-	else:
-		const PLAYER = preload("res://scenes/characters/player/player.tscn")
-		var player_scene = PLAYER.instantiate()
-		player_scene.global_position = spawn_point_marker.global_position
-		root_node.get_child(-1).find_child("GameRoot").add_child(player_scene)
+		
+		if player_data_resource.save_version == GameManager.game_version:
+			player_data_resource._load_data(root_node)
+			return
+	
+	const PLAYER = preload("res://scenes/characters/player/player.tscn")
+	var player_scene = PLAYER.instantiate()
+	player_scene.global_position = spawn_point_marker.global_position
+	root_node.get_child(-1).find_child("GameRoot").add_child(player_scene)

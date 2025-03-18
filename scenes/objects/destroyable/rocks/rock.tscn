@@ -26,7 +26,7 @@ region_rect = Rect2(128, 16, 16, 16)
 shape = SubResource("CircleShape2D_1cr6p")
 
 [node name="HurtComponent" parent="." instance=ExtResource("3_ya4q1")]
-tool = 2
+tool = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 shape = SubResource("CircleShape2D_qdiso")
