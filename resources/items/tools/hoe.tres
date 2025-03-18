@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://fqhrx4ftdnn5"]
 
-[ext_resource type="Script" uid="uid://b5vn2hytugp7a" path="res://resources/item_resource.gd" id="1_xuuum"]
+[ext_resource type="Script" uid="uid://b5vn2hytugp7a" path="res://resources/scripts/item_resource.gd" id="1_xuuum"]
 [ext_resource type="Texture2D" uid="uid://c60jtdb7k6snr" path="res://assets/textures/objects/items-spritesheet.png" id="2_yifxp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xjpo"]
@@ -12,5 +12,5 @@ script = ExtResource("1_xuuum")
 name = "Hoe"
 description = "hoe"
 category = 0
-value = 15.0
+value = 0
 texture = SubResource("AtlasTexture_7xjpo")

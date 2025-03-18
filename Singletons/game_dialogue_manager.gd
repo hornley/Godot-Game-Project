@@ -7,6 +7,7 @@ signal farmer_shop_gui(option: String)
 signal farmer_shop_gui_close
 
 func action_give_crop_seeds() -> void:
+	PlayerManager.completed_quests.append(GameDataManager.get_quest("Get Started"))
 	give_crop_seeds.emit()
 
 func action_trade_crops() -> void:

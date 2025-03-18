@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SeedItemResource" load_steps=8 format=3 uid="uid://dotnk3blbq58f"]
 
-[ext_resource type="Script" uid="uid://du0sj6g4113h2" path="res://resources/seed_item_resource.gd" id="1_mskav"]
+[ext_resource type="Script" uid="uid://du0sj6g4113h2" path="res://resources/scripts/seed_item_resource.gd" id="1_mskav"]
 [ext_resource type="Texture2D" uid="uid://emi7tqvq6bcf" path="res://assets/textures/objects/Farming_Plants_v1.5.png" id="2_j7ryo"]
 [ext_resource type="Script" uid="uid://c8p1ltw4cajn0" path="res://scripts/custom_classes/time.gd" id="3_c0dom"]
 

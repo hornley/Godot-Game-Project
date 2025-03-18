@@ -1,11 +1,24 @@
 ~ start
-
 do PlayerManager.toggle_player_movement()
 
-Marlow: [[Hi|Hello|Howdy]], nice to meet you.
-Marlow: What's your name?
-do PlayerManager._player_name_prompt()
-Marlow: Welcome to your new farm, {{PlayerManager.player_name}}.
+if PlayerManager.is_quest_completed("Get Started"):
+	=> test
+else:
+	=> get_started
+
+~ back
+do PlayerManager.toggle_player_movement()
+=> END
+
+~ get_started
+
+if PlayerManager.player_name == ""
+	Marlow: [[Hi|Hello|Howdy]], nice to meet you.
+	do PlayerManager._player_name_prompt()
+	Marlow: What's your name?
+	Marlow: Welcome to your new farm, {{PlayerManager.player_name}}.
+else:
+	Marlow: [[Hi|Hello|Howdy]] {{PlayerManager.player_name}}, would you like to start your own farm now?
 Marlow: Here's an axe and some crops to get started with your farm.
 - Start your own farm
 	{{PlayerManager.player_name}}: Yeah! I start my own farm.
@@ -15,6 +28,10 @@ Marlow: Here's an axe and some crops to get started with your farm.
 	{{PlayerManager.player_name}}: I'm not ready yet
 	Marlow: Alright! Come back to me when you're ready.
 
-do PlayerManager.toggle_player_movement()
+=> back
 
-=> END
+~ test
+
+Marlow: Hello!
+
+=> back

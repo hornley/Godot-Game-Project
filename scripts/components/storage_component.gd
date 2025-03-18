@@ -20,10 +20,16 @@ func _ready() -> void:
 	if !empty_slots_loaded:
 		empty_slots = range(size)
 
-func add_item(item_name: String, item_resource: ItemResource, amount: int) -> bool:
+func add_item(item_name: String, amount: int) -> bool:
+	# Item does not exist in items or seeds
+	if item_name not in GameDataManager.items.keys() and item_name not in GameDataManager.seeds.keys():
+		return false
+	
+	# No empty slots for the storage
 	if empty_slots.size() == 0:
 		return false
 	
+	var item_resource: ItemResource = GameDataManager.get_item(item_name)
 	if not items.has(item_name):
 		items[item_name] = {
 			"ItemResource": item_resource,

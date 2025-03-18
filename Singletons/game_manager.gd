@@ -35,7 +35,7 @@ func start_game() -> void:
 	
 	load_main_scene_container()
 	load_world(Util.Worlds.Home)
-	GameDataManager.load_resources_recursive("res://resources/items/")
+	GameDataManager.load_resources_recursive("res://resources/")
 	
 	load_game()
 	is_game_loaded = true

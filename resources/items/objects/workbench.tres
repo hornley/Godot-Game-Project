@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://cu45hgk7slfh"]
 
-[ext_resource type="Script" uid="uid://b5vn2hytugp7a" path="res://resources/item_resource.gd" id="1_x3fi5"]
+[ext_resource type="Script" uid="uid://b5vn2hytugp7a" path="res://resources/scripts/item_resource.gd" id="1_x3fi5"]
 [ext_resource type="Texture2D" uid="uid://dhhwka5fgdq4l" path="res://assets/textures/structures/work station.png" id="2_qamb3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vj5x5"]

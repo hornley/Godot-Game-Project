@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+var player_name: String
+
 @export var animated_sprite: AnimatedSprite2D
 @export var current_tool: Util.Tools = Util.Tools.None
 @onready var hit_component: HitComponent = $HitComponent
