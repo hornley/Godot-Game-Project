@@ -17,10 +17,14 @@ func change_animated_sprite_frame(frame: int) -> void:
 	animated_sprite.frame = frame
 
 func _on_mouse_entered() -> void:
+	if animated_sprite.frame == 2:
+		return
+	
 	animated_sprite.frame = 1
 
 
 func _on_mouse_exited() -> void:
-	if animated_sprite.frame == 2:
+	if animated_sprite.frame == 2 and HotbarManager.equipped_item != null:
 		return
+	
 	animated_sprite.frame = 0
