@@ -60,7 +60,10 @@ func on_hotbar_changed(index: int) -> void:
 
 func equip_item(index: int) -> void:
 	var slot: Button = slots[index]
-	if HotbarManager.equip_item(index) and toggled_slot != slot:
+	if !HotbarManager.equip_item(index):
+		return
+	
+	if toggled_slot != slot:
 		if toggled_slot:
 			toggled_slot.change_animated_sprite_frame(0)
 		slot.change_animated_sprite_frame(2)
