@@ -109,10 +109,7 @@ func add_quest(quest: QuestResource) -> bool:
 	active_quests[quest.title] = quest
 	return true
 
-func complete_quest(quest_title: String) -> bool:
-	if quest_title not in active_quests:
-		return false  # Quest is not active
-	
+func complete_quest(quest_title: String) -> void:
 	var quest = active_quests[quest_title]
 	# Grant rewards if applicable
 	for reward in quest.rewards:
@@ -122,7 +119,6 @@ func complete_quest(quest_title: String) -> bool:
 	collect_rewards(quest)
 	completed_quests[quest_title] = quest
 	active_quests.erase(quest_title)
-	return true
 
 func collect_rewards(quest: QuestResource) -> void:
 	var rewards: Dictionary = QuestManager.get_rewards(quest)

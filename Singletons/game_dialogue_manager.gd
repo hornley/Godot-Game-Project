@@ -7,12 +7,10 @@ signal farmer_shop_gui(option: String)
 signal farmer_shop_gui_close
 
 func action_talk_to_guide() -> void:
-	PlayerManager.complete_quest("Talk to Guide")
-	PlayerManager.add_quest(GameDataManager.get_quest("Get Started"))
+	QuestManager.complete_quest("Talk to Guide")
 
 func action_get_started() -> void:
-	PlayerManager.complete_quest("Get Started")
-	PlayerManager.add_quest(GameDataManager.get_quest("Craft a Hoe"))
+	QuestManager.complete_quest("Get Started")
 
 func action_trade_crops() -> void:
 	trade_crops.emit()

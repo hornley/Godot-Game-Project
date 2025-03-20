@@ -13,7 +13,7 @@ func _on_inventory_changed(item: ItemResource) -> void:
 func check_quest_completion() -> void:
 	for quest in PlayerManager.active_quests.values():
 		if is_quest_ready_to_complete(quest):
-			PlayerManager.complete_quest(quest.title)
+			complete_quest(quest.title)
 
 # Check if a specific quest can be completed
 func is_quest_ready_to_complete(quest: QuestResource) -> bool:
@@ -41,3 +41,16 @@ func get_rewards(quest: QuestResource) -> Dictionary:
 			rewards[reward] = reward_amount
 	
 	return rewards
+
+func complete_quest(quest_title: String) -> void:
+	if quest_title not in PlayerManager.active_quests:
+		return
+	
+	PlayerManager.complete_quest(quest_title)
+	quest_completed.emit(quest_title)
+	
+	var next_quest_title: String = GameDataManager.get_quest(quest_title).next_quest
+	if next_quest_title != "":
+		var next_quest: QuestResource = GameDataManager.get_quest(next_quest_title)
+		if next_quest:
+			PlayerManager.add_quest(next_quest)
