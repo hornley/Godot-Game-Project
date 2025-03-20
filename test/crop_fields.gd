@@ -4,9 +4,6 @@ var crops: Dictionary = {}
 @export var auto_water_crops: bool = true
 
 func _process(delta: float) -> void:
-	if !auto_water_crops:
-		return
-	
 	if !OS.has_feature("editor") or !OS.has_feature("debug"):
 		return
 	
@@ -20,5 +17,5 @@ func _process(delta: float) -> void:
 		
 		var crop: Crop = crops[crop_cell_pos]
 		
-		if !crop.growth_cycle_component.is_watered:
+		if auto_water_crops and !crop.growth_cycle_component.is_watered:
 			crop.water()

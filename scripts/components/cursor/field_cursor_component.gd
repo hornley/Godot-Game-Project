@@ -43,7 +43,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			else:
 				remove_undergrowth_cell()
 
-
 func add_tilled_soil_cell() -> void:
 	PlayerManager.player.player_direction = get_direction_player_to_cell(till_position)
 	await player.animated_sprite.animation_finished

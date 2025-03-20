@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 	else:
 		sprite_2d.frame = growth_state + start_frame_offset
 	
-	if !growth_cycle_component.is_watered:
+	if !growth_cycle_component.is_watered and growth_state != Util.GrowthStates.Fruiting:
 		crop_overhead_component.change_texture(state_texture["Water"])
 		crop_overhead_component.visible = true
 

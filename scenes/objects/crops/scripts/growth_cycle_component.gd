@@ -45,7 +45,8 @@ func update(time: CustomTime) -> void:
 	if time.total_minutes() >= crop_data.previous_growth_state_time.total_minutes() + crop_data.time_until_next_growth_state.total_minutes():
 		current_growth_state += 1
 		crop_data.previous_growth_state_time = time.clone()
-		crop_data.time_until_next_growth_state = crop_data.time_per_growth_state
+	
+	crop_data.update(is_watered)
 
 func get_current_growth_state() -> Util.GrowthStates:
 	return current_growth_state

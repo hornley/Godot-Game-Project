@@ -35,7 +35,7 @@ func start_game() -> void:
 		return
 	
 	load_main_scene_container()
-	if OS.has_feature("editor"):
+	if OS.has_feature("editor") or OS.has_feature("debug"):
 		load_world(Util.Worlds.Test)
 	else:
 		load_world(Util.Worlds.Home)
