@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=71 format=3 uid="uid://0ak8mcpyacj3"]
+[gd_resource type="Theme" load_steps=73 format=3 uid="uid://0ak8mcpyacj3"]
 
 [ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="1_q65q4"]
 [ext_resource type="FontFile" uid="uid://bf2c23lb7imb3" path="res://assets/ui/fonts/pixelFont-2-5x5-sproutLands.ttf" id="2_bt0h2"]
@@ -192,6 +192,17 @@ texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqa1q"]
+atlas = ExtResource("1_q65q4")
+region = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1hvfw"]
+texture = SubResource("AtlasTexture_cqa1q")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yiu1g"]
 atlas = ExtResource("1_q65q4")
@@ -412,6 +423,8 @@ GameMenuButton/styles/focus = SubResource("StyleBoxTexture_vm8h3")
 GameMenuButton/styles/hover = SubResource("StyleBoxTexture_it3oq")
 GameMenuButton/styles/normal = SubResource("StyleBoxTexture_ee2y6")
 GameMenuButton/styles/pressed = SubResource("StyleBoxTexture_5q4el")
+HUDMessageUI/base_type = &"PanelContainer"
+HUDMessageUI/styles/panel = SubResource("StyleBoxTexture_1hvfw")
 HotbarButton/base_type = &"Button"
 HotbarButton/styles/disabled = SubResource("StyleBoxTexture_nxafn")
 HotbarButton/styles/focus = SubResource("StyleBoxTexture_fpetv")

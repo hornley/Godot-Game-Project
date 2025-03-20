@@ -5,12 +5,14 @@ var inventory_gui: Control
 var crafting_gui: Control
 var storage_gui: Control
 var auto_save_notification: Control
+var hud_message_ui: HUDMessageUI
 
 func _ready() -> void:
 	inventory_gui = $HBoxContainer/InventoryGUI
 	crafting_gui = $CraftingGUI
 	storage_gui = $HBoxContainer/StorageGUI
 	auto_save_notification = $AutoSaveNotification
+	hud_message_ui = $HUDMessageUI
 	GameManager.game_screen = self
 
 func _unhandled_input(event: InputEvent) -> void:

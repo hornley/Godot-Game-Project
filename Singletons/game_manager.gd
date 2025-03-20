@@ -9,7 +9,7 @@ var main_scene_world_root_path: String = "/root/MainScene/GameRoot/Worlds"
 var allow_save_game: bool
 
 var auto_save: bool
-var auto_save_interval = 300 # 60 = 1min
+var auto_save_interval = 5 * 60 # 60 = 1min
 
 var game_screen: GameScreen
 var on_game_menu_screen: bool

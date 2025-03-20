@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpuxwqdq6h431"]
+[gd_scene load_steps=13 format=3 uid="uid://dpuxwqdq6h431"]
 
 [ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="1_54d8w"]
 [ext_resource type="Script" uid="uid://dylo5ffv7ldre" path="res://scenes/ui/game_screen.gd" id="1_e6rm1"]
@@ -10,7 +10,8 @@
 [ext_resource type="Script" uid="uid://b3264cs88tkp2" path="res://scenes/ui/storage/storage_controller.gd" id="7_nktmq"]
 [ext_resource type="PackedScene" uid="uid://irn4do2fusnu" path="res://scenes/ui/storage/storage_gui.tscn" id="8_c0p0g"]
 [ext_resource type="PackedScene" uid="uid://blo8akvfh8vc1" path="res://scenes/ui/crafting/crafting_gui.tscn" id="8_psj8p"]
-[ext_resource type="PackedScene" uid="uid://bk6sthpmkjcc2" path="res://scenes/ui/auto_save_notification.tscn" id="9_3y2x4"]
+[ext_resource type="PackedScene" uid="uid://bk6sthpmkjcc2" path="res://scenes/ui/hud_message_ui.tscn" id="9_3y2x4"]
+[ext_resource type="PackedScene" uid="uid://0qs70trkvqrk" path="res://scenes/ui/auto_save_notification.tscn" id="12_dscta"]
 
 [node name="GameScreen" type="CanvasLayer"]
 process_mode = 3
@@ -91,5 +92,8 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="AutoSaveNotification" parent="." instance=ExtResource("9_3y2x4")]
+[node name="AutoSaveNotification" parent="." instance=ExtResource("12_dscta")]
+visible = false
+
+[node name="HUDMessageUI" parent="." instance=ExtResource("9_3y2x4")]
 visible = false
