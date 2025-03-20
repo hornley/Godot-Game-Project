@@ -1,6 +1,7 @@
 class_name FieldCursorComponent
 extends CursorComponent
 
+@export var game_tile_map: GameTileMap
 @export var terrain_set: int = 0
 @export var terrain: int = 2
 
@@ -12,13 +13,12 @@ var till_position: Vector2i
 
 func _process(delta: float) -> void:
 	if HotbarManager.equipped_item == Util.Tools.Hoe:
-		if cell_source_id == 3:
-			tilled_soil_tilemap_layer.erase_cell(cell_position)
+		if game_tile_map.tile_overview.visible == false:
+			game_tile_map.enable_tile_overview()
 		get_cell_under_mouse()
-		tile_overview()
+		game_tile_map.update_tile_overview(local_cell_position)
 	else:
-		if cell_source_id == 3:
-			tilled_soil_tilemap_layer.erase_cell(cell_position)
+		game_tile_map.disable_tile_overview()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("use_item") and !is_tilling:
@@ -57,9 +57,3 @@ func remove_undergrowth_cell() -> void:
 	undergrowth_tilemap_layer.erase_cell(till_position)
 	is_tilling = false
 	GameInputEvents.use_tool_value = false
-
-func tile_overview() -> void:
-	cell_source_id = tilled_soil_tilemap_layer.get_cell_source_id(cell_position)
-	if cell_source_id != 2 and !is_tilling:
-		tilled_soil_tilemap_layer.set_cell(cell_position, 3, Vector2i(0, 0))
-		cell_source_id = 3
