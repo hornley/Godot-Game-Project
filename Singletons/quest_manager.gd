@@ -2,18 +2,30 @@ extends Node
 
 signal quest_completed(title: String)
 
-#func check_quest_completion(quest_title: String, player_inventory: Dictionary):
-	#var quest = GameDataManager.get_quest(quest_title)
-	#if quest and quest.status == 1:
-		## Check item requirements
-		#for required_item in quest.required_items:
-			#if required_item not in player_inventory:
-				#return false  # Missing required item
-		## Quest is complete
-		#quest.status = 2  # Mark as completed
-		#give_rewards(quest)
-		#return true
-	#return false
+func _ready():
+	PlayerManager.inventory_changed.connect(_on_inventory_changed)
+
+# Called whenever the player's inventory changes
+func _on_inventory_changed(item: ItemResource) -> void:
+	check_quest_completion()
+
+# Check if any active quests should be completed
+func check_quest_completion() -> void:
+	for quest in PlayerManager.active_quests.values():
+		if is_quest_ready_to_complete(quest):
+			PlayerManager.complete_quest(quest.title)
+
+# Check if a specific quest can be completed
+func is_quest_ready_to_complete(quest: QuestResource) -> bool:
+	if quest.required_items.is_empty():
+		return false  # If the quest has no item requirements, do nothing
+	
+	for item_name in quest.required_items.keys():
+		var required_amount = quest.required_items[item_name]
+		if not PlayerManager.has_item(item_name) or PlayerManager.inventory.items[item_name]["Amount"] < required_amount:
+			return false  # Missing required items
+
+	return true  # Player has all required items
 
 func get_rewards(quest: QuestResource) -> Dictionary:
 	var quest_rewards: Dictionary = quest.rewards

@@ -12,6 +12,7 @@ func action_talk_to_guide() -> void:
 
 func action_get_started() -> void:
 	PlayerManager.complete_quest("Get Started")
+	PlayerManager.add_quest(GameDataManager.get_quest("Craft a Hoe"))
 
 func action_trade_crops() -> void:
 	trade_crops.emit()
