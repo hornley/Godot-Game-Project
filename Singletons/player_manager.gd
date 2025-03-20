@@ -3,7 +3,6 @@ extends Node
 var player: Player
 var path: Array
 var current_path_index: int
-var player_name: String
 var coins: int
 var inventory: StorageComponent
 var completed_quests: Dictionary = {}
@@ -39,6 +38,9 @@ func _player_name_prompt() -> void:
 	get_parent().add_child(player_name_prompt_instance)
 	player.disable_input_events = true
 	await player_name_prompt_instance.player_name_prompt_finished
+
+func get_player_name() -> String:
+	return player.player_name
 
 # --------------------------
 # INVENTORY SYSTEM

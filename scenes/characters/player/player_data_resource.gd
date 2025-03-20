@@ -23,7 +23,7 @@ extends SceneDataResource
 func _save_data(node: Node2D) -> void:
 	super._save_data(node)
 	
-	player_name = PlayerManager.name
+	player_name = PlayerManager.player.player_name
 	coins = PlayerManager.coins
 	inventory = PlayerManager.inventory.items
 	empty_inventory_slot = PlayerManager.inventory.empty_slots
@@ -49,7 +49,7 @@ func _load_data(window) -> void:
 		var storage_component: StorageComponent = scene_node.find_child("StorageComponent") as StorageComponent
 		storage_component.empty_slots_loaded = true
 		
-		PlayerManager.name = player_name
+		PlayerManager.player.player_name = player_name
 		PlayerManager.add_coin(coins)
 		storage_component.items = inventory
 		storage_component.empty_slots = empty_inventory_slot

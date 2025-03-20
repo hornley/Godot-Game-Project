@@ -13,22 +13,22 @@ elif !PlayerManager.is_quest_completed("Craft a Hoe"):
 if !PlayerManager.is_quest_completed("Talk to Guide"):
 	do GameDialogueManager.action_talk_to_guide()
 
-if PlayerManager.player_name == ""
+if PlayerManager.get_player_name() == ""
 	Marlow: Howdy, your new here, ain't cha?
 	Marlow: What's your name, buddy?
 	do PlayerManager._player_name_prompt()
-	Marlow: Wanna start your own farm, {{PlayerManager.player_name}}?
+	Marlow: Wanna start your own farm, {{PlayerManager.get_player_name()}}?
 else:
-	Marlow: [[Hi|Hello|Howdy]] {{PlayerManager.player_name}}, would you like to start your own farm now?
+	Marlow: [[Hi|Hello|Howdy]] {{PlayerManager.get_player_name()}}, would you like to start your own farm now?
 
 - Start your own farm
-	{{PlayerManager.player_name}}: Yeah! I can start my own farm.
+	{{PlayerManager.get_player_name()}}: Yeah! I can start my own farm.
 	Marlow: Here's an axe and get some logs to get started.
 	do GameDialogueManager.action_get_started()
 	Marlow: Bring me 5 logs and I'll teach you start your own farm!
 	Marlow: See ya!
 - Not yet
-	{{PlayerManager.player_name}}: I'm not ready yet
+	{{PlayerManager.get_player_name()}}: I'm not ready yet
 	Marlow: Alright! Come back to me when you're ready.
 
 => end
@@ -37,14 +37,14 @@ else:
 
 Marlow: Do you have the 5 logs I asked you for?
 if PlayerManager.get_item_amount("Log") >= 5:
-	{{PlayerManager.player_name}}: Yup, I sure do!
+	{{PlayerManager.get_player_name()}}: Yup, I sure do!
 	Marlow: Great job, buddy!
 	Marlow: Now craft a hoe using the logs you've obtained.
 	?????: Press 'C' to open Crafting and craft a hoe.
 	Marlow: Talk to me again when you're done.
 	do QuestManager.complete_quest("Wood Gathering")
 else:
-	{{PlayerManager.player_name}}: Oh... I'll be back!
+	{{PlayerManager.get_player_name()}}: Oh... I'll be back!
 	Marlow: You rascal, wasting my time like this!
 	Marlow: Come back when you've got the 5 logs I asked for!
 
@@ -54,7 +54,7 @@ else:
 
 Marlow: Have ya got the hoe?
 if PlayerManager.has_item("Hoe"):
-	{{PlayerManager.player_name}}: Yup, wanna buy it?
+	{{PlayerManager.get_player_name()}}: Yup, wanna buy it?
 	Marlow: Ha! you bet!
 	Marlow: Now use that hoe and start tilling the land.
 	Marlow: And here's a watering can and some seeds.
@@ -66,7 +66,7 @@ if PlayerManager.has_item("Hoe"):
 	?????: A 'Need to water' indicator will be shown on top of the crop.
 	?????: Your crop will grow slower when not watered.
 else:
-	{{PlayerManager.player_name}}: Uhh.. wait let me quickly craft it.
+	{{PlayerManager.get_player_name()}}: Uhh.. wait let me quickly craft it.
 	Marlow: ...
 
 => end
