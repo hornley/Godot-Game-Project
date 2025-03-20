@@ -16,6 +16,7 @@ var on_game_menu_screen: bool
 var is_game_loaded: bool = false
 
 var world_scenes: Dictionary = {
+	Util.Worlds.Test: "res://test/TEST.tscn",
 	Util.Worlds.Village : "res://scenes/world/village.tscn",
 	Util.Worlds.Home : "res://scenes/world/home.tscn"
 }
@@ -34,7 +35,10 @@ func start_game() -> void:
 		return
 	
 	load_main_scene_container()
-	load_world(Util.Worlds.Home)
+	if OS.has_feature("editor"):
+		load_world(Util.Worlds.Test)
+	else:
+		load_world(Util.Worlds.Home)
 	GameDataManager.load_resources_recursive("res://resources/")
 	
 	load_game()

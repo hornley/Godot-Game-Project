@@ -6,11 +6,10 @@ if PlayerManager.is_quest_completed("Get Started"):
 else:
 	=> get_started
 
-~ back
-do PlayerManager.toggle_player_movement()
-=> END
-
 ~ get_started
+
+if !PlayerManager.is_quest_completed("Talk to Guide"):
+	do GameDialogueManager.action_talk_to_guide()
 
 if PlayerManager.player_name == ""
 	Marlow: [[Hi|Hello|Howdy]], nice to meet you.
@@ -19,19 +18,24 @@ if PlayerManager.player_name == ""
 	Marlow: Welcome to your new farm, {{PlayerManager.player_name}}.
 else:
 	Marlow: [[Hi|Hello|Howdy]] {{PlayerManager.player_name}}, would you like to start your own farm now?
+
 Marlow: Here's an axe and some crops to get started with your farm.
 - Start your own farm
 	{{PlayerManager.player_name}}: Yeah! I start my own farm.
-	do GameDialogueManager.action_give_crop_seeds()
+	do GameDialogueManager.action_get_started()
 	Marlow: Goodluck!
 - No, thanks.
 	{{PlayerManager.player_name}}: I'm not ready yet
 	Marlow: Alright! Come back to me when you're ready.
 
-=> back
+=> end
 
 ~ test
 
 Marlow: Hello!
 
-=> back
+=> end
+
+~ end
+do PlayerManager.toggle_player_movement()
+=> END

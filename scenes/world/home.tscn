@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://wuihqx2riwb3"]
+[gd_scene load_steps=23 format=4 uid="uid://wuihqx2riwb3"]
 
 [ext_resource type="PackedScene" uid="uid://bvyl6hx00ulv6" path="res://scenes/components/day_night_cycle_component.tscn" id="1_p7tci"]
 [ext_resource type="PackedScene" uid="uid://d0v0jfxch7yuu" path="res://scenes/components/save_level_data_component.tscn" id="1_xekg7"]
@@ -19,11 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://csms0ejiwcpd" path="res://scenes/components/watering_cursor_component.tscn" id="14_66dyq"]
 [ext_resource type="Script" uid="uid://c4s3yapvpdac3" path="res://test/crop_fields.gd" id="14_i6tii"]
 [ext_resource type="PackedScene" uid="uid://baj74gnng5lr6" path="res://scenes/characters/guide/guide.tscn" id="17_volsg"]
-[ext_resource type="PackedScene" uid="uid://cxdkvhhh7pb41" path="res://scenes/objects/collectibles/tools/pickaxe.tscn" id="19_2u6hf"]
 [ext_resource type="PackedScene" uid="uid://36nnj7cxvqwd" path="res://scenes/characters/farmer/farmer.tscn" id="20_m0hjm"]
-[ext_resource type="PackedScene" uid="uid://cbrng3gywga74" path="res://scenes/objects/collectibles/tools/axe.tscn" id="22_i6tii"]
-[ext_resource type="PackedScene" uid="uid://fotvh45ef7g7" path="res://scenes/objects/collectibles/tools/hoe.tscn" id="23_6vjml"]
-[ext_resource type="PackedScene" uid="uid://d0g784flvjxkv" path="res://scenes/objects/collectibles/tools/watering_can.tscn" id="24_2wlyf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ee7h2"]
 vertices = PackedVector2Array(583.992, 364.313, 524.867, 383.023, 509.906, 298, 567.219, 298)
@@ -153,9 +149,6 @@ tilled_soil_tilemap_layer = NodePath("../../GameTileMap/TilledSoil")
 undergrowth_tilemap_layer = NodePath("../../GameTileMap/Undergrowth")
 overgrowth_tilemap_layer = NodePath("../../GameTileMap/Overgrowth")
 
-[node name="Pickaxe" parent="." instance=ExtResource("19_2u6hf")]
-position = Vector2(384, 320)
-
 [node name="NPCs" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -164,14 +157,5 @@ position = Vector2(352, 256)
 
 [node name="Farmer" parent="NPCs" instance=ExtResource("20_m0hjm")]
 position = Vector2(416, 272)
-
-[node name="Axe" parent="." instance=ExtResource("22_i6tii")]
-position = Vector2(402, 312)
-
-[node name="Hoe" parent="." instance=ExtResource("23_6vjml")]
-position = Vector2(362, 317)
-
-[node name="Watering Can" parent="." instance=ExtResource("24_2wlyf")]
-position = Vector2(352, 294)
 
 [connection signal="child_entered_tree" from="CropFields" to="CropFields" method="_on_child_entered_tree"]

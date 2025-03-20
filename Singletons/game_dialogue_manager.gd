@@ -1,14 +1,17 @@
 extends Node
 
-signal give_crop_seeds
+signal talk_to_guide
 signal trade_crops
 signal player_name_prompt
 signal farmer_shop_gui(option: String)
 signal farmer_shop_gui_close
 
-func action_give_crop_seeds() -> void:
-	PlayerManager.completed_quests.append(GameDataManager.get_quest("Get Started"))
-	give_crop_seeds.emit()
+func action_talk_to_guide() -> void:
+	PlayerManager.complete_quest("Talk to Guide")
+	PlayerManager.add_quest(GameDataManager.get_quest("Get Started"))
+
+func action_get_started() -> void:
+	PlayerManager.complete_quest("Get Started")
 
 func action_trade_crops() -> void:
 	trade_crops.emit()

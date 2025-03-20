@@ -7,8 +7,8 @@ extends SceneDataResource
 @export var empty_inventory_slot: Array
 @export var items_count: int
 @export var hotbar_array: Array[ItemResource]
-@export var completed_quests: Array[QuestResource]
-@export var active_quests: Array[QuestResource]
+@export var completed_quests: Dictionary
+@export var active_quests: Dictionary
 
 @export var save_version: String
 

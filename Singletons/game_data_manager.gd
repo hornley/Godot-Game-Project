@@ -72,7 +72,6 @@ func save_game_data(directory: String):
 	for quest in quests.values():
 		save_resource(quest, quests_directory + quest.name + ".tres")
 
-
 func get_item(name: String) -> ItemResource:
 	if name.contains("Seed"):
 		return seeds.get(name, null)
@@ -90,3 +89,6 @@ func get_enemy(name: String) -> EnemyResource:
 
 func get_quest(title: String) -> QuestResource:
 	return quests.get(title, null)
+
+func is_item(name: String) -> bool:
+	return items.has(name) or seeds.has(name)

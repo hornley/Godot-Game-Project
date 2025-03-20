@@ -21,6 +21,7 @@ func _ready() -> void:
 	
 	HotbarManager.tool_selected.connect(on_tool_selected)
 	PlayerManager.player_loaded.emit()
+	PlayerManager.add_quest(GameDataManager.get_quest("Talk to Guide"))
 
 func on_tool_selected(tool: Util.Tools) -> void:
 	current_tool = tool

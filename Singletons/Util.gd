@@ -96,6 +96,7 @@ enum ResourceTypes {
 }
 
 enum Worlds {
+	Test,
 	Village,
 	Home
 }

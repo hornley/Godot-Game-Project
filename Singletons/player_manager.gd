@@ -6,12 +6,12 @@ var current_path_index: int
 var player_name: String
 var coins: int
 var inventory: StorageComponent
-var completed_quests: Array[QuestResource]
-var active_quests: Array[QuestResource]
+var completed_quests: Dictionary = {}
+var active_quests: Dictionary = {}
 
 signal inventory_changed(item: ItemResource)
 signal player_loaded
-signal player_coin_add
+signal player_coin_updated(coins: int)
 signal player_path_find
 signal player_path_find_finished(is_successful: bool)
 
@@ -20,15 +20,17 @@ func toggle_player_movement() -> void:
 
 func add_coin(amount: int) -> void:
 	coins += amount
-	player_coin_add.emit()
+	player_coin_updated.emit(coins)
 
 func set_path_find(_path: Array) -> void:
+	if _path.is_empty():
+		return  # Prevent assigning an empty path
 	clear_path()
 	path = _path
 	player_path_find.emit()
 
 func clear_path() -> void:
-	path = []
+	path.clear()
 	current_path_index = 0
 
 func _player_name_prompt() -> void:
@@ -38,7 +40,10 @@ func _player_name_prompt() -> void:
 	player.disable_input_events = true
 	await player_name_prompt_instance.player_name_prompt_finished
 
-# PLAYER INVENTORY SYSTEM
+# --------------------------
+# INVENTORY SYSTEM
+# --------------------------
+
 func on_player_inventory_changed(item: ItemResource) -> void:
 	inventory_changed.emit(item)
 
@@ -61,7 +66,17 @@ func move_item(item_name: String, new_index: int) -> void:
 func swap_item(item_name_1: String, item_1_new_index: int, item_name_2: String, item_2_new_index: int) -> void:
 	inventory.swap_item(item_name_1, item_1_new_index, item_name_2, item_2_new_index)
 
+func has_item(item_name: String) -> bool:
+	return inventory.items.has(item_name)
+
+# --------------------------
+# CRAFTING SYSTEM
+# --------------------------
+
 func craft_item(item_recipe_resource: ItemRecipeResource) -> void:
+	if not item_recipe_resource:
+		return  # Ensure the recipe exists before crafting
+	
 	#var can_be_crafted: bool = true
 	for key in item_recipe_resource.input.keys():
 		var amount = item_recipe_resource.input[key]
@@ -75,11 +90,43 @@ func craft_item(item_recipe_resource: ItemRecipeResource) -> void:
 	
 	inventory.add_item(item_recipe_resource.name, 1)
 
-func has_item(item_name: String) -> bool:
-	return inventory.items.has(item_name)
+# --------------------------
+# QUEST SYSTEM
+# --------------------------
 
 func is_quest_completed(quest_title: String) -> bool:
-	for completed_quest in completed_quests:
-		if completed_quest.title == quest_title:
-			return true
-	return false
+	return completed_quests.has(quest_title)
+
+func add_quest(quest: QuestResource) -> bool:
+	if quest.title in active_quests or quest.title in completed_quests:
+		return false  # Quest already exists
+	
+	# Ensure all required quests are completed before adding
+	for required_quest in quest.prerequisites:
+		if required_quest not in completed_quests.keys():
+			return false  # A prerequisite quest is missing
+	
+	active_quests[quest.title] = quest
+	return true
+
+func complete_quest(quest_title: String) -> bool:
+	if quest_title not in active_quests:
+		return false  # Quest is not active
+	
+	var quest = active_quests[quest_title]
+	# Grant rewards if applicable
+	for reward in quest.rewards:
+		add_item(reward, 1)
+	
+	# Move quest to completed list
+	collect_rewards(quest)
+	completed_quests[quest_title] = quest
+	active_quests.erase(quest_title)
+	return true
+
+func collect_rewards(quest: QuestResource) -> void:
+	var rewards: Dictionary = QuestManager.get_rewards(quest)
+	
+	for reward in rewards:
+		var amount: int = rewards[reward]
+		add_item(reward, amount)
