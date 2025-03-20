@@ -7,13 +7,12 @@ script = ExtResource("1_tonha")
 title = "Get Started"
 description = "Tutorial"
 rewards = {
-"Axe": 1,
-"Tomato Seed": 1,
-"Wheat Seed": 1
+"Axe": 1
 }
-next_quest = "Craft a Hoe"
+next_quest = "Wood Gathering"
 quest_source = "Guide"
 quest_dialogue_name = "get_started"
 prerequisites = Array[String](["Talk to Guide"])
 required_items = {}
+turn_in_required = false
 metadata/_custom_type_script = "uid://x7n4uicbgxjr"

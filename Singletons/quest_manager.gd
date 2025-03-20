@@ -11,7 +11,10 @@ func _on_inventory_changed(item: ItemResource) -> void:
 
 # Check if any active quests should be completed
 func check_quest_completion() -> void:
-	for quest in PlayerManager.active_quests.values():
+	for quest: QuestResource in PlayerManager.active_quests.values():
+		if quest.turn_in_required:
+			continue
+		
 		if is_quest_ready_to_complete(quest):
 			complete_quest(quest.title)
 

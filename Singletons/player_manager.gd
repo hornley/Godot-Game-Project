@@ -69,6 +69,11 @@ func swap_item(item_name_1: String, item_1_new_index: int, item_name_2: String, 
 func has_item(item_name: String) -> bool:
 	return inventory.items.has(item_name)
 
+func get_item_amount(item_name: String) -> int:
+	if !inventory.items.has(item_name):
+		return 0
+	return inventory.items[item_name]["Amount"]
+
 # --------------------------
 # CRAFTING SYSTEM
 # --------------------------

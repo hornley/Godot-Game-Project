@@ -1,9 +1,12 @@
 extends Node2D
 
 var crops: Dictionary = {}
-
+@export var auto_water_crops: bool = true
 
 func _process(delta: float) -> void:
+	if !auto_water_crops:
+		return
+	
 	if !OS.has_feature("editor") or !OS.has_feature("debug"):
 		return
 	

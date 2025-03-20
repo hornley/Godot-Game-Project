@@ -12,6 +12,9 @@ func action_talk_to_guide() -> void:
 func action_get_started() -> void:
 	QuestManager.complete_quest("Get Started")
 
+func action_craft_a_hoe() -> void:
+	QuestManager.complete_quest("Craft a Hoe")
+
 func action_trade_crops() -> void:
 	trade_crops.emit()
 
