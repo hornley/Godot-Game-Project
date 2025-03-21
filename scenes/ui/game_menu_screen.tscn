@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://csr2b6ehgkdo"]
+[gd_scene load_steps=5 format=3 uid="uid://csr2b6ehgkdo"]
 
 [ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="1_3r2k3"]
 [ext_resource type="Script" uid="uid://o68olv1gnb0h" path="res://scripts/ui/game_menu_screen.gd" id="1_hh6ie"]
 [ext_resource type="PackedScene" uid="uid://cfi54iingc8s8" path="res://scenes/ui/game_menu_screen_background.tscn" id="1_jc1yk"]
+[ext_resource type="FontFile" uid="uid://bf2c23lb7imb3" path="res://assets/ui/fonts/pixelFont-2-5x5-sproutLands.ttf" id="4_jk4o3"]
 
 [node name="GameMenuScreen" type="CanvasLayer"]
 script = ExtResource("1_hh6ie")
@@ -22,14 +23,27 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer"]
+[node name="Title" type="Label" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.752941, 0.831373, 0.439216, 1)
-theme_override_colors/font_shadow_color = Color(0.564706, 0.384314, 0.364706, 1)
+theme_override_colors/font_color = Color(1, 0.168627, 0.270588, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 54
-text = "CROPTAILS"
+text = "SOLO FARMING"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Version" type="Label" parent="MarginContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jk4o3")
+theme_override_font_sizes/font_size = 16
+text = "v0.3.1-alpha"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
