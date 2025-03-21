@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_03kqw")
 title = "Craft a Hoe"
-description = "Tutorial"
+description = "Open crafting gui using 'C' and craft a hoe"
 rewards = {
 "Tomato Seed": 1,
 "Watering Can": 1,

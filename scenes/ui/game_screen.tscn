@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpuxwqdq6h431"]
+[gd_scene load_steps=14 format=3 uid="uid://dpuxwqdq6h431"]
 
 [ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="1_54d8w"]
-[ext_resource type="Script" uid="uid://dylo5ffv7ldre" path="res://scenes/ui/game_screen.gd" id="1_e6rm1"]
+[ext_resource type="Script" uid="uid://dylo5ffv7ldre" path="res://scripts/ui/game_screen.gd" id="1_e6rm1"]
 [ext_resource type="PackedScene" uid="uid://dtbufv4ox6gi0" path="res://scenes/ui/hotbar/hotbar_gui.tscn" id="2_0vlv1"]
 [ext_resource type="PackedScene" uid="uid://du03v3f32eowb" path="res://scenes/ui/emotes_panel.tscn" id="2_km4oe"]
 [ext_resource type="PackedScene" uid="uid://gy7trqii2skk" path="res://scenes/ui/coins_panel.tscn" id="3_2r70c"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://blo8akvfh8vc1" path="res://scenes/ui/crafting/crafting_gui.tscn" id="8_psj8p"]
 [ext_resource type="PackedScene" uid="uid://bk6sthpmkjcc2" path="res://scenes/ui/hud_message_ui.tscn" id="9_3y2x4"]
 [ext_resource type="PackedScene" uid="uid://0qs70trkvqrk" path="res://scenes/ui/auto_save_notification.tscn" id="12_dscta"]
+[ext_resource type="PackedScene" uid="uid://dmokm5hsxhppb" path="res://scenes/ui/active_quest_ui.tscn" id="13_wwq64"]
 
 [node name="GameScreen" type="CanvasLayer"]
 process_mode = 3
@@ -97,3 +98,5 @@ visible = false
 
 [node name="HUDMessageUI" parent="." instance=ExtResource("9_3y2x4")]
 visible = false
+
+[node name="ActiveQuestUI" parent="." instance=ExtResource("13_wwq64")]

@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_tonha")
 title = "Get Started"
-description = "Tutorial"
+description = "Get Axe from Guide."
 rewards = {
 "Axe": 1
 }

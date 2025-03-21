@@ -57,3 +57,4 @@ func complete_quest(quest_title: String) -> void:
 		var next_quest: QuestResource = GameDataManager.get_quest(next_quest_title)
 		if next_quest:
 			PlayerManager.add_quest(next_quest)
+			GameManager.game_screen.update_active_quest_ui(next_quest)
