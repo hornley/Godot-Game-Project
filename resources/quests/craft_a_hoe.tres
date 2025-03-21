@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="QuestResource" load_steps=2 format=3 uid="uid://pftf72h82g2j"]
+
+[ext_resource type="Script" uid="uid://x7n4uicbgxjr" path="res://resources/scripts/quest_resource.gd" id="1_03kqw"]
+
+[resource]
+script = ExtResource("1_03kqw")
+title = "Craft a Hoe"
+description = "Tutorial"
+rewards = {
+"Tomato Seed": 1,
+"Watering Can": 1,
+"Wheat Seed": 1
+}
+next_quest = ""
+quest_source = "Guide"
+quest_dialogue_name = ""
+prerequisites = Array[String](["Wood Gathering"])
+required_items = {
+"Hoe": 1
+}
+turn_in_required = true
+metadata/_custom_type_script = "uid://x7n4uicbgxjr"

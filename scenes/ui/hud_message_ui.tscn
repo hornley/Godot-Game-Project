@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk6sthpmkjcc2"]
+
+[ext_resource type="Script" uid="uid://c3ckpb17n1n5s" path="res://scenes/ui/hud_messages.gd" id="1_7ubqs"]
+[ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="1_dlmg7"]
+[ext_resource type="FontFile" uid="uid://bd802yc2wel3b" path="res://assets/ui/fonts/pixelFont-1-5x4-sproutLands.ttf" id="3_ay15w"]
+
+[node name="HUDMessageUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_7ubqs")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(300, 28)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = 95.0
+offset_right = 79.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dlmg7")
+theme_type_variation = &"HUDMessageUI"
+
+[node name="Label" type="Label" parent="PanelContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ay15w")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

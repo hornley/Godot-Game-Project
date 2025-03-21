@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="QuestResource" load_steps=2 format=3 uid="uid://bjiybf5fwteh8"]
+
+[ext_resource type="Script" uid="uid://x7n4uicbgxjr" path="res://resources/scripts/quest_resource.gd" id="1_w21o3"]
+
+[resource]
+script = ExtResource("1_w21o3")
+title = "Wood Gathering"
+description = "Tutorial"
+rewards = {}
+next_quest = "Craft a Hoe"
+quest_source = "Guide"
+quest_dialogue_name = "wood_gathering"
+prerequisites = Array[String](["Get Started"])
+required_items = {
+"Log": 5
+}
+turn_in_required = true
+metadata/_custom_type_script = "uid://x7n4uicbgxjr"

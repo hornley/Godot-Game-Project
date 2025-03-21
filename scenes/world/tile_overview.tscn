@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnkpt0o0hn5kx"]
+
+[ext_resource type="Texture2D" uid="uid://bf2o8tu3bt7he" path="res://assets/textures/tilesets/tile_overview.png" id="1_d4iie"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4iie"]
+atlas = ExtResource("1_d4iie")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg8jr"]
+atlas = ExtResource("1_d4iie")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytn48"]
+atlas = ExtResource("1_d4iie")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aayaj"]
+atlas = ExtResource("1_d4iie")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wmdq8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4iie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg8jr")
+}],
+"loop": true,
+"name": &"colored",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytn48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aayaj")
+}],
+"loop": true,
+"name": &"white",
+"speed": 4.0
+}]
+
+[node name="TileOverview" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wmdq8")
+animation = &"colored"
+autoplay = "colored"

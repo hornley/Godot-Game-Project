@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="QuestResource" load_steps=2 format=3 uid="uid://ut3e0mq0qb4v"]
+
+[ext_resource type="Script" uid="uid://x7n4uicbgxjr" path="res://resources/scripts/quest_resource.gd" id="1_lx7vu"]
+
+[resource]
+script = ExtResource("1_lx7vu")
+title = "Talk to Guide"
+description = "Tutorial"
+rewards = {}
+next_quest = "Get Started"
+quest_source = "Guide"
+quest_dialogue_name = "get_started"
+prerequisites = Array[String]([])
+required_items = {}
+metadata/_custom_type_script = "uid://x7n4uicbgxjr"

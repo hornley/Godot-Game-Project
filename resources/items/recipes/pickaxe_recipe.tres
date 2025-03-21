@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemRecipeResource" load_steps=5 format=3 uid="uid://dbcxqhgqxrq6a"]
+
+[ext_resource type="Resource" uid="uid://d1jkq4mhf5k8s" path="res://resources/items/tools/pickaxe.tres" id="1_xk4xk"]
+[ext_resource type="Texture2D" uid="uid://b6k5pnanesdqd" path="res://assets/textures/objects/pickaxe.png" id="2_n5035"]
+[ext_resource type="Script" uid="uid://dhiheiaoxr0ch" path="res://resources/scripts/item_recipe_resource.gd" id="3_c3pmk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mji1g"]
+atlas = ExtResource("2_n5035")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("3_c3pmk")
+name = "Pickaxe"
+input = {
+"Log": 3
+}
+output = ExtResource("1_xk4xk")
+crafting_station = 0
+output_texture = SubResource("AtlasTexture_mji1g")
