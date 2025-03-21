@@ -118,9 +118,6 @@ func add_quest(quest: QuestResource) -> bool:
 
 func complete_quest(quest_title: String) -> void:
 	var quest = active_quests[quest_title]
-	# Grant rewards if applicable
-	for reward in quest.rewards:
-		add_item(reward, 1)
 	
 	# Move quest to completed list
 	collect_rewards(quest)
