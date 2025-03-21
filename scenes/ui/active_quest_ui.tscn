@@ -1,33 +1,162 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmokm5hsxhppb"]
+[gd_scene load_steps=11 format=3 uid="uid://dmokm5hsxhppb"]
 
 [ext_resource type="Script" uid="uid://4jipd2ld75cp" path="res://scripts/ui/active_quest_ui.gd" id="1_ic2f6"]
 [ext_resource type="Theme" uid="uid://0ak8mcpyacj3" path="res://scenes/ui/game_ui_theme.tres" id="1_xp0kn"]
 [ext_resource type="FontFile" uid="uid://di2fmuhigblgg" path="res://assets/ui/fonts/pixelFont-4-7x7-sproutLands.ttf" id="2_cpalv"]
 [ext_resource type="FontFile" uid="uid://bf2c23lb7imb3" path="res://assets/ui/fonts/pixelFont-2-5x5-sproutLands.ttf" id="3_ic2f6"]
+[ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="5_s3s4d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ct4b"]
+atlas = ExtResource("5_s3s4d")
+region = Rect2(275, 52, 10, 9)
+
+[sub_resource type="Animation" id="Animation_s3s4d"]
+resource_name = "opening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.517632, 1),
+"update": 0,
+"values": [Vector2(100, 14), Vector2(100, 75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.517, 1),
+"update": 0,
+"values": [Vector2(-55, 98), Vector2(-55, 159)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelContainer/VBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_7ct4b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-55, 159)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelContainer/VBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gimvn"]
+resource_name = "closing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.517632),
+"update": 0,
+"values": [Vector2(100, 75), Vector2(100, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.517),
+"update": 0,
+"values": [Vector2(-55, 159), Vector2(-55, 98)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelContainer/VBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gimvn"]
+_data = {
+&"RESET": SubResource("Animation_7ct4b"),
+&"closing": SubResource("Animation_gimvn"),
+&"opening": SubResource("Animation_s3s4d")
+}
 
 [node name="ActiveQuestUI" type="Control"]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+grow_horizontal = 0
 script = ExtResource("1_ic2f6")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(125, 100)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+offset_left = -100.0
+offset_top = 90.0
+offset_bottom = 165.0
 grow_horizontal = 0
 theme = ExtResource("1_xp0kn")
 theme_type_variation = &"ActiveQuestUI"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 
 [node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
@@ -44,7 +173,7 @@ theme = ExtResource("1_xp0kn")
 theme_type_variation = &"ActiveQuestUISeparator"
 
 [node name="Description" type="Label" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ic2f6")
 theme_override_font_sizes/font_size = 8
@@ -65,3 +194,37 @@ theme_override_font_sizes/font_size = 8
 text = "Talk to Guide"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = -55.0
+offset_top = 159.0
+offset_right = -44.0
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.5
+offset_top = -4.5
+offset_right = 5.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_7ct4b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gimvn")
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -98,5 +98,10 @@ visible = false
 
 [node name="HUDMessageUI" parent="." instance=ExtResource("9_3y2x4")]
 visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 1
 
 [node name="ActiveQuestUI" parent="." instance=ExtResource("13_wwq64")]

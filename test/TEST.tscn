@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d0v0jfxch7yuu" path="res://scenes/components/save_level_data_component.tscn" id="2_3yv1a"]
 [ext_resource type="TileSet" uid="uid://cm0ox13o6dmms" path="res://assets/tilesets/world_terrain_tileset.tres" id="3_4atnu"]
 [ext_resource type="Script" path="res://scripts/game_tile_map.gd" id="3_ha6kn"]
-[ext_resource type="Script" path="res://scripts/world/land.gd" id="4_2gyd5"]
+[ext_resource type="Script" uid="uid://v3gx2fb8b2pf" path="res://scripts/world/land.gd" id="4_2gyd5"]
 [ext_resource type="PackedScene" uid="uid://bijn4nnp152pf" path="res://scenes/components/save_data_component.tscn" id="5_o3h0q"]
 [ext_resource type="Resource" uid="uid://c6etwb18k75et" path="res://resources/scripts/world/tilled_tilemap_layer_data_resource.tres" id="6_egupl"]
 [ext_resource type="TileSet" uid="uid://bnx1xqubv247v" path="res://assets/tilesets/world_vegetation_tileset.tres" id="7_71314"]
