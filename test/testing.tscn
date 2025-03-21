@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=4 uid="uid://dcclc7pf20idb"]
 
 [ext_resource type="PackedScene" uid="uid://bvyl6hx00ulv6" path="res://scenes/components/day_night_cycle_component.tscn" id="1_yfg4w"]
-[ext_resource type="Texture2D" uid="uid://dswhdtrgoq3jk" path="res://scenes/world/night_gradient.tres" id="2_3kre7"]
+[ext_resource type="Texture2D" uid="uid://dswhdtrgoq3jk" path="res://resources/scripts/world/night_gradient.tres" id="2_3kre7"]
 [ext_resource type="PackedScene" uid="uid://dpuxwqdq6h431" path="res://scenes/ui/game_screen.tscn" id="2_ganxy"]
 [ext_resource type="PackedScene" uid="uid://d0v0jfxch7yuu" path="res://scenes/components/save_level_data_component.tscn" id="2_j2ov6"]
 [ext_resource type="TileSet" uid="uid://cm0ox13o6dmms" path="res://assets/tilesets/world_terrain_tileset.tres" id="3_6o3nr"]

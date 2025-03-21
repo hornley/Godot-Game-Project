@@ -1,0 +1,83 @@
+[gd_scene load_steps=14 format=3 uid="uid://bfoii6kf8s44"]
+
+[ext_resource type="Texture2D" uid="uid://ckokpxwsdc7hb" path="res://assets/textures/tilesets/nature/Trees, stumps and bushes.png" id="1_gk4it"]
+[ext_resource type="Script" uid="uid://ds0iqkmgwjiuy" path="res://scripts/world/tree_of_life.gd" id="1_rpv4j"]
+[ext_resource type="PackedScene" uid="uid://8k458glwmmiv" path="res://scenes/components/interactable_component.tscn" id="3_nan6f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsteh"]
+atlas = ExtResource("1_gk4it")
+region = Rect2(144, 89, 48, 7)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gk4it"]
+load_path = "res://.godot/imported/Trees, stumps and bushes.png-a83a1190439b17bc9362384d406fb221.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpv4j"]
+atlas = SubResource("CompressedTexture2D_gk4it")
+region = Rect2(144, 48, 48, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqjji"]
+size = Vector2(162, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk4it"]
+size = Vector2(270, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsteh"]
+size = Vector2(105, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpv4j"]
+size = Vector2(45, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lr25e"]
+size = Vector2(60, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nan6f"]
+size = Vector2(240, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ueqp"]
+size = Vector2(209, 15)
+
+[node name="Tree of Life" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_rpv4j")
+
+[node name="Root" type="Sprite2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(15, 15)
+texture = SubResource("AtlasTexture_wsteh")
+
+[node name="Upper" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 60)
+scale = Vector2(15, 15)
+texture = SubResource("AtlasTexture_rpv4j")
+offset = Vector2(0, -28)
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_nan6f")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(-15, -69.5)
+shape = SubResource("RectangleShape2D_wqjji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-15, -0.5)
+shape = SubResource("RectangleShape2D_gk4it")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-22.5, 22.5)
+shape = SubResource("RectangleShape2D_wsteh")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(97.5, 22.5)
+shape = SubResource("RectangleShape2D_rpv4j")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+position = Vector2(-45, 38)
+shape = SubResource("RectangleShape2D_lr25e")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(-15, -22.5)
+shape = SubResource("RectangleShape2D_nan6f")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(-14.5, -37.5)
+shape = SubResource("RectangleShape2D_8ueqp")
