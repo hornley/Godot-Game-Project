@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4i3rdqnclvhx"]
 
-[ext_resource type="Script" uid="uid://byhc3awrl7jqm" path="res://scenes/ui/inventory_gui.gd" id="1_6kokk"]
+[ext_resource type="Script" uid="uid://byhc3awrl7jqm" path="res://scenes/ui/inventory_gui.gd" id="1_5uqcy"]
 [ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="1_nnb24"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5pwfr"]
 atlas = ExtResource("1_nnb24")
 region = Rect2(201, 105, 30, 30)
 
-[node name="InventoryGUI" type="Control" node_paths=PackedStringArray("grid_container")]
+[node name="InventoryGUI" type="Control"]
 process_mode = 3
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 3
@@ -15,8 +15,7 @@ anchor_right = 0.391
 anchor_bottom = 0.694
 offset_right = -0.240021
 offset_bottom = 0.160004
-script = ExtResource("1_6kokk")
-grid_container = NodePath("NinePatchRect/GridContainer")
+script = ExtResource("1_5uqcy")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(250, 250)
