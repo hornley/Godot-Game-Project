@@ -30,6 +30,7 @@ DayAndNightCycleManager="*res://Singletons/day_and_night_cycle_manager.gd"
 GameDialogueManager="*res://Singletons/game_dialogue_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 QuestManager="*res://Singletons/quest_manager.gd"
+EventBus="*res://Singletons/event_bus.gd"
 
 [display]
 

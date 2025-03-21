@@ -12,12 +12,28 @@ func _ready():
 var crop_scenes = {
 }
 
+var actions_equivalent = {
+	"Tilled Land": Actions.Tilling
+}
+
 enum Tools {
 	None,
 	Axe,
 	Hoe,
 	Pickaxe,
 	WateringCan
+}
+
+enum Actions {
+	None,
+	Tilling,
+	Mining,
+	Chopping,
+	Watering,
+	Planting,
+	Harvesting,
+	UndergrowthWeeding,
+	OvergrowthClearing
 }
 
 enum Seeds {

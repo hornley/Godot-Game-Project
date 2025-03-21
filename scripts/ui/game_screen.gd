@@ -61,5 +61,4 @@ func toggle_auto_save_notification() -> void:
 	auto_save_notification.visible = false
 
 func update_active_quest_ui(quest: QuestResource) -> void:
-	if quest:
-		active_quest_ui.update(quest)
+	active_quest_ui.update(quest)

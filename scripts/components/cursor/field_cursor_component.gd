@@ -25,6 +25,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		if HotbarManager.equipped_item == Util.Tools.Hoe:
 			var is_clear = get_cell_under_mouse()
 			
+			cell_source_id = tilled_soil_tilemap_layer.get_cell_source_id(cell_position)
+			if cell_source_id == 2:
+				return
+			
 			is_tilling = true
 			till_position = cell_position
 			
@@ -47,6 +51,8 @@ func add_tilled_soil_cell() -> void:
 	PlayerManager.player.player_direction = get_direction_player_to_cell(till_position)
 	await player.animated_sprite.animation_finished
 	tilled_soil_tilemap_layer.set_cells_terrain_connect([till_position], terrain_set, terrain, true)
+	EventBus.land_tilled.emit()
+	EventBus.emit_world_change(Util.Actions.Tilling, { "position": till_position })
 	is_tilling = false
 	GameInputEvents.use_tool_value = false
 

@@ -227,4 +227,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_gimvn")
 }
 
+[connection signal="resized" from="PanelContainer" to="." method="_on_panel_container_resized"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

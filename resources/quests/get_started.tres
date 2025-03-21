@@ -14,5 +14,6 @@ quest_source = "Guide"
 quest_dialogue_name = "get_started"
 prerequisites = Array[String](["Talk to Guide"])
 required_items = {}
+required_actions = {}
 turn_in_required = false
 metadata/_custom_type_script = "uid://x7n4uicbgxjr"

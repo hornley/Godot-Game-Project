@@ -11,7 +11,7 @@ rewards = {
 "Watering Can": 1,
 "Wheat Seed": 1
 }
-next_quest = ""
+next_quest = "Till land"
 quest_source = "Guide"
 quest_dialogue_name = ""
 prerequisites = Array[String](["Wood Gathering"])
