@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="QuestResource" load_steps=2 format=3 uid="uid://de4boxgsq6etd"]
+
+[ext_resource type="Script" uid="uid://x7n4uicbgxjr" path="res://resources/scripts/quest_resource.gd" id="1_luwh6"]
+
+[resource]
+script = ExtResource("1_luwh6")
+title = "Till land"
+description = "Equip your hoe by pressing the hotbar or using the hotkey [1-5]"
+rewards = {}
+next_quest = ""
+quest_source = "Guide"
+quest_dialogue_name = ""
+prerequisites = Array[String](["Craft a Hoe"])
+required_items = {}
+required_actions = {
+"Tilled Land": {
+"Required": 4
+}
+}
+turn_in_required = false
+metadata/_custom_type_script = "uid://x7n4uicbgxjr"

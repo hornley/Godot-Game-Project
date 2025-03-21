@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_w21o3")
 title = "Wood Gathering"
-description = "Tutorial"
+description = "Chop trees and collect logs"
 rewards = {}
 next_quest = "Craft a Hoe"
 quest_source = "Guide"

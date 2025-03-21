@@ -5,13 +5,13 @@
 [resource]
 script = ExtResource("1_03kqw")
 title = "Craft a Hoe"
-description = "Tutorial"
+description = "Open crafting gui using 'C' and craft a hoe"
 rewards = {
 "Tomato Seed": 1,
 "Watering Can": 1,
 "Wheat Seed": 1
 }
-next_quest = ""
+next_quest = "Till land"
 quest_source = "Guide"
 quest_dialogue_name = ""
 prerequisites = Array[String](["Wood Gathering"])

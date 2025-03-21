@@ -2,7 +2,6 @@ class_name GameTileMap
 extends Node2D
 
 const TILE_OVERVIEW = preload("res://scenes/world/tile_overview.tscn")
-
 var tile_overview: Node2D
 
 func _ready() -> void:

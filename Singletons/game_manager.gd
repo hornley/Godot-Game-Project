@@ -1,6 +1,6 @@
 extends Node
 
-var game_version: String = "v0.3.1-alpha"
+var game_version: String = "v0.4-alpha"
 
 var game_menu_screen = preload("res://scenes/ui/game_menu_screen.tscn")
 var main_scene_path: String = "res://scenes/main_scene.tscn"
@@ -41,6 +41,7 @@ func start_game() -> void:
 		load_world(Util.Worlds.Home)
 	GameDataManager.load_resources_recursive("res://resources/")
 	
+	load_util_crop_scenes()
 	load_game()
 	is_game_loaded = true
 	
@@ -107,3 +108,20 @@ func load_game() -> void:
 	
 	if save_level_data_component != null:
 		save_level_data_component.load_game()
+
+func load_util_crop_scenes() -> void:
+	Util.crop_scenes = {
+		Util.Seeds.Carrot: preload("res://scenes/objects/crops/carrot.tscn"),
+		Util.Seeds.Cauliflower: preload("res://scenes/objects/crops/cauliflower.tscn"),
+		Util.Seeds.Tomato: preload("res://scenes/objects/crops/tomato.tscn"),
+		Util.Seeds.Eggplant: preload("res://scenes/objects/crops/eggplant.tscn"),
+		Util.Seeds.Tulip: preload("res://scenes/objects/crops/tulip.tscn"),
+		Util.Seeds.Cabbage: preload("res://scenes/objects/crops/cabbage.tscn"),
+		Util.Seeds.Wheat: preload("res://scenes/objects/crops/wheat.tscn"),
+		Util.Seeds.Pumpkin: preload("res://scenes/objects/crops/pumpkin.tscn"),
+		Util.Seeds.Turnip: preload("res://scenes/objects/crops/turnip.tscn"),
+		Util.Seeds.BigFlower: preload("res://scenes/objects/crops/big_flower.tscn"),
+		Util.Seeds.Starfruit: preload("res://scenes/objects/crops/starfruit.tscn"),
+		Util.Seeds.Beetroot: preload("res://scenes/objects/crops/beetroot.tscn"),
+		Util.Seeds.Cucumber: preload("res://scenes/objects/crops/cucumber.tscn")
+	}

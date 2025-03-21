@@ -5,11 +5,13 @@
 [resource]
 script = ExtResource("1_lx7vu")
 title = "Talk to Guide"
-description = "Tutorial"
+description = "Use movement keys and interact with guide."
 rewards = {}
 next_quest = "Get Started"
 quest_source = "Guide"
 quest_dialogue_name = "get_started"
 prerequisites = Array[String]([])
 required_items = {}
+required_actions = {}
+turn_in_required = false
 metadata/_custom_type_script = "uid://x7n4uicbgxjr"

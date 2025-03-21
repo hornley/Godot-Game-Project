@@ -1,8 +1,30 @@
-[gd_resource type="Theme" load_steps=73 format=3 uid="uid://0ak8mcpyacj3"]
+[gd_resource type="Theme" load_steps=77 format=3 uid="uid://0ak8mcpyacj3"]
 
 [ext_resource type="Texture2D" uid="uid://daup2i57tnxkf" path="res://assets/ui/basic_ui_sprites.png" id="1_q65q4"]
 [ext_resource type="FontFile" uid="uid://bf2c23lb7imb3" path="res://assets/ui/fonts/pixelFont-2-5x5-sproutLands.ttf" id="2_bt0h2"]
 [ext_resource type="FontFile" uid="uid://bk4cjui4oopjv" path="res://assets/ui/fonts/sprout_lands.ttf" id="2_x2kuv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r32iy"]
+atlas = ExtResource("1_q65q4")
+region = Rect2(153, 9, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w57q2"]
+texture = SubResource("AtlasTexture_r32iy")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w57q2"]
+atlas = ExtResource("1_q65q4")
+region = Rect2(277, 166, 38, 4)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3405b"]
+texture = SubResource("AtlasTexture_w57q2")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vhttu"]
 atlas = ExtResource("1_q65q4")
@@ -385,6 +407,10 @@ texture_margin_bottom = 6.0
 region_rect = Rect2(11, 59, 26, 28)
 
 [resource]
+ActiveQuestUI/base_type = &"PanelContainer"
+ActiveQuestUI/styles/panel = SubResource("StyleBoxTexture_w57q2")
+ActiveQuestUISeparator/base_type = &"PanelContainer"
+ActiveQuestUISeparator/styles/panel = SubResource("StyleBoxTexture_3405b")
 AutosaveNotification/base_type = &"PanelContainer"
 AutosaveNotification/styles/panel = SubResource("StyleBoxTexture_t4yxb")
 CraftingPanelContainer/base_type = &"VBoxContainer"

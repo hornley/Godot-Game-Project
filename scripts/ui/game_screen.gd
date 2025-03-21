@@ -6,6 +6,7 @@ var crafting_gui: Control
 var storage_gui: Control
 var auto_save_notification: Control
 var hud_message_ui: HUDMessageUI
+var active_quest_ui: ActiveQuestUI
 
 func _ready() -> void:
 	inventory_gui = $HBoxContainer/InventoryGUI
@@ -13,6 +14,7 @@ func _ready() -> void:
 	storage_gui = $HBoxContainer/StorageGUI
 	auto_save_notification = $AutoSaveNotification
 	hud_message_ui = $HUDMessageUI
+	active_quest_ui = $ActiveQuestUI
 	GameManager.game_screen = self
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -57,3 +59,6 @@ func toggle_auto_save_notification() -> void:
 	auto_save_notification.visible = true
 	await get_tree().create_timer(3).timeout
 	auto_save_notification.visible = false
+
+func update_active_quest_ui(quest: QuestResource) -> void:
+	active_quest_ui.update(quest)

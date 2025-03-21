@@ -10,19 +10,10 @@ func _ready():
 	Input.set_custom_mouse_cursor(cursors["default"])
 
 var crop_scenes = {
-	Util.Seeds.Carrot: preload("res://scenes/objects/crops/carrot.tscn"),
-	Util.Seeds.Cauliflower: preload("res://scenes/objects/crops/cauliflower.tscn"),
-	Util.Seeds.Tomato: preload("res://scenes/objects/crops/tomato.tscn"),
-	Util.Seeds.Eggplant: preload("res://scenes/objects/crops/eggplant.tscn"),
-	Util.Seeds.Tulip: preload("res://scenes/objects/crops/tulip.tscn"),
-	Util.Seeds.Cabbage: preload("res://scenes/objects/crops/cabbage.tscn"),
-	Util.Seeds.Wheat: preload("res://scenes/objects/crops/wheat.tscn"),
-	Util.Seeds.Pumpkin: preload("res://scenes/objects/crops/pumpkin.tscn"),
-	Util.Seeds.Turnip: preload("res://scenes/objects/crops/turnip.tscn"),
-	Util.Seeds.BigFlower: preload("res://scenes/objects/crops/big_flower.tscn"),
-	Util.Seeds.Starfruit: preload("res://scenes/objects/crops/starfruit.tscn"),
-	Util.Seeds.Beetroot: preload("res://scenes/objects/crops/beetroot.tscn"),
-	Util.Seeds.Cucumber: preload("res://scenes/objects/crops/cucumber.tscn")
+}
+
+var actions_equivalent = {
+	"Tilled Land": Actions.Tilling
 }
 
 enum Tools {
@@ -31,6 +22,18 @@ enum Tools {
 	Hoe,
 	Pickaxe,
 	WateringCan
+}
+
+enum Actions {
+	None,
+	Tilling,
+	Mining,
+	Chopping,
+	Watering,
+	Planting,
+	Harvesting,
+	UndergrowthWeeding,
+	OvergrowthClearing
 }
 
 enum Seeds {

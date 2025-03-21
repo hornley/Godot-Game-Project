@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bcm5pcukxknku"]
+[gd_scene load_steps=27 format=4 uid="uid://baeva5t4kj870"]
 
 [ext_resource type="PackedScene" uid="uid://bvyl6hx00ulv6" path="res://scenes/components/day_night_cycle_component.tscn" id="1_n83dg"]
 [ext_resource type="PackedScene" uid="uid://d0v0jfxch7yuu" path="res://scenes/components/save_level_data_component.tscn" id="2_3yv1a"]
@@ -20,12 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://cfibfkgb5e8xw" path="res://scenes/components/field_cursor_component.tscn" id="16_1g2bi"]
 [ext_resource type="PackedScene" uid="uid://b45hel406radw" path="res://scenes/components/crops_cursor_component.tscn" id="17_fppxx"]
 [ext_resource type="PackedScene" uid="uid://mhj4m4mcpj15" path="res://scenes/components/object_cursor_component.tscn" id="18_xg164"]
-[ext_resource type="PackedScene" uid="uid://cxdkvhhh7pb41" path="res://scenes/objects/collectibles/tools/pickaxe.tscn" id="19_n6iu8"]
 [ext_resource type="PackedScene" uid="uid://baj74gnng5lr6" path="res://scenes/characters/guide/guide.tscn" id="20_uwyya"]
 [ext_resource type="PackedScene" uid="uid://36nnj7cxvqwd" path="res://scenes/characters/farmer/farmer.tscn" id="21_mys7a"]
-[ext_resource type="PackedScene" uid="uid://cbrng3gywga74" path="res://scenes/objects/collectibles/tools/axe.tscn" id="22_rvhgd"]
 [ext_resource type="PackedScene" uid="uid://fotvh45ef7g7" path="res://scenes/objects/collectibles/tools/hoe.tscn" id="23_85ccs"]
-[ext_resource type="PackedScene" uid="uid://d0g784flvjxkv" path="res://scenes/objects/collectibles/tools/watering_can.tscn" id="24_3ar2d"]
 [ext_resource type="PackedScene" uid="uid://du78ei2t4h3y0" path="res://scenes/objects/collectibles/resources/log.tscn" id="26_6o10o"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ee7h2"]
@@ -40,7 +37,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(391, 263, 466, 264, 464, 414, 344, 410)])
 source_geometry_mode = 2
 
-[node name="Home" type="Node2D"]
+[node name="TEST" type="Node2D"]
 y_sort_enabled = true
 
 [node name="CoreComponents" type="Node" parent="."]
@@ -164,6 +161,9 @@ tilled_soil_tilemap_layer = NodePath("../../GameTileMap/TilledSoil")
 undergrowth_tilemap_layer = NodePath("../../GameTileMap/Undergrowth")
 overgrowth_tilemap_layer = NodePath("../../GameTileMap/Overgrowth")
 
+[node name="Hoe" parent="CursorComponents" instance=ExtResource("23_85ccs")]
+position = Vector2(381, 303)
+
 [node name="NPCs" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -173,31 +173,19 @@ position = Vector2(352, 256)
 [node name="Farmer" parent="NPCs" instance=ExtResource("21_mys7a")]
 position = Vector2(416, 272)
 
-[node name="Pickaxe" parent="." instance=ExtResource("19_n6iu8")]
-position = Vector2(384, 320)
-
-[node name="Axe" parent="." instance=ExtResource("22_rvhgd")]
-position = Vector2(402, 312)
-
-[node name="Hoe" parent="." instance=ExtResource("23_85ccs")]
-position = Vector2(362, 317)
-
-[node name="Watering Can" parent="." instance=ExtResource("24_3ar2d")]
-position = Vector2(352, 294)
-
 [node name="Log" parent="." instance=ExtResource("26_6o10o")]
-position = Vector2(402, 235)
+position = Vector2(386, 242)
 
 [node name="Log2" parent="." instance=ExtResource("26_6o10o")]
-position = Vector2(386, 232)
+position = Vector2(386, 242)
 
 [node name="Log3" parent="." instance=ExtResource("26_6o10o")]
-position = Vector2(371, 240)
+position = Vector2(386, 242)
 
 [node name="Log4" parent="." instance=ExtResource("26_6o10o")]
-position = Vector2(395, 246)
+position = Vector2(386, 242)
 
 [node name="Log5" parent="." instance=ExtResource("26_6o10o")]
-position = Vector2(380, 250)
+position = Vector2(386, 242)
 
 [connection signal="child_entered_tree" from="CropFields" to="CropFields" method="_on_child_entered_tree"]
